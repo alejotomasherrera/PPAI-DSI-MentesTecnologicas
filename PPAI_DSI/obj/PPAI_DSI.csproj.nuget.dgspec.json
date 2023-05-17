@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alejo\\source\\repos\\PPAI_DSI_TecnologiaEscritorio\\PPAI_DSI\\PPAI_DSI.csproj": {}
+    "C:\\Users\\Alejo\\source\\repos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alejo\\source\\repos\\PPAI_DSI_TecnologiaEscritorio\\PPAI_DSI\\PPAI_DSI.csproj": {
+    "C:\\Users\\Alejo\\source\\repos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alejo\\source\\repos\\PPAI_DSI_TecnologiaEscritorio\\PPAI_DSI\\PPAI_DSI.csproj",
+        "projectUniqueName": "C:\\Users\\Alejo\\source\\repos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj",
         "projectName": "PPAI_DSI",
-        "projectPath": "C:\\Users\\Alejo\\source\\repos\\PPAI_DSI_TecnologiaEscritorio\\PPAI_DSI\\PPAI_DSI.csproj",
+        "projectPath": "C:\\Users\\Alejo\\source\\repos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj",
         "packagesPath": "C:\\Users\\Alejo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alejo\\source\\repos\\PPAI_DSI_TecnologiaEscritorio\\PPAI_DSI\\obj\\",
+        "outputPath": "C:\\Users\\Alejo\\source\\repos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
