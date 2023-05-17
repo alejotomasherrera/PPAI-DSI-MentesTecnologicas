@@ -27,3 +27,10 @@ C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.
 C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.dll
 C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\refint\PPAI_DSI.dll
 C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.pdb
+C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\bin\Debug\net7.0-windows\PPAI_DSI.exe
+C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\bin\Debug\net7.0-windows\PPAI_DSI.deps.json
+C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\bin\Debug\net7.0-windows\PPAI_DSI.runtimeconfig.json
+C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\bin\Debug\net7.0-windows\PPAI_DSI.dll
+C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\bin\Debug\net7.0-windows\PPAI_DSI.pdb
+C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.genruntimeconfig.cache
+C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\ref\PPAI_DSI.dll

@@ -22,10 +22,7 @@ namespace PPAI_DSI
 
         private void btnConsultarLlamadas_Click(object sender, EventArgs e)
         {
-            // Llamada llamada = new Llamada();
-            // EncuestaDisponible ventana_llamadasDisponibles = new EncuestaDisponible();
-            // ventana_llamadasDisponibles.Show();
-            // this.Hide();
+            
 
         }
 
@@ -41,8 +38,7 @@ namespace PPAI_DSI
 
         private void ConsultarLlamadas_Load(object sender, EventArgs e)
         {
-            txtCallDesde.Text = "DD/MM/AAAA";
-            txtCallHasta.Text = "DD/MM/AAAA";
+            
         }
 
         private void txtCallDesde_TextChanged(object sender, EventArgs e)
@@ -51,11 +47,11 @@ namespace PPAI_DSI
         }
         private void txtCallDesde_Click(object sender, EventArgs e)
         {
-            txtCallDesde.Text = "";
+            
         }
         private void txtCallHasta_Click(object sender, EventArgs e)
         {
-            txtCallHasta.Text = "";
+            
         }
     }
 }
