@@ -8,44 +8,26 @@ namespace PPAI_DSI.Entidades
 {
     public class Llamada
     {
-        private string DescripcionOperador;
-        private string DetalleAccionRequerida;
-        private string Duracion;
-        private string EncuestaEnviada;
-        private string ObservacionAuditor;
+        public string DescripcionOperador { get; set; }
+        public string DetalleAccionRequerida { get; set; }
+        public int Duracion { get; set; }
+        public string EncuestaEnviada { get; set; }
+        public string ObservacionAuditor { get; set; }
+        public List<CambioEstado> CambiosDeEstados { get; set; }
+        public Cliente Cliente { get; set; }
+        public List<RespuestaDeCliente> RespuestasDeEncuestas { get; set; }
 
-        public Llamada(string descripcionOperador, string detalleAccionRequerida, string duracion, string encuestaEnviada, string observacionAuditor)
+        public Llamada(string descripcionOperador, string detalleAccionRequerida, int duracion, string encuestaEnviada, string observacionAuditor, Cliente clienteLlamada)
         {
             DescripcionOperador = descripcionOperador;
             DetalleAccionRequerida = detalleAccionRequerida;
             Duracion = duracion;
             EncuestaEnviada = encuestaEnviada;
             ObservacionAuditor = observacionAuditor;
-        }
-        public string DescripcionOperadorLlamada
-        {
-            get => DescripcionOperador;
-            set => DescripcionOperador = value;
-        }
-        public string DetalleAccionRequeridaLlamada
-        {
-            get => DetalleAccionRequerida;
-            set => DetalleAccionRequerida = value;
-        }
-        public string DuracionLlamada
-        {
-            get => Duracion;
-            set => Duracion = value;
-        }
-        public string EncuestaEnviadaLlamada
-        {
-            get => EncuestaEnviada;
-            set => EncuestaEnviada = value;
-        }
-        public string ObservacionAuditorLlamada
-        {
-            get => ObservacionAuditor;
-            set => ObservacionAuditor = value;
+            CambiosDeEstados = new List<CambioEstado>();
+            Cliente = clienteLlamada;
+            RespuestasDeEncuestas = new List<RespuestaDeCliente>();
         }
     }
+
 }

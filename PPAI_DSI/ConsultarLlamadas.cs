@@ -22,7 +22,7 @@ namespace PPAI_DSI
 
         private void btnConsultarLlamadas_Click(object sender, EventArgs e)
         {
-            
+            boxHideLlamadasEncontradas.Show();
 
         }
 
@@ -38,7 +38,9 @@ namespace PPAI_DSI
 
         private void ConsultarLlamadas_Load(object sender, EventArgs e)
         {
-            
+            boxHideLlamadasEncontradas.Hide();
+            boxDatosLlamada.Hide();
+
         }
 
         private void txtCallDesde_TextChanged(object sender, EventArgs e)
@@ -47,11 +49,26 @@ namespace PPAI_DSI
         }
         private void txtCallDesde_Click(object sender, EventArgs e)
         {
-            
+
         }
         private void txtCallHasta_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSeleccionarLlamada_Click(object sender, EventArgs e)
+        {
+            boxDatosLlamada.Show();
         }
     }
 }
