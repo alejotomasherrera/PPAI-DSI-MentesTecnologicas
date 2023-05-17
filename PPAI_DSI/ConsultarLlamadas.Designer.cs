@@ -187,7 +187,7 @@
             // 
             // btnGenerarCSV
             // 
-            btnGenerarCSV.Location = new Point(821, 1055);
+            btnGenerarCSV.Location = new Point(821, 1027);
             btnGenerarCSV.Name = "btnGenerarCSV";
             btnGenerarCSV.Size = new Size(151, 44);
             btnGenerarCSV.TabIndex = 43;
@@ -358,7 +358,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1041, 1074);
+            ClientSize = new Size(1050, 1094);
             Controls.Add(btnGenerarCSV);
             Controls.Add(label5);
             Controls.Add(txtDuracionLlamada);
