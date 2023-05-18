@@ -14,12 +14,14 @@ namespace PPAI_DSI
         private DateTime fechaDesdeLocal;
         private DateTime fechaHastaLocal;
         private List<Llamada> llamadas;
-        private List<RespuestaPosible> respuestasPosibles ;
+        private List<RespuestaPosible> respuestasPosibles;
         private List<Encuesta> encuestas ;
         private List<Pregunta> preguntas ;
-        private List<RespuestaPosible> _respuestasPosibles;
         private List<RespuestaDeCliente> respuestasDeClientes;
-        private ConsultarLlamadas consultarLlamadas;
+        private ConsultarLlamadas pantalla;
+        private List<Cliente> clienteList;
+        private List<Estado> Estados;
+        private List<CambioEstado> CambiosEstado;
 
         //metodo constructor con inicializacion de todos los atributos pasados por parametro y sino pasan parametros que los inicialize vacios segun su tipo de dato
         public controladorConsultasEncuestas(ConsultarLlamadas consultarLlamadas)
@@ -29,11 +31,17 @@ namespace PPAI_DSI
             respuestasPosibles = new List<RespuestaPosible>();
             encuestas = new List<Encuesta>();
             preguntas = new List<Pregunta>();
-            _respuestasPosibles = new List<RespuestaPosible>();
             respuestasDeClientes = new List<RespuestaDeCliente>();
+            clienteList = new List<Cliente>();
+            Estados = new List<Estado>();
+            CambiosEstado = new List<CambioEstado>();
+
             // inicializacion del atributo consultarLlamadas con el parametro pasado por el constructor
-            this.consultarLlamadas = consultarLlamadas;
+            this.pantalla = consultarLlamadas;
         }
+
+
+
 
 
 
@@ -49,7 +57,7 @@ namespace PPAI_DSI
 
 
             // como le envio el mensaje a la ventana "ConsultarLlamadas"? 
-            consultarLlamadas.solicitarPeriodoLlamada();
+            pantalla.solicitarPeriodoLlamada();
 
 
         }
@@ -78,7 +86,7 @@ namespace PPAI_DSI
                     llamadasEncontradas.Add(llamada);
                 }
             }
-            consultarLlamadas.pedirSeleccionLlamada(llamadasEncontradas);
+            pantalla.pedirSeleccionLlamada(llamadasEncontradas);
         }
     }
 }
