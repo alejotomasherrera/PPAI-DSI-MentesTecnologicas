@@ -19,7 +19,7 @@ namespace PPAI_DSI.Entidades
         public DateTime FechaHoraInicioCliente
         {
             get => FechaHoraInicio;
-            set => FechaHoraInicio  = value;
+            set => FechaHoraInicio = value;
         }
         public Estado EstadoCambioEstado
         {

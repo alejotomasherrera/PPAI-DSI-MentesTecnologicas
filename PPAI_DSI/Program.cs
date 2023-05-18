@@ -12,6 +12,7 @@ namespace PPAI_DSI
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new ConsultarLlamadas());
+
         }
     }
 }

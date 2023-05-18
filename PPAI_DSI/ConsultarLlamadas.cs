@@ -1,13 +1,26 @@
 using PPAI_DSI.Entidades;
+using System.Numerics;
 using System.Reflection.Metadata;
+using System.Windows.Forms;
 
 namespace PPAI_DSI
 {
     public partial class ConsultarLlamadas : Form
     {
+        // declarar atributo gestor
+        private controladorConsultasEncuestas gestor;
+
         public ConsultarLlamadas()
         {
             InitializeComponent();
+            gestor = new controladorConsultasEncuestas(this);
+
+        }
+
+        //metodo llamado "solicitarPeriodoLlamada()" que muestra en la pantalla "ConsultarLlamadas" los campos para ingresar el periodo de la llamada
+        public void solicitarPeriodoLlamada()
+        {
+            boxConsultaLlamada.Show();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -22,7 +35,8 @@ namespace PPAI_DSI
 
         private void btnConsultarLlamadas_Click(object sender, EventArgs e)
         {
-            boxHideLlamadasEncontradas.Show();
+            gestor.fechaInicioYFinSeleccionadas(fechaDesde.Value, fechaHasta.Value);
+
 
         }
 
@@ -36,11 +50,41 @@ namespace PPAI_DSI
 
         }
 
+        //metodo "pedirSeleccionLlamada(Llamada llamadas)" que actualize el dataGrindLlamadas_CellContentClick con los datos de la llamadas pasada por parametro
+        public void pedirSeleccionLlamada(List<Llamada> llamadas)
+        {
+            dataGrindLlamadas.ClearSelection();
+            foreach (var llamada in llamadas)
+            {
+                DataGridViewRow fila = new DataGridViewRow();
+
+                // Agrega las celdas a la fila con los valores correspondientes de la llamada
+                DataGridViewCell celda1 = new DataGridViewTextBoxCell();
+                celda1.Value = llamada.Cliente.DniCliente; // Asigna el valor de la primera propiedad de la llamada
+                fila.Cells.Add(celda1);
+
+                DataGridViewCell celda2 = new DataGridViewTextBoxCell();
+                celda2.Value = llamada.Cliente.NombreCompletoCliente; // Asigna el valor de la segunda propiedad de la llamada
+                fila.Cells.Add(celda2);
+
+                DataGridViewCell celda3 = new DataGridViewTextBoxCell();
+                celda2.Value = llamada.Duracion; // Asigna el valor de la segunda propiedad de la llamada
+                fila.Cells.Add(celda3);
+
+                // Agrega la fila al DataGridView
+                dataGrindLlamadas.Rows.Add(fila);
+            }
+            boxHideLlamadasEncontradas.Show();
+
+        }
+
         private void ConsultarLlamadas_Load(object sender, EventArgs e)
         {
+
             boxHideLlamadasEncontradas.Hide();
             boxDatosLlamada.Hide();
-
+            boxConsultaLlamada.Hide();
+            gestor.consultarEncuesta();
         }
 
         private void txtCallDesde_TextChanged(object sender, EventArgs e)
@@ -69,6 +113,26 @@ namespace PPAI_DSI
         private void btnSeleccionarLlamada_Click(object sender, EventArgs e)
         {
             boxDatosLlamada.Show();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGrindLlamadas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

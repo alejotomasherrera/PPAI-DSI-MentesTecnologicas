@@ -33,8 +33,8 @@
             label2 = new Label();
             label3 = new Label();
             btnConsultarLlamadas = new Button();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
+            fechaDesde = new DateTimePicker();
+            fechaHasta = new DateTimePicker();
             btnGenerarCSV = new Button();
             label5 = new Label();
             txtDuracionLlamada = new TextBox();
@@ -58,23 +58,23 @@
             label4 = new Label();
             btnSeleccionarLlamada = new Button();
             dataGrindLlamadas = new DataGridView();
-            IdLlamada = new DataGridViewTextBoxColumn();
-            DescripcionOperador = new DataGridViewTextBoxColumn();
-            duracion = new DataGridViewTextBoxColumn();
-            detalleAccionRequerida = new DataGridViewTextBoxColumn();
-            ObservacionAuditor = new DataGridViewTextBoxColumn();
             boxHideLlamadasEncontradas = new GroupBox();
             boxDatosLlamada = new GroupBox();
+            boxConsultaLlamada = new GroupBox();
+            DNI = new DataGridViewTextBoxColumn();
+            nombreCompleto = new DataGridViewTextBoxColumn();
+            duracion = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGrindLlamadas).BeginInit();
             boxHideLlamadasEncontradas.SuspendLayout();
             boxDatosLlamada.SuspendLayout();
+            boxConsultaLlamada.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(3, 1);
             label1.Name = "label1";
             label1.Size = new Size(284, 37);
             label1.TabIndex = 0;
@@ -84,7 +84,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(53, 70);
+            label2.Location = new Point(44, 62);
             label2.Name = "label2";
             label2.Size = new Size(75, 15);
             label2.TabIndex = 3;
@@ -95,7 +95,7 @@
             // 
             label3.AutoSize = true;
             label3.ImageAlign = ContentAlignment.TopCenter;
-            label3.Location = new Point(409, 70);
+            label3.Location = new Point(400, 62);
             label3.Name = "label3";
             label3.Size = new Size(74, 15);
             label3.TabIndex = 4;
@@ -104,7 +104,7 @@
             // 
             // btnConsultarLlamadas
             // 
-            btnConsultarLlamadas.Location = new Point(752, 59);
+            btnConsultarLlamadas.Location = new Point(743, 51);
             btnConsultarLlamadas.Name = "btnConsultarLlamadas";
             btnConsultarLlamadas.Size = new Size(153, 48);
             btnConsultarLlamadas.TabIndex = 5;
@@ -113,19 +113,21 @@
             btnConsultarLlamadas.UseVisualStyleBackColor = true;
             btnConsultarLlamadas.Click += btnConsultarLlamadas_Click;
             // 
-            // dateTimePicker1
+            // fechaDesde
             // 
-            dateTimePicker1.Location = new Point(134, 70);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(217, 23);
-            dateTimePicker1.TabIndex = 8;
+            fechaDesde.Location = new Point(125, 62);
+            fechaDesde.Name = "fechaDesde";
+            fechaDesde.Size = new Size(217, 23);
+            fechaDesde.TabIndex = 8;
+            fechaDesde.ValueChanged += dateTimePicker1_ValueChanged;
             // 
-            // dateTimePicker2
+            // fechaHasta
             // 
-            dateTimePicker2.Location = new Point(489, 70);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(217, 23);
-            dateTimePicker2.TabIndex = 11;
+            fechaHasta.Location = new Point(480, 62);
+            fechaHasta.Name = "fechaHasta";
+            fechaHasta.Size = new Size(217, 23);
+            fechaHasta.TabIndex = 11;
+            fechaHasta.ValueChanged += dateTimePicker2_ValueChanged;
             // 
             // btnGenerarCSV
             // 
@@ -319,45 +321,13 @@
             // dataGrindLlamadas
             // 
             dataGrindLlamadas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGrindLlamadas.Columns.AddRange(new DataGridViewColumn[] { IdLlamada, DescripcionOperador, duracion, detalleAccionRequerida, ObservacionAuditor });
+            dataGrindLlamadas.Columns.AddRange(new DataGridViewColumn[] { DNI, nombreCompleto, duracion });
             dataGrindLlamadas.Location = new Point(1, 44);
             dataGrindLlamadas.Name = "dataGrindLlamadas";
             dataGrindLlamadas.RowTemplate.Height = 25;
             dataGrindLlamadas.Size = new Size(749, 284);
             dataGrindLlamadas.TabIndex = 14;
-            // 
-            // IdLlamada
-            // 
-            IdLlamada.HeaderText = "IdLlamada";
-            IdLlamada.Name = "IdLlamada";
-            // 
-            // DescripcionOperador
-            // 
-            DescripcionOperador.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            DescripcionOperador.HeaderText = "Descripcion Operador";
-            DescripcionOperador.Name = "DescripcionOperador";
-            DescripcionOperador.Width = 134;
-            // 
-            // duracion
-            // 
-            duracion.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            duracion.HeaderText = "duracion";
-            duracion.Name = "duracion";
-            duracion.Width = 79;
-            // 
-            // detalleAccionRequerida
-            // 
-            detalleAccionRequerida.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            detalleAccionRequerida.HeaderText = "detalleAccionRequerida";
-            detalleAccionRequerida.Name = "detalleAccionRequerida";
-            detalleAccionRequerida.Width = 157;
-            // 
-            // ObservacionAuditor
-            // 
-            ObservacionAuditor.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            ObservacionAuditor.HeaderText = "ObservacionAuditor";
-            ObservacionAuditor.Name = "ObservacionAuditor";
-            ObservacionAuditor.Width = 138;
+            dataGrindLlamadas.CellContentClick += dataGrindLlamadas_CellContentClick;
             // 
             // boxHideLlamadasEncontradas
             // 
@@ -401,19 +371,47 @@
             boxDatosLlamada.TabStop = false;
             boxDatosLlamada.Enter += groupBox1_Enter_1;
             // 
+            // boxConsultaLlamada
+            // 
+            boxConsultaLlamada.Controls.Add(fechaHasta);
+            boxConsultaLlamada.Controls.Add(fechaDesde);
+            boxConsultaLlamada.Controls.Add(btnConsultarLlamadas);
+            boxConsultaLlamada.Controls.Add(label3);
+            boxConsultaLlamada.Controls.Add(label2);
+            boxConsultaLlamada.Controls.Add(label1);
+            boxConsultaLlamada.Location = new Point(9, 8);
+            boxConsultaLlamada.Name = "boxConsultaLlamada";
+            boxConsultaLlamada.Size = new Size(927, 110);
+            boxConsultaLlamada.TabIndex = 46;
+            boxConsultaLlamada.TabStop = false;
+            boxConsultaLlamada.Text = "groupBox1";
+            // 
+            // DNI
+            // 
+            DNI.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DNI.HeaderText = "DNI";
+            DNI.Name = "DNI";
+            // 
+            // nombreCompleto
+            // 
+            nombreCompleto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            nombreCompleto.HeaderText = "Cliente";
+            nombreCompleto.Name = "nombreCompleto";
+            // 
+            // duracion
+            // 
+            duracion.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            duracion.HeaderText = "Duracion";
+            duracion.Name = "duracion";
+            // 
             // ConsultarLlamadas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1050, 1094);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(btnConsultarLlamadas);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            ClientSize = new Size(1050, 1061);
             Controls.Add(boxHideLlamadasEncontradas);
             Controls.Add(boxDatosLlamada);
+            Controls.Add(boxConsultaLlamada);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ConsultarLlamadas";
             Text = "Consulta Encuesta";
@@ -423,8 +421,9 @@
             boxHideLlamadasEncontradas.PerformLayout();
             boxDatosLlamada.ResumeLayout(false);
             boxDatosLlamada.PerformLayout();
+            boxConsultaLlamada.ResumeLayout(false);
+            boxConsultaLlamada.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -433,8 +432,8 @@
         private Label label2;
         private Label label3;
         private Button btnConsultarLlamadas;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker fechaDesde;
+        private DateTimePicker fechaHasta;
         private Button btnGenerarCSV;
         private Label label5;
         private TextBox txtDuracionLlamada;
@@ -458,12 +457,11 @@
         private Label label4;
         private Button btnSeleccionarLlamada;
         private DataGridView dataGrindLlamadas;
-        private DataGridViewTextBoxColumn IdLlamada;
-        private DataGridViewTextBoxColumn DescripcionOperador;
-        private DataGridViewTextBoxColumn duracion;
-        private DataGridViewTextBoxColumn detalleAccionRequerida;
-        private DataGridViewTextBoxColumn ObservacionAuditor;
         private GroupBox boxHideLlamadasEncontradas;
         private GroupBox boxDatosLlamada;
+        private GroupBox boxConsultaLlamada;
+        private DataGridViewTextBoxColumn DNI;
+        private DataGridViewTextBoxColumn nombreCompleto;
+        private DataGridViewTextBoxColumn duracion;
     }
 }
