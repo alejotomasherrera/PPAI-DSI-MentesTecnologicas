@@ -39,7 +39,7 @@ namespace PPAI_DSI.Entidades
             // primero busca el primer cambio de estado de la llamada
             CambioEstado primerCambioEstado = CambiosDeEstados[0];
             // luego obtiene la fecha y hora de ese cambio de estado con el metodo get del cambio de estado
-            DateTime fechaHoraPrimerCambioEstado = primerCambioEstado.FechaHoraInicioCliente;
+            DateTime fechaHoraPrimerCambioEstado = primerCambioEstado._fechaHoraInicio;
             // luego compara si la fecha y hora del primer cambio de estado esta dentro del periodo dado por los parametros\
             // si es asi devuelve true, sino false
             return fechaHoraPrimerCambioEstado >= fechaDesde && fechaHoraPrimerCambioEstado <= fechaHasta;
@@ -52,8 +52,30 @@ namespace PPAI_DSI.Entidades
 
         public Estado getEstadoActual()
         {
-            return CambiosDeEstados[CambiosDeEstados.Count - 1].EstadoCambioEstado;
+            return CambiosDeEstados[CambiosDeEstados.Count - 1]._estado;
         }
+
+        // metodo obtenerPreguntas() que devuelve un arreglo del tipo lista de preguntas
+        public List<Pregunta> obtenerPreguntas()
+        {
+            // crea una lista de preguntas
+            List<Pregunta> preguntas = new List<Pregunta>();
+            // recorre todas las respuestas de encuestas de la llamada
+            foreach (RespuestaDeCliente respuestaDeCliente in RespuestasDeEncuestas)
+            {
+                // obtiene la pregunta de la respuesta de encuesta
+                Pregunta pregunta = respuestaDeCliente.RespuestaSeleccionada.;
+                // si la lista de preguntas no contiene la pregunta
+                if (!preguntas.Contains(pregunta))
+                {
+                    // agrega la pregunta a la lista de preguntas
+                    preguntas.Add(pregunta);
+                }
+            }
+            // devuelve la lista de preguntas
+            return preguntas;
+        }
+
     }
 
 

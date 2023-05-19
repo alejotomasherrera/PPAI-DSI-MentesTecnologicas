@@ -87,9 +87,16 @@ namespace PPAI_DSI
         
         public void mostrarLlamada(Llamada llamadaSeleccionada)
         {
-            String nombreCliente = llamadaSeleccionada.getNombreCliente();
-            _ = llamadaSeleccionada.Duracion;
-            Estado estadoActual = llamadaSeleccionada.getEstadoActual();
+            //String nombreCliente = llamadaSeleccionada.getNombreCliente();
+            //int duracionLlamada = llamadaSeleccionada.Duracion;
+            //Estado estadoActual = llamadaSeleccionada.getEstadoActual();
+
+
+
+
+
+
+            pantalla.pedirSeleccionGeneracionCsvOImprimir();
         }
     }
 }

@@ -35,7 +35,6 @@ C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\bin\Debug\net7.
 C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.genruntimeconfig.cache
 C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\ref\PPAI_DSI.dll
 C:\Users\matias\Desktop\UTN 3ro\DSI\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.csproj.AssemblyReference.cache
-C:\Users\matias\Desktop\UTN 3ro\DSI\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.ConsultarLlamadas.resources
 C:\Users\matias\Desktop\UTN 3ro\DSI\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.csproj.GenerateResource.cache
 C:\Users\matias\Desktop\UTN 3ro\DSI\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\matias\Desktop\UTN 3ro\DSI\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.AssemblyInfoInputs.cache
@@ -51,3 +50,4 @@ C:\Users\matias\Desktop\UTN 3ro\DSI\PPAI-DSI-MentesTecnologicas\PPAI_DSI\bin\Deb
 C:\Users\matias\Desktop\UTN 3ro\DSI\PPAI-DSI-MentesTecnologicas\PPAI_DSI\bin\Debug\net7.0-windows\PPAI_DSI.pdb
 C:\Users\matias\Desktop\UTN 3ro\DSI\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.genruntimeconfig.cache
 C:\Users\matias\Desktop\UTN 3ro\DSI\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\ref\PPAI_DSI.dll
+C:\Users\matias\Desktop\UTN 3ro\DSI\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.VentanaConsultarLlamadas.resources

@@ -9,11 +9,17 @@ namespace PPAI_DSI
     {
         // declarar atributo gestor
         private controladorConsultasEncuestas gestor;
+        // atributo llamadas que es una lista de llamadas
+        private List<Llamada> llamadasFiltradas;
+        private Llamada llamadaSeleccionada;
 
         public VentanaConsultarLlamadas()
         {
             InitializeComponent();
             gestor = new controladorConsultasEncuestas(this);
+            llamadasFiltradas = new List<Llamada>();
+            llamadaSeleccionada = null;
+            
 
         }
 
@@ -53,8 +59,9 @@ namespace PPAI_DSI
         //metodo "pedirSeleccionLlamada(Llamada llamadas)" que actualize el dataGrindLlamadas_CellContentClick con los datos de la llamadas pasada por parametro
         public void pedirSeleccionLlamada(List<Llamada> llamadas)
         {
+            llamadasFiltradas = llamadas;
             dataGrindLlamadas.ClearSelection();
-            foreach (var llamada in llamadas)
+            foreach (var llamada in llamadasFiltradas)
             {
                 DataGridViewRow fila = new DataGridViewRow();
 
@@ -112,8 +119,8 @@ namespace PPAI_DSI
 
         private void btnSeleccionarLlamada_Click(object sender, EventArgs e)
         {
-            gestor.llamadaSeleccionada();
-            boxDatosLlamada.Show();
+            gestor.llamadaSeleccionada(llamadaSeleccionada);
+            
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -134,6 +141,12 @@ namespace PPAI_DSI
         private void dataGrindLlamadas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        // metodo  pedirSeleccionGeneracionCsvOImprimir() de tipo void
+        public void pedirSeleccionGeneracionCsvOImprimir()
+        {
+            boxDatosLlamada.Show();
         }
     }
 }
