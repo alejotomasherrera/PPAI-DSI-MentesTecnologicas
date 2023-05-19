@@ -45,6 +45,16 @@ namespace PPAI_DSI.Entidades
             return fechaHoraPrimerCambioEstado >= fechaDesde && fechaHoraPrimerCambioEstado <= fechaHasta;
         }
 
+        public String getNombreCliente()
+        {
+            return Cliente.NombreCompletoCliente;
+        }
+
+        public Estado getEstadoActual()
+        {
+            return CambiosDeEstados[CambiosDeEstados.Count - 1].EstadoCambioEstado;
+        }
     }
+
 
 }

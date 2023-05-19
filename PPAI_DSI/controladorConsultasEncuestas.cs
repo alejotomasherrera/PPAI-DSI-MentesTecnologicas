@@ -18,13 +18,13 @@ namespace PPAI_DSI
         private List<Encuesta> encuestas ;
         private List<Pregunta> preguntas ;
         private List<RespuestaDeCliente> respuestasDeClientes;
-        private ConsultarLlamadas pantalla;
+        private VentanaConsultarLlamadas pantalla;
         private List<Cliente> clienteList;
         private List<Estado> Estados;
         private List<CambioEstado> CambiosEstado;
 
         //metodo constructor con inicializacion de todos los atributos pasados por parametro y sino pasan parametros que los inicialize vacios segun su tipo de dato
-        public controladorConsultasEncuestas(ConsultarLlamadas consultarLlamadas)
+        public controladorConsultasEncuestas(VentanaConsultarLlamadas consultarLlamadas)
         {
             // inicializacion de todos los atributos menos consultarLlamadas con arreglos vacios
             llamadas = new List<Llamada>();
@@ -39,14 +39,6 @@ namespace PPAI_DSI
             // inicializacion del atributo consultarLlamadas con el parametro pasado por el constructor
             this.pantalla = consultarLlamadas;
         }
-
-
-
-
-
-
-
-
 
 
         // metodo llamado "consultarEncuesta()" que le envia un mensaje llamado "solicitarPeriodoLlamada" a la pantalla "ConsultarLlamadas"
@@ -73,7 +65,6 @@ namespace PPAI_DSI
         }
 
 
-
         public void buscarLLamadasDelPeriodoRespondidas(DateTime fechaDesde, DateTime fechaHasta)
         {
             // crea un bucle para recorrer todas las llamadas y verificar si estan respondidas y son de un periodo dado
@@ -87,6 +78,18 @@ namespace PPAI_DSI
                 }
             }
             pantalla.pedirSeleccionLlamada(llamadasEncontradas);
+        }
+
+        public void llamadaSeleccionada(Llamada llamadaSeleccionada)
+        {
+            mostrarLlamada(llamadaSeleccionada);
+        }
+        
+        public void mostrarLlamada(Llamada llamadaSeleccionada)
+        {
+            String nombreCliente = llamadaSeleccionada.getNombreCliente();
+            _ = llamadaSeleccionada.Duracion;
+            Estado estadoActual = llamadaSeleccionada.getEstadoActual();
         }
     }
 }

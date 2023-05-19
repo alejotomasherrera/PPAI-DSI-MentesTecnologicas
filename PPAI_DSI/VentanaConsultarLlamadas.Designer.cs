@@ -1,6 +1,6 @@
 ﻿namespace PPAI_DSI
 {
-    partial class ConsultarLlamadas
+    partial class VentanaConsultarLlamadas
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultarLlamadas));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaConsultarLlamadas));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();

@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace PPAI_DSI
 {
-    public partial class ConsultarLlamadas : Form
+    public partial class VentanaConsultarLlamadas : Form
     {
         // declarar atributo gestor
         private controladorConsultasEncuestas gestor;
 
-        public ConsultarLlamadas()
+        public VentanaConsultarLlamadas()
         {
             InitializeComponent();
             gestor = new controladorConsultasEncuestas(this);
@@ -112,6 +112,7 @@ namespace PPAI_DSI
 
         private void btnSeleccionarLlamada_Click(object sender, EventArgs e)
         {
+            gestor.llamadaSeleccionada();
             boxDatosLlamada.Show();
         }
 
