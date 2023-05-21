@@ -8,31 +8,31 @@ namespace PPAI_DSI.Entidades
 {
     public class Cliente
     {
-        private int Dni;
-        private string NombreCompleto;
-        private string NumeroCelular;
+        private int dni;
+        private string nombreCompleto;
+        private string numeroCelular;
 
         public Cliente(int dni, string nombreCompleto, string numeroCelular)
         {
-            Dni = dni;
-            NombreCompleto = nombreCompleto;
-            NumeroCelular = numeroCelular;
+            this.dni = dni;
+            this.nombreCompleto = nombreCompleto;
+            this.numeroCelular = numeroCelular;
 
         }
-        public int DniCliente
+        public int _dniCliente
         {
-            get => Dni;
-            set => Dni = 0;
+            get => this.dni;
+            set => this.dni = value;
         }
-        public string NombreCompletoCliente
+        public string _nombreCompletoCliente
         {
-            get => NombreCompleto;
-            set => NombreCompleto = value;
+            get => this.nombreCompleto;
+            set => this.nombreCompleto = value;
         }
-        public string NumeroCelularCliente
+        public string _numeroCelularCliente
         {
-            get => NumeroCelular;
-            set => NumeroCelular = value;
+            get => this.numeroCelular;
+            set => this.numeroCelular = value;
         }
     }
 }

@@ -8,17 +8,17 @@ namespace PPAI_DSI.Entidades
 {
     public class CambioEstado
     {
-        private DateTime fechaHoraInicio { get; set; }
-        private Estado estado { get; set; }
-        private DateTime? fechaHoraFin { get; set; }
+        private DateTime fechaHoraInicio;
+        private Estado estado;
+        private DateTime? fechaHoraFin;
 
 
-        public CambioEstado(DateTime fechaHoraInicio, Estado estado)
+        public CambioEstado(DateTime fechaHoraInicio, Estado estado,DateTime? fechaHoraFin)
         {
             this.fechaHoraInicio = fechaHoraInicio;
             this.estado = estado;
             // iniciar el atributo FechaHoraFin vacio
-            fechaHoraFin = null;
+            this.fechaHoraFin = fechaHoraFin;
 
         }
         public DateTime _fechaHoraInicio

@@ -8,23 +8,23 @@ namespace PPAI_DSI.Entidades
 {
     public class RespuestaPosible
     {
-        private string Descripcion;
-        private int Valor;
+        private string descripcion;
+        private int valor;
 
         public RespuestaPosible(string descripcion, int valor)
         {
-            Descripcion = descripcion;
-            Valor = valor;
+            this.descripcion = descripcion;
+            this.valor = valor;
         }
-        public string DescripcionRespuesta
+        public string _descripcion
         {
-            get => Descripcion;
-            set => Descripcion = value;
+            get => descripcion;
+            set => descripcion = value;
         }
-        public int ValorRespuesta
+        public int _valor
         {
-            get => Valor;
-            set => Valor = value;
+            get => valor;
+            set => valor = value;
         }
     }
 }

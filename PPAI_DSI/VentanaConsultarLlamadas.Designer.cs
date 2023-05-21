@@ -58,12 +58,12 @@
             label4 = new Label();
             btnSeleccionarLlamada = new Button();
             dataGrindLlamadas = new DataGridView();
-            boxHideLlamadasEncontradas = new GroupBox();
-            boxDatosLlamada = new GroupBox();
-            boxConsultaLlamada = new GroupBox();
             DNI = new DataGridViewTextBoxColumn();
             nombreCompleto = new DataGridViewTextBoxColumn();
             duracion = new DataGridViewTextBoxColumn();
+            boxHideLlamadasEncontradas = new GroupBox();
+            boxDatosLlamada = new GroupBox();
+            boxConsultaLlamada = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)dataGrindLlamadas).BeginInit();
             boxHideLlamadasEncontradas.SuspendLayout();
             boxDatosLlamada.SuspendLayout();
@@ -76,9 +76,9 @@
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             label1.Location = new Point(3, 1);
             label1.Name = "label1";
-            label1.Size = new Size(284, 37);
+            label1.Size = new Size(404, 37);
             label1.TabIndex = 0;
-            label1.Text = "Consulta de Llamada";
+            label1.Text = "Consulta encuesta de Llamada";
             label1.Click += label1_Click;
             // 
             // label2
@@ -329,6 +329,24 @@
             dataGrindLlamadas.TabIndex = 14;
             dataGrindLlamadas.CellContentClick += dataGrindLlamadas_CellContentClick;
             // 
+            // DNI
+            // 
+            DNI.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DNI.HeaderText = "DNI";
+            DNI.Name = "DNI";
+            // 
+            // nombreCompleto
+            // 
+            nombreCompleto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            nombreCompleto.HeaderText = "Cliente";
+            nombreCompleto.Name = "nombreCompleto";
+            // 
+            // duracion
+            // 
+            duracion.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            duracion.HeaderText = "Duracion";
+            duracion.Name = "duracion";
+            // 
             // boxHideLlamadasEncontradas
             // 
             boxHideLlamadasEncontradas.Controls.Add(dataGrindLlamadas);
@@ -386,25 +404,7 @@
             boxConsultaLlamada.TabStop = false;
             boxConsultaLlamada.Text = "groupBox1";
             // 
-            // DNI
-            // 
-            DNI.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DNI.HeaderText = "DNI";
-            DNI.Name = "DNI";
-            // 
-            // nombreCompleto
-            // 
-            nombreCompleto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            nombreCompleto.HeaderText = "Cliente";
-            nombreCompleto.Name = "nombreCompleto";
-            // 
-            // duracion
-            // 
-            duracion.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            duracion.HeaderText = "Duracion";
-            duracion.Name = "duracion";
-            // 
-            // ConsultarLlamadas
+            // VentanaConsultarLlamadas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -413,7 +413,7 @@
             Controls.Add(boxDatosLlamada);
             Controls.Add(boxConsultaLlamada);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "ConsultarLlamadas";
+            Name = "VentanaConsultarLlamadas";
             Text = "Consulta Encuesta";
             Load += ConsultarLlamadas_Load;
             ((System.ComponentModel.ISupportInitialize)dataGrindLlamadas).EndInit();

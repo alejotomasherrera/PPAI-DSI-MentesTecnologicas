@@ -8,12 +8,24 @@ namespace PPAI_DSI.Entidades
 {
     public class RespuestaDeCliente
     {
-        public DateTime FechaEncuesta { get; set; }
-        public RespuestaPosible RespuestaSeleccionada { get; set; }
+        public DateTime fechaEncuesta;
+        public RespuestaPosible respuestaSeleccionada;
 
-        public RespuestaDeCliente(DateTime fechaEncuesta)
+        public RespuestaDeCliente(DateTime fechaEncuesta,RespuestaPosible respuestaSeleccionada)
         {
-            FechaEncuesta = fechaEncuesta;
+            this.fechaEncuesta = fechaEncuesta;
+            this.respuestaSeleccionada = respuestaSeleccionada;
+        }
+        //metodos get y set
+        public DateTime _fechaEncuesta
+        {
+            get => fechaEncuesta;
+            set => fechaEncuesta = value;
+        }
+        public RespuestaPosible _respuestaSeleccionada
+        {
+            get => respuestaSeleccionada;
+            set => respuestaSeleccionada = value;
         }
     }
 

@@ -10,17 +10,17 @@ namespace PPAI_DSI.Entidades
 {
     public class Estado { 
 
-        private string Nombre;
+        private string nombre;
 
         public Estado(string nombre)
         {
-            Nombre = nombre;
+            this.nombre = nombre;
      
         }
-        public string NombreEstado
+        public string _nombre
         {
-            get => Nombre;
-            set => Nombre = value;
+            get => this.nombre;
+            set => this.nombre = value;
         }
     }
 }

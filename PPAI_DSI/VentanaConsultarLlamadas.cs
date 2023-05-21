@@ -18,8 +18,7 @@ namespace PPAI_DSI
             InitializeComponent();
             gestor = new controladorConsultasEncuestas(this);
             llamadasFiltradas = new List<Llamada>();
-            llamadaSeleccionada = null;
-            
+
 
         }
 
@@ -67,15 +66,15 @@ namespace PPAI_DSI
 
                 // Agrega las celdas a la fila con los valores correspondientes de la llamada
                 DataGridViewCell celda1 = new DataGridViewTextBoxCell();
-                celda1.Value = llamada.Cliente.DniCliente; // Asigna el valor de la primera propiedad de la llamada
+                celda1.Value = llamada.cliente._dniCliente.ToString(); // Asigna el valor de la primera propiedad de la llamada
                 fila.Cells.Add(celda1);
 
                 DataGridViewCell celda2 = new DataGridViewTextBoxCell();
-                celda2.Value = llamada.Cliente.NombreCompletoCliente; // Asigna el valor de la segunda propiedad de la llamada
+                celda2.Value = llamada._cliente._nombreCompletoCliente; // Asigna el valor de la segunda propiedad de la llamada
                 fila.Cells.Add(celda2);
 
                 DataGridViewCell celda3 = new DataGridViewTextBoxCell();
-                celda2.Value = llamada.Duracion; // Asigna el valor de la segunda propiedad de la llamada
+                celda3.Value = llamada._duracion; // Asigna el valor de la segunda propiedad de la llamada
                 fila.Cells.Add(celda3);
 
                 // Agrega la fila al DataGridView
@@ -120,7 +119,7 @@ namespace PPAI_DSI
         private void btnSeleccionarLlamada_Click(object sender, EventArgs e)
         {
             gestor.llamadaSeleccionada(llamadaSeleccionada);
-            
+
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)

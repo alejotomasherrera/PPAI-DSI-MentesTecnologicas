@@ -8,26 +8,40 @@ namespace PPAI_DSI.Entidades
 {
     public class Llamada
     {
-        public string DescripcionOperador { get; set; }
-        public string DetalleAccionRequerida { get; set; }
-        public int Duracion { get; set; }
-        public string EncuestaEnviada { get; set; }
-        public string ObservacionAuditor { get; set; }
-        public List<CambioEstado> CambiosDeEstados { get; set; }
-        public Cliente Cliente { get; set; }
-        public List<RespuestaDeCliente> RespuestasDeEncuestas { get; set; }
+        public string descripcionOperador;
+        public string detalleAccionRequerida;
+        public int duracion;
+        public bool encuestaEnviada;
+        public string observacionAuditor;
+        public List<CambioEstado> cambiosDeEstados;
+        public Cliente cliente;
+        public List<RespuestaDeCliente> respuestasDeEncuestas;
 
-        public Llamada(string descripcionOperador, string detalleAccionRequerida, int duracion, string encuestaEnviada, string observacionAuditor, Cliente clienteLlamada)
+        public Llamada(string descripcionOperador, string detalleAccionRequerida, int duracion, bool encuestaEnviada, string observacionAuditor, Cliente clienteLlamada)
         {
-            DescripcionOperador = descripcionOperador;
-            DetalleAccionRequerida = detalleAccionRequerida;
-            Duracion = duracion;
-            EncuestaEnviada = encuestaEnviada;
-            ObservacionAuditor = observacionAuditor;
-            CambiosDeEstados = new List<CambioEstado>();
-            Cliente = clienteLlamada;
-            RespuestasDeEncuestas = new List<RespuestaDeCliente>();
+            this.descripcionOperador = descripcionOperador;
+            this.detalleAccionRequerida = detalleAccionRequerida;
+            this.duracion = duracion;
+            this.encuestaEnviada = encuestaEnviada;
+            this.observacionAuditor = observacionAuditor;
+            this.cliente = clienteLlamada;
+            this.cambiosDeEstados = new List<CambioEstado>();
+            this.respuestasDeEncuestas = new List<RespuestaDeCliente>();
+
         }
+        //metodos get y set de los atributos de la clase
+        public string _descripcionOperador { get => descripcionOperador; set => descripcionOperador = value; }
+        public string _detalleAccionRequerida { get => detalleAccionRequerida; set => detalleAccionRequerida = value; }
+        public int _duracion { get => duracion; set => duracion = value; }
+        public bool _encuestaEnviada { get => encuestaEnviada; set => encuestaEnviada = value; }
+        public string _observacionAuditor { get => observacionAuditor; set => observacionAuditor = value; }
+        public List<CambioEstado> CambiosDeEstados { get => cambiosDeEstados; set => cambiosDeEstados = value; }
+        public Cliente _cliente { get => cliente; set => cliente = value; }
+        public List<RespuestaDeCliente> RespuestasDeEncuestas { get => respuestasDeEncuestas; set => respuestasDeEncuestas = value; }
+
+
+
+
         //metodo llamado tieneRespuestaDeCliente() que verifica si el atributo RespuestasDeEncuestas tiene algun elemento
         public bool tieneRespuestaDeCliente()
         {
@@ -47,7 +61,7 @@ namespace PPAI_DSI.Entidades
 
         public String getNombreCliente()
         {
-            return Cliente.NombreCompletoCliente;
+            return cliente._nombreCompletoCliente;
         }
 
         public Estado getEstadoActual()
@@ -56,7 +70,7 @@ namespace PPAI_DSI.Entidades
         }
 
         // metodo obtenerPreguntas() que devuelve un arreglo del tipo lista de preguntas
-        public List<Pregunta> obtenerPreguntas()
+        /*public List<Pregunta> obtenerPreguntas()
         {
             // crea una lista de preguntas
             List<Pregunta> preguntas = new List<Pregunta>();
@@ -64,7 +78,7 @@ namespace PPAI_DSI.Entidades
             foreach (RespuestaDeCliente respuestaDeCliente in RespuestasDeEncuestas)
             {
                 // obtiene la pregunta de la respuesta de encuesta
-                Pregunta pregunta = respuestaDeCliente.RespuestaSeleccionada.;
+                Pregunta pregunta = respuestaDeCliente._respuestaSeleccionada;
                 // si la lista de preguntas no contiene la pregunta
                 if (!preguntas.Contains(pregunta))
                 {
@@ -74,7 +88,7 @@ namespace PPAI_DSI.Entidades
             }
             // devuelve la lista de preguntas
             return preguntas;
-        }
+        }*/
 
     }
 

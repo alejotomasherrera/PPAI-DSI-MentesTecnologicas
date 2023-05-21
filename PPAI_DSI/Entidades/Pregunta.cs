@@ -8,12 +8,24 @@ namespace PPAI_DSI.Entidades
 {
     public class Pregunta
     {
-        public string PreguntaLlamada { get; set; }
-        public List<RespuestaPosible> Respuestas { get; set; } = new List<RespuestaPosible>();
+        public string pregunta;
+        public List<RespuestaPosible> respuestas = new List<RespuestaPosible>();
 
-        public Pregunta(string pregunta)
+        public Pregunta(string pregunta, List<RespuestaPosible> respuestas)
         {
-            PreguntaLlamada = pregunta;
+            this.pregunta = pregunta;
+            this.respuestas = respuestas;
+        }
+        //metodos get y set
+        public string _pregunta
+        {
+            get => pregunta;
+            set => pregunta = value;
+        }
+        public List<RespuestaPosible> _respuestas
+        {
+            get => respuestas;
+            set => respuestas = value;
         }
     }
 }

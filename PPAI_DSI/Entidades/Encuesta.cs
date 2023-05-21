@@ -8,15 +8,36 @@ namespace PPAI_DSI.Entidades
 {
     public class Encuesta
     {
-        public string Descripcion { get; set; }
-        public DateTime FechaFinVigencia { get; set; }
-        public List<Pregunta> Preguntas { get; set; } = new List<Pregunta>();
+        public string descripcion;
 
-        public Encuesta(string descripcion, DateTime fechaFinVigencia)
+        public DateTime fechaFinVigencia;
+
+        public List<Pregunta> preguntas;
+
+        public Encuesta(string descripcion, DateTime fechaFinVigencia,List<Pregunta> preguntas )
         {
-            Descripcion = descripcion;
-            FechaFinVigencia = fechaFinVigencia;
+            this.descripcion = descripcion;
+            this.fechaFinVigencia = fechaFinVigencia;
+            this.preguntas = new List<Pregunta>();
         }
+
+        //metodos get y set
+        public string _descripcion
+        {
+            get => descripcion;
+            set => descripcion = value;
+        }
+        public DateTime _fechaFinVigencia
+        {
+            get => fechaFinVigencia;
+            set => fechaFinVigencia = value;
+        }
+        public List<Pregunta> _preguntas
+        {
+            get => preguntas;
+            set => preguntas = value;
+        }
+
     } 
 
 }
