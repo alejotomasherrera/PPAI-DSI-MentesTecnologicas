@@ -35,9 +35,9 @@ namespace PPAI_DSI.Entidades
         public int _duracion { get => duracion; set => duracion = value; }
         public bool _encuestaEnviada { get => encuestaEnviada; set => encuestaEnviada = value; }
         public string _observacionAuditor { get => observacionAuditor; set => observacionAuditor = value; }
-        public List<CambioEstado> CambiosDeEstados { get => cambiosDeEstados; set => cambiosDeEstados = value; }
+        public List<CambioEstado> _cambiosDeEstados { get => cambiosDeEstados; set => cambiosDeEstados = value; }
         public Cliente _cliente { get => cliente; set => cliente = value; }
-        public List<RespuestaDeCliente> RespuestasDeEncuestas { get => respuestasDeEncuestas; set => respuestasDeEncuestas = value; }
+        public List<RespuestaDeCliente> _respuestasDeEncuestas { get => respuestasDeEncuestas; set => respuestasDeEncuestas = value; }
 
 
 
@@ -45,13 +45,13 @@ namespace PPAI_DSI.Entidades
         //metodo llamado tieneRespuestaDeCliente() que verifica si el atributo RespuestasDeEncuestas tiene algun elemento
         public bool tieneRespuestaDeCliente()
         {
-            return RespuestasDeEncuestas.Count > 0;
+            return respuestasDeEncuestas.Count > 0;
         }
         //metodo llamado esDePeriodo() que valida si la llamada esta dentro de un periodo dado por 2 parametros date, preguntandole a todos sus "CambioEstado" si el primero esta dentro del periodo y de ese obtiene la fecha y hora
         public bool esDePeriodo(DateTime fechaDesde, DateTime fechaHasta)
         {
             // primero busca el primer cambio de estado de la llamada
-            CambioEstado primerCambioEstado = CambiosDeEstados[0];
+            CambioEstado primerCambioEstado = cambiosDeEstados[0];
             // luego obtiene la fecha y hora de ese cambio de estado con el metodo get del cambio de estado
             DateTime fechaHoraPrimerCambioEstado = primerCambioEstado._fechaHoraInicio;
             // luego compara si la fecha y hora del primer cambio de estado esta dentro del periodo dado por los parametros\
@@ -66,29 +66,40 @@ namespace PPAI_DSI.Entidades
 
         public Estado getEstadoActual()
         {
-            return CambiosDeEstados[CambiosDeEstados.Count - 1]._estado;
+            foreach (var i in cambiosDeEstados)
+            {
+                if (i._fechaHoraFin == null)
+                {
+                    return i._estado;
+                }
+            }
+            return null;
         }
 
         // metodo obtenerPreguntas() que devuelve un arreglo del tipo lista de preguntas
-        /*public List<Pregunta> obtenerPreguntas()
+        public List<Pregunta> obtenerPreguntas(List<Pregunta> bdPreguntas)
         {
             // crea una lista de preguntas
             List<Pregunta> preguntas = new List<Pregunta>();
             // recorre todas las respuestas de encuestas de la llamada
-            foreach (RespuestaDeCliente respuestaDeCliente in RespuestasDeEncuestas)
+            foreach (RespuestaDeCliente respuestaDeCliente in respuestasDeEncuestas)
             {
-                // obtiene la pregunta de la respuesta de encuesta
-                Pregunta pregunta = respuestaDeCliente._respuestaSeleccionada;
-                // si la lista de preguntas no contiene la pregunta
-                if (!preguntas.Contains(pregunta))
+                // obtiene respuestaPosible de la respuesta de cliente
+                RespuestaPosible respuestaElegida = respuestaDeCliente._respuestaSeleccionada;
+
+                // obtiene la pregunta de la respuesta posible
+                foreach (var pregunta in bdPreguntas)
                 {
-                    // agrega la pregunta a la lista de preguntas
-                    preguntas.Add(pregunta);
+                    if (pregunta._respuestas.Contains(respuestaElegida))
+                    {
+                        preguntas.Add(pregunta);
+                    }
                 }
+
             }
             // devuelve la lista de preguntas
             return preguntas;
-        }*/
+        }
 
     }
 

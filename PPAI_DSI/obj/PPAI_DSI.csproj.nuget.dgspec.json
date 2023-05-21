@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fakku\\Desktop\\PPAI-DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj": {}
+    "C:\\Users\\matias\\Desktop\\UTN 3ro\\DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fakku\\Desktop\\PPAI-DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj": {
+    "C:\\Users\\matias\\Desktop\\UTN 3ro\\DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fakku\\Desktop\\PPAI-DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj",
+        "projectUniqueName": "C:\\Users\\matias\\Desktop\\UTN 3ro\\DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj",
         "projectName": "PPAI_DSI",
-        "projectPath": "C:\\Users\\fakku\\Desktop\\PPAI-DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj",
-        "packagesPath": "C:\\Users\\fakku\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fakku\\Desktop\\PPAI-DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\obj\\",
+        "projectPath": "C:\\Users\\matias\\Desktop\\UTN 3ro\\DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj",
+        "packagesPath": "C:\\Users\\matias\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\matias\\Desktop\\UTN 3ro\\DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\fakku\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matias\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

@@ -47,13 +47,7 @@
             label9 = new Label();
             txtNroCelular = new TextBox();
             txtNombreCompleto = new TextBox();
-            txtDNI = new TextBox();
-            label8 = new Label();
-            treeView3 = new TreeView();
-            label13 = new Label();
-            treeView2 = new TreeView();
-            label14 = new Label();
-            treeView1 = new TreeView();
+            txtDni = new TextBox();
             label15 = new Label();
             label4 = new Label();
             btnSeleccionarLlamada = new Button();
@@ -63,10 +57,16 @@
             duracion = new DataGridViewTextBoxColumn();
             boxHideLlamadasEncontradas = new GroupBox();
             boxDatosLlamada = new GroupBox();
+            dataGridEncuesta = new DataGridView();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            Respuesta = new DataGridViewTextBoxColumn();
             boxConsultaLlamada = new GroupBox();
+            Pregunta = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGrindLlamadas).BeginInit();
             boxHideLlamadasEncontradas.SuspendLayout();
             boxDatosLlamada.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridEncuesta).BeginInit();
             boxConsultaLlamada.SuspendLayout();
             SuspendLayout();
             // 
@@ -131,12 +131,13 @@
             // 
             // btnGenerarCSV
             // 
-            btnGenerarCSV.Location = new Point(747, 415);
+            btnGenerarCSV.Location = new Point(778, 450);
             btnGenerarCSV.Name = "btnGenerarCSV";
             btnGenerarCSV.Size = new Size(151, 44);
             btnGenerarCSV.TabIndex = 43;
             btnGenerarCSV.Text = "Generar CSV";
             btnGenerarCSV.UseVisualStyleBackColor = true;
+            btnGenerarCSV.Click += btnGenerarCSV_Click;
             // 
             // label5
             // 
@@ -144,14 +145,16 @@
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             label5.Location = new Point(22, 252);
             label5.Name = "label5";
-            label5.Size = new Size(214, 21);
+            label5.Size = new Size(156, 21);
             label5.TabIndex = 42;
-            label5.Text = "Datos de respuesta cliente:";
+            label5.Text = "Encuesta realizada:";
+            label5.Click += label5_Click;
             // 
             // txtDuracionLlamada
             // 
             txtDuracionLlamada.Location = new Point(223, 182);
             txtDuracionLlamada.Name = "txtDuracionLlamada";
+            txtDuracionLlamada.ReadOnly = true;
             txtDuracionLlamada.Size = new Size(100, 23);
             txtDuracionLlamada.TabIndex = 41;
             // 
@@ -169,6 +172,7 @@
             // 
             txtEstado.Location = new Point(612, 49);
             txtEstado.Name = "txtEstado";
+            txtEstado.ReadOnly = true;
             txtEstado.Size = new Size(187, 23);
             txtEstado.TabIndex = 39;
             // 
@@ -223,6 +227,7 @@
             // 
             txtNroCelular.Location = new Point(223, 107);
             txtNroCelular.Name = "txtNroCelular";
+            txtNroCelular.ReadOnly = true;
             txtNroCelular.Size = new Size(187, 23);
             txtNroCelular.TabIndex = 33;
             // 
@@ -230,63 +235,17 @@
             // 
             txtNombreCompleto.Location = new Point(223, 78);
             txtNombreCompleto.Name = "txtNombreCompleto";
+            txtNombreCompleto.ReadOnly = true;
             txtNombreCompleto.Size = new Size(187, 23);
             txtNombreCompleto.TabIndex = 32;
             // 
-            // txtDNI
+            // txtDni
             // 
-            txtDNI.Location = new Point(223, 49);
-            txtDNI.Name = "txtDNI";
-            txtDNI.Size = new Size(187, 23);
-            txtDNI.TabIndex = 31;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(614, 294);
-            label8.Name = "label8";
-            label8.Size = new Size(147, 15);
-            label8.TabIndex = 30;
-            label8.Text = "Descripcion de la encuesta";
-            // 
-            // treeView3
-            // 
-            treeView3.Location = new Point(765, 294);
-            treeView3.Name = "treeView3";
-            treeView3.Size = new Size(121, 97);
-            treeView3.TabIndex = 29;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(310, 294);
-            label13.Name = "label13";
-            label13.Size = new Size(160, 15);
-            label13.TabIndex = 28;
-            label13.Text = "Descripcion de las respuestas";
-            // 
-            // treeView2
-            // 
-            treeView2.Location = new Point(476, 294);
-            treeView2.Name = "treeView2";
-            treeView2.Size = new Size(121, 97);
-            treeView2.TabIndex = 27;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(22, 294);
-            label14.Name = "label14";
-            label14.Size = new Size(145, 15);
-            label14.TabIndex = 26;
-            label14.Text = "Respuestas Seleccionadas:";
-            // 
-            // treeView1
-            // 
-            treeView1.Location = new Point(173, 294);
-            treeView1.Name = "treeView1";
-            treeView1.Size = new Size(121, 97);
-            treeView1.TabIndex = 25;
+            txtDni.Location = new Point(223, 45);
+            txtDni.Name = "txtDni";
+            txtDni.ReadOnly = true;
+            txtDni.Size = new Size(187, 23);
+            txtDni.TabIndex = 31;
             // 
             // label15
             // 
@@ -320,6 +279,7 @@
             // 
             // dataGrindLlamadas
             // 
+            dataGrindLlamadas.AllowUserToAddRows = false;
             dataGrindLlamadas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGrindLlamadas.Columns.AddRange(new DataGridViewColumn[] { DNI, nombreCompleto, duracion });
             dataGrindLlamadas.Location = new Point(1, 44);
@@ -362,6 +322,7 @@
             // 
             // boxDatosLlamada
             // 
+            boxDatosLlamada.Controls.Add(dataGridEncuesta);
             boxDatosLlamada.Controls.Add(btnGenerarCSV);
             boxDatosLlamada.Controls.Add(label5);
             boxDatosLlamada.Controls.Add(txtDuracionLlamada);
@@ -374,13 +335,7 @@
             boxDatosLlamada.Controls.Add(label9);
             boxDatosLlamada.Controls.Add(txtNroCelular);
             boxDatosLlamada.Controls.Add(txtNombreCompleto);
-            boxDatosLlamada.Controls.Add(txtDNI);
-            boxDatosLlamada.Controls.Add(label8);
-            boxDatosLlamada.Controls.Add(treeView3);
-            boxDatosLlamada.Controls.Add(label13);
-            boxDatosLlamada.Controls.Add(treeView2);
-            boxDatosLlamada.Controls.Add(label14);
-            boxDatosLlamada.Controls.Add(treeView1);
+            boxDatosLlamada.Controls.Add(txtDni);
             boxDatosLlamada.Controls.Add(label15);
             boxDatosLlamada.Location = new Point(7, 476);
             boxDatosLlamada.Name = "boxDatosLlamada";
@@ -388,6 +343,30 @@
             boxDatosLlamada.TabIndex = 45;
             boxDatosLlamada.TabStop = false;
             boxDatosLlamada.Enter += groupBox1_Enter_1;
+            // 
+            // dataGridEncuesta
+            // 
+            dataGridEncuesta.AllowUserToAddRows = false;
+            dataGridEncuesta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridEncuesta.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn2, Respuesta });
+            dataGridEncuesta.Location = new Point(36, 276);
+            dataGridEncuesta.Name = "dataGridEncuesta";
+            dataGridEncuesta.RowTemplate.Height = 25;
+            dataGridEncuesta.Size = new Size(705, 218);
+            dataGridEncuesta.TabIndex = 44;
+            dataGridEncuesta.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewTextBoxColumn2.HeaderText = "Pregunta";
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // Respuesta
+            // 
+            Respuesta.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Respuesta.HeaderText = "Respuesta";
+            Respuesta.Name = "Respuesta";
             // 
             // boxConsultaLlamada
             // 
@@ -404,13 +383,25 @@
             boxConsultaLlamada.TabStop = false;
             boxConsultaLlamada.Text = "groupBox1";
             // 
+            // Pregunta
+            // 
+            Pregunta.HeaderText = "Pregunta";
+            Pregunta.Name = "Pregunta";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.HeaderText = "Pregunta";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
             // VentanaConsultarLlamadas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1050, 1061);
-            Controls.Add(boxHideLlamadasEncontradas);
+            AutoScroll = true;
+            AutoSize = true;
+            ClientSize = new Size(1085, 1031);
             Controls.Add(boxDatosLlamada);
+            Controls.Add(boxHideLlamadasEncontradas);
             Controls.Add(boxConsultaLlamada);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "VentanaConsultarLlamadas";
@@ -421,6 +412,7 @@
             boxHideLlamadasEncontradas.PerformLayout();
             boxDatosLlamada.ResumeLayout(false);
             boxDatosLlamada.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridEncuesta).EndInit();
             boxConsultaLlamada.ResumeLayout(false);
             boxConsultaLlamada.PerformLayout();
             ResumeLayout(false);
@@ -446,13 +438,7 @@
         private Label label9;
         private TextBox txtNroCelular;
         private TextBox txtNombreCompleto;
-        private TextBox txtDNI;
-        private Label label8;
-        private TreeView treeView3;
-        private Label label13;
-        private TreeView treeView2;
-        private Label label14;
-        private TreeView treeView1;
+        private TextBox txtDni;
         private Label label15;
         private Label label4;
         private Button btnSeleccionarLlamada;
@@ -463,5 +449,10 @@
         private DataGridViewTextBoxColumn DNI;
         private DataGridViewTextBoxColumn nombreCompleto;
         private DataGridViewTextBoxColumn duracion;
+        private DataGridView dataGridEncuesta;
+        private DataGridViewTextBoxColumn Pregunta;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn Respuesta;
     }
 }

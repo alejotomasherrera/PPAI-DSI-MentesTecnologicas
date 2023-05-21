@@ -103,11 +103,12 @@ namespace PPAI_DSI
 
             // Crear objeto de la clase "Llamada" con valores aleatorios y únicos
             Llamada llamada = new Llamada("Descripción operador", "Detalle acción requerida", random.Next(0, 1001), true, "Observación auditor", clienteAleatorio);
-            llamada.CambiosDeEstados.Add(cambiosEstado[random.Next(cambiosEstado.Count)]);
-            llamada.CambiosDeEstados.Add(cambiosEstado[random.Next(cambiosEstado.Count)]);
-            llamada.RespuestasDeEncuestas.Add(respuestasDeClientes[random.Next(respuestasDeClientes.Count)]);
-            llamada.RespuestasDeEncuestas.Add(respuestasDeClientes[random.Next(respuestasDeClientes.Count)]);
-            llamada.RespuestasDeEncuestas.Add(respuestasDeClientes[random.Next(respuestasDeClientes.Count)]);
+            
+            llamada._cambiosDeEstados.Add(cambiosEstado[random.Next(cambiosEstado.Count)]);
+            llamada._cambiosDeEstados.Add(cambiosEstado[8]);
+
+            llamada._respuestasDeEncuestas.Add(respuestasDeClientes[0]);
+            llamada._respuestasDeEncuestas.Add(respuestasDeClientes[1]);
 
             return llamada;
         }
@@ -190,6 +191,7 @@ namespace PPAI_DSI
 
         public void buscarLLamadasDelPeriodoRespondidas(DateTime fechaDesde, DateTime fechaHasta)
         {
+            llamadasEncontradas = new List<Llamada>();
             // crea un bucle para recorrer todas las llamadas y verificar si estan respondidas y son de un periodo dado
             // si es asi las agrega a la lista de llamadas encontradas, el metodo para validar si tiene una respuesta es "tieneRespuestaDeCliente"
             foreach (Llamada llamada in llamadas)
@@ -202,23 +204,55 @@ namespace PPAI_DSI
             pantalla.pedirSeleccionLlamada(llamadasEncontradas);
         }
 
-        public void llamadaSeleccionada(Llamada llamadaSeleccionada)
+        public void llamadaSeleccionada(int indexLlamada)
         {
-            mostrarLlamada(llamadaSeleccionada);
+
+            mostrarLlamada(llamadasEncontradas[indexLlamada]);
         }
         
         public void mostrarLlamada(Llamada llamadaSeleccionada)
         {
-            //String nombreCliente = llamadaSeleccionada.getNombreCliente();
-            //int duracionLlamada = llamadaSeleccionada.Duracion;
-            //Estado estadoActual = llamadaSeleccionada.getEstadoActual();
+            // obtener todos los atributos del cliente de la llamada seleccionada
+            string nombreCliente = llamadaSeleccionada._cliente._nombreCompletoCliente;
+            string dniCliente = llamadaSeleccionada._cliente._dniCliente.ToString();
+            string celularCliente = llamadaSeleccionada._cliente._numeroCelularCliente;
+            string duracionLlamada = llamadaSeleccionada._duracion.ToString();
+            string estadoActual = llamadaSeleccionada.getEstadoActual()._nombre;
 
+            List<Pregunta> preguntasDeLaLlamada = new List<Pregunta>();
+            preguntasDeLaLlamada = llamadaSeleccionada.obtenerPreguntas(preguntas);
+            MessageBox.Show(preguntasDeLaLlamada[0]._pregunta);
 
+            Encuesta encuestaEncontrada = new Encuesta();
+            foreach (var encuesta in encuestas)
+            {
+                if (encuesta.sonTusPreguntas(preguntas))
+                {
+                    encuestaEncontrada = encuesta;
+                }
+            }
+            List<String> listaPreguntas = new List<String>();
+            List<String> listaRespuestas = new List<String>();
+            foreach (var pregunta in encuestaEncontrada._preguntas)
+            {
+                listaPreguntas.Add(pregunta._pregunta);
+            }
+            foreach (var respuesta in llamadaSeleccionada._respuestasDeEncuestas)
+            {
+                listaRespuestas.Add(respuesta._respuestaSeleccionada._descripcion);
+            }
+            if (listaPreguntas.Count == 0)
+            {
+                MessageBox.Show(encuestaEncontrada._descripcion);
 
+            }
+            // enviar a la pantalla los datos del cliente y la llamada con el metodo pedirSeleccionGeneracionCsv()
+            pantalla.pedirSeleccionGeneracionCsv(nombreCliente, dniCliente, celularCliente, estadoActual, duracionLlamada,listaPreguntas, listaRespuestas);
+  
+        }
 
-
-
-            pantalla.pedirSeleccionGeneracionCsvOImprimir();
+        public void opcionCsvSeleccionada() { 
+            return ;
         }
     }
 }
