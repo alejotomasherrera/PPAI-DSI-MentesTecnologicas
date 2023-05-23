@@ -115,7 +115,7 @@
       ],
       "cliente": {
         "dni": 12345678,
-        "nombreCompleto": "María López",
+        "nombreCompleto": "Elena López",
         "numeroCelular": "987654321"
       },
       "respuestasDeEncuestas": [
