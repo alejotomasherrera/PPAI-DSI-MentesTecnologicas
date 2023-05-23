@@ -30,11 +30,26 @@ namespace PPAI_DSI
         private List<Llamada> llamadasEncontradas = new List<Llamada>();
         private Llamada llamadaElegida;
         private Encuesta encuestaEncontrada;
+        List<string> listaPreguntas;
+        List<string> listaRespuestas;
 
         //metodo constructor con inicializacion de todos los atributos pasados por parametro y sino pasan parametros que los inicialize vacios segun su tipo de dato
         public controladorConsultasEncuestas(VentanaConsultarLlamadas consultarLlamadas)
         {
-            
+            //guarda en los atributos llamadas y encuestas los datos de la base de datos del json BD.json
+            string json = File.ReadAllText("C:\\Users\\Alejo\\OneDrive\\Documentos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\BD.json");
+            Root root = JsonConvert.DeserializeObject<Root>(json);
+            llamadas = root.Llamadas;
+            encuestas = root.Encuestas;
+            preguntas = root.Encuestas[0].preguntas;
+            foreach (var pregunta in preguntas)
+            {
+                foreach (var respuesta in pregunta._respuestas)
+                {
+                    respuestasPosibles.Add(respuesta);
+                }
+            }
+            MessageBox.Show(preguntas[0].respuestas[0]._descripcion);
 
             this.pantalla = consultarLlamadas;
 
@@ -123,11 +138,7 @@ namespace PPAI_DSI
 
         public void buscarLLamadasDelPeriodoRespondidas(DateTime fechaDesde, DateTime fechaHasta)
         {
-            //guarda en los atributos llamadas y encuestas los datos de la base de datos del json BD.json
-            string json = File.ReadAllText("C:\\Users\\Alejo\\source\\repos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\BD.json");
-            Root root = JsonConvert.DeserializeObject<Root>(json);
-            List<Llamada> llamadas = root.Llamadas;
-            List<Encuesta> encuestas = root.Encuestas;
+            llamadasEncontradas = new List<Llamada>();
             // crea un bucle para recorrer todas las llamadas y verificar si estan respondidas y son de un periodo dado
             // si es asi las agrega a la lista de llamadas encontradas, el metodo para validar si tiene una respuesta es "tieneRespuestaDeCliente"
             foreach (Llamada llamada in llamadas)
@@ -158,7 +169,6 @@ namespace PPAI_DSI
 
             List<Pregunta> preguntasDeLaLlamada = new List<Pregunta>();
             preguntasDeLaLlamada = llamadaElegida.obtenerPreguntas(preguntas);
-            MessageBox.Show(preguntasDeLaLlamada[0]._pregunta);
 
             //Encuesta encuestaEncontrada = new Encuesta();
             foreach (var encuesta in encuestas)
@@ -168,8 +178,9 @@ namespace PPAI_DSI
                     encuestaEncontrada = encuesta;
                 }
             }
-            List<string> listaPreguntas = new List<string>();
-            List<string> listaRespuestas = new List<string>();
+            listaPreguntas = new List<string>();
+            listaRespuestas = new List<string>();
+            MessageBox.Show(encuestaEncontrada._preguntas[0]._pregunta);
             foreach (var pregunta in encuestaEncontrada._preguntas)
             {
                 listaPreguntas.Add(pregunta._pregunta);
@@ -188,8 +199,8 @@ namespace PPAI_DSI
   
         }
 
-        public void opcionCsvSeleccionada() { 
-            return ;
+        public void opcionCsvSeleccionada() {
+            generarCsv();
         }
 
         /*Genera un csv con el siguiente formato:
@@ -202,13 +213,18 @@ namespace PPAI_DSI
             // Datos de ejemplo para escribir en el archivo CSV
             List<string[]> datos = new List<string[]>
             {
-                new string[] {  /*llamadaElegida._cliente._nombreCompletoCliente,
+                new string[] {  llamadaElegida._cliente._nombreCompletoCliente,
                                 llamadaElegida.getEstadoActual()._nombre,
-                                llamadaElegida._duracion.ToString()*/ },
+                                llamadaElegida._duracion.ToString()}
             };
+            for (int i=0; i<listaPreguntas.Count;i++)
+            {
+                datos.Add(new string[] { listaPreguntas[i], listaRespuestas[i] });
+            }
+              
 
             // Ruta y nombre de archivo CSV
-            string rutaArchivo = "C:\\Users\\Alejo\\source\\repos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj";
+            string rutaArchivo = "C:\\Users\\Alejo\\OneDrive\\Documentos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\archivo.csv";
 
             // Separador de campos (puedes cambiarlo a tu preferencia)
             char separador = ',';

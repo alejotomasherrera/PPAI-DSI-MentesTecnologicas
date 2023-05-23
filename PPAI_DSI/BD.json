@@ -33,7 +33,7 @@
           "fechaEncuesta": "2023-05-14 14:34:56",
           "respuestaSeleccionada": {
             "valor": 1,
-            "descripcion": "Esta es la respuesta 1"
+            "descripcion": "Esta es la respuesta 1 de la pregunta 1"
           }
         },
         {
@@ -77,8 +77,8 @@
         {
           "fechaEncuesta": "2023-05-21 12:45:00",
           "respuestaSeleccionada": {
-            "valor": 3,
-            "descripcion": "Esta es la respuesta 3"
+            "valor": 1,
+            "descripcion": "Esta es la respuesta 1 de la pregunta 1"
           }
         },
         {
@@ -97,7 +97,7 @@
       "fechaFinVigencia": "2023-05-22 14:34:56",
       "preguntas": [
         {
-          "descripcion": "Pregunta 1",
+          "pregunta": "Pregunta 1",
           "respuestas": [
             {
               "valor": 1,
@@ -110,7 +110,7 @@
           ]
         },
         {
-          "descripcion": "Pregunta 2",
+          "pregunta": "Pregunta 2",
           "respuestas": [
             {
               "valor": 3,

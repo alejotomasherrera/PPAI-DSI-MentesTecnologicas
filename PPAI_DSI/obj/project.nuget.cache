@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UPLlGndPQl8Cj3CsYXj0YfYIxw/rcY2SR1QIuBmu1x7Zxh8rxcX/0spTO47jHt4FBfLylqJq9ximxjtV/30rUQ==",
+  "dgSpecHash": "PbY1zi6pN+z6dmyc+tDCj2/cRGhyCS56fD3hw1g+X6YZSz/3Yck3YexVbDZkAfJP3CoiMuV6r4AdEpxuTlDfgA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alejo\\source\\repos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj",
+  "projectFilePath": "C:\\Users\\Alejo\\OneDrive\\Documentos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alejo\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],

@@ -11,7 +11,6 @@ namespace PPAI_DSI
         private controladorConsultasEncuestas gestor;
         // atributo llamadas que es una lista de llamadas
         private List<Llamada> llamadasFiltradas;
-        private Llamada llamadaSeleccionada;
 
         public VentanaConsultarLlamadas()
         {
