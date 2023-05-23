@@ -37,13 +37,35 @@ namespace PPAI_DSI
         //metodo constructor con inicializacion de todos los atributos pasados por parametro y sino pasan parametros que los inicialize vacios segun su tipo de dato
         public controladorConsultasEncuestas(VentanaConsultarLlamadas consultarLlamadas)
         {
-            
+
             //guarda en los atributos llamadas y encuestas los datos de la base de datos del json BD.json
             string json = File.ReadAllText("../../../BD.json");
             Root root = JsonConvert.DeserializeObject<Root>(json);
+            respuestasPosibles = root.RespuestasPosibles;
+            preguntas = root.Preguntas;
             llamadas = root.Llamadas;
             encuestas = root.Encuestas;
-            preguntas = root.Encuestas[0].preguntas;
+            int contador = 0;
+            for (var i = 0;i < encuestas.Count;i++)
+            {
+                encuestas[i]._preguntas = new List<Pregunta> { preguntas[contador], preguntas[contador+1] };
+                contador += 2;
+            }
+
+
+
+
+            //MessageBox.Show(encuestas[0]._preguntas[0]);
+            foreach (var encuesta in encuestas)
+            {
+                foreach (var pregunta in encuesta._preguntas)
+                {
+                    string pregTemp = pregunta._pregunta.ToString();
+                    MessageBox.Show(pregTemp);
+                    preguntas.Add(pregunta);
+                }
+            }
+            MessageBox.Show(preguntas.Count.ToString());
             foreach (var pregunta in preguntas)
             {
                 foreach (var respuesta in pregunta._respuestas)
@@ -59,6 +81,8 @@ namespace PPAI_DSI
         {
             public List<Llamada> Llamadas { get; set; }
             public List<Encuesta> Encuestas { get; set; }
+            public List<Pregunta> Preguntas { get; set; }
+            public List<RespuestaPosible> RespuestasPosibles { get; set; }
         }
         //metodos get y set
         public List<Estado> _estados
@@ -116,10 +140,6 @@ namespace PPAI_DSI
         // metodo llamado "consultarEncuesta()" que le envia un mensaje llamado "solicitarPeriodoLlamada" a la pantalla "ConsultarLlamadas"
         public void consultarEncuesta()
         {
-            // como identifico la ventana activa?
-            // como le envio el mensaje a la ventana activa?
-
-
             // como le envio el mensaje a la ventana "ConsultarLlamadas"? 
             pantalla.solicitarPeriodoLlamada();
 
@@ -169,12 +189,16 @@ namespace PPAI_DSI
             string estadoActual = llamadaElegida.getEstadoActual()._nombre;
 
             List<Pregunta> preguntasDeLaLlamada = new List<Pregunta>();
+
             preguntasDeLaLlamada = llamadaElegida.obtenerPreguntas(preguntas);
+
+            //MessageBox.Show(preguntas.Count.ToString());
+            //MessageBox.Show(preguntasDeLaLlamada.Count.ToString());
 
             //Encuesta encuestaEncontrada = new Encuesta();
             foreach (var encuesta in encuestas)
             {
-                if (encuesta.sonTusPreguntas(preguntas))
+                if (encuesta.sonTusPreguntas(preguntasDeLaLlamada))
                 {
                     encuestaEncontrada = encuesta;
                 }

@@ -84,7 +84,7 @@ namespace PPAI_DSI.Entidades
             // recorre todas las respuestas de encuestas de la llamada
             foreach (RespuestaDeCliente respuestaDeCliente in respuestasDeEncuestas)
             {
-                // obtiene respuestaPosible de la respuesta de cliente
+                // obtiene respuestaPosible de la respuesta del cliente
                 RespuestaPosible respuestaElegida = respuestaDeCliente._respuestaSeleccionada;
 
                 // obtiene la pregunta de la respuesta posible
@@ -97,6 +97,7 @@ namespace PPAI_DSI.Entidades
                 }
 
             }
+            //MessageBox.Show(preguntas[0].ToString());
             // devuelve la lista de preguntas
             return preguntas;
         }
