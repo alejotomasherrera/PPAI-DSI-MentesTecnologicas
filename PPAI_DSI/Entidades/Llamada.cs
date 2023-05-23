@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace PPAI_DSI.Entidades
@@ -17,38 +18,19 @@ namespace PPAI_DSI.Entidades
         public Cliente cliente;
         public List<RespuestaDeCliente> respuestasDeEncuestas;
 
-            public Llamada(
-            string descripcionOperador,
-            string accionRequerida,
-            int duracion,
-            bool encuestaEnviada,
-            string observacionAuditor,
-            List<CambioEstado> cambiosDeEstados,
-            Cliente cliente,
-            List<RespuestaDeCliente> respuestasDeEncuestas)
-            {
-                this.descripcionOperador = descripcionOperador;
-                this.detalleAccionRequerida = accionRequerida;
-                this.duracion = duracion;
-                this.encuestaEnviada = encuestaEnviada;
-                this.observacionAuditor = observacionAuditor;
-                this.cambiosDeEstados = cambiosDeEstados;
-                this.cliente = cliente;
-                this.respuestasDeEncuestas = respuestasDeEncuestas;
-            }
-    
-    public Llamada(string descripcionOperador, string detalleAccionRequerida, int duracion, bool encuestaEnviada, string observacionAuditor, Cliente clienteLlamada)
+        [JsonConstructor]
+        public Llamada(string descripcionOperador, string detalleAccionRequerida, int duracion, bool encuestaEnviada, string observacionAuditor, List<CambioEstado> cambiosDeEstados, Cliente cliente, List<RespuestaDeCliente> respuestasDeEncuestas)
         {
             this.descripcionOperador = descripcionOperador;
             this.detalleAccionRequerida = detalleAccionRequerida;
             this.duracion = duracion;
             this.encuestaEnviada = encuestaEnviada;
             this.observacionAuditor = observacionAuditor;
-            this.cliente = clienteLlamada;
-            this.cambiosDeEstados = new List<CambioEstado>();
-            this.respuestasDeEncuestas = new List<RespuestaDeCliente>();
-
+            this.cambiosDeEstados = cambiosDeEstados;
+            this.cliente = cliente;
+            this.respuestasDeEncuestas = respuestasDeEncuestas;
         }
+
         //metodos get y set de los atributos de la clase
         public string _descripcionOperador { get => descripcionOperador; set => descripcionOperador = value; }
         public string _detalleAccionRequerida { get => detalleAccionRequerida; set => detalleAccionRequerida = value; }
@@ -59,7 +41,11 @@ namespace PPAI_DSI.Entidades
         public Cliente _cliente { get => cliente; set => cliente = value; }
         public List<RespuestaDeCliente> _respuestasDeEncuestas { get => respuestasDeEncuestas; set => respuestasDeEncuestas = value; }
 
-
+        public class Root
+        {
+            public List<Llamada> Llamadas { get; set; }
+            public List<Encuesta> Encuestas { get; set; }
+        }
 
 
         //metodo llamado tieneRespuestaDeCliente() que verifica si el atributo RespuestasDeEncuestas tiene algun elemento

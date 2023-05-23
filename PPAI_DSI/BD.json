@@ -1,12 +1,4 @@
 {
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ],
   "Llamadas": [
     {
       "descripcionOperador": "Descripción de la llamada 1",
@@ -17,17 +9,17 @@
       "cambiosDeEstados": [
         {
           "estado": { "nombre": "Iniciada" },
-          "fechaHoraInicio": "2023-05-22T12:34:56.789Z",
-          "fechaHoraFin": "2023-05-22T13:34:56.789Z"
+          "fechaHoraInicio": "2023-05-14 12:34:56",
+          "fechaHoraFin": "2023-05-14 13:34:56"
         },
         {
           "estado": { "nombre": "En Curso" },
-          "fechaHoraInicio": "2023-05-22T13:34:56.789Z",
-          "fechaHoraFin": "2023-05-22T14:34:56.789Z"
+          "fechaHoraInicio": "2023-05-14 13:34:56",
+          "fechaHoraFin": "2023-05-14 14:34:56"
         },
         {
           "estado": { "nombre": "Finalizada" },
-          "fechaHoraInicio": "2023-05-22T14:34:56.789Z",
+          "fechaHoraInicio": "2023-05-14 14:34:56",
           "fechaHoraFin": null
         }
       ],
@@ -38,16 +30,61 @@
       },
       "respuestasDeEncuestas": [
         {
-          "fechaEncuesta": "2023-05-22T14:34:56.789Z",
+          "fechaEncuesta": "2023-05-14 14:34:56",
           "respuestaSeleccionada": {
             "valor": 1,
             "descripcion": "Esta es la respuesta 1"
           }
         },
         {
-          "fechaEncuesta": "2023-05-22T14:34:56.789Z",
+          "fechaEncuesta": "2023-05-14 14:34:56",
           "respuestaSeleccionada": {
             "valor": 4,
+            "descripcion": "Esta es la respuesta 2 de la pregunta 2"
+          }
+        }
+      ]
+    },
+    {
+      "descripcionOperador": "Descripción de la llamada 2",
+      "detalleAccionRequerida": "Acción requerida 2",
+      "duracion": 180,
+      "encuestaEnviada": true,
+      "observacionAuditor": "Otra observación del auditor",
+      "cambiosDeEstados": [
+        {
+          "estado": { "nombre": "Iniciada" },
+          "fechaHoraInicio": "2023-05-21 10:12:34",
+          "fechaHoraFin": "2023-05-21 11:30:45"
+        },
+        {
+          "estado": { "nombre": "En Curso" },
+          "fechaHoraInicio": "2023-05-21 11:30:45",
+          "fechaHoraFin": "2023-05-21 12:45:00"
+        },
+        {
+          "estado": { "nombre": "Finalizada" },
+          "fechaHoraInicio": "2023-05-21 12:45:00",
+          "fechaHoraFin": null
+        }
+      ],
+      "cliente": {
+        "dni": 98765432,
+        "nombreCompleto": "María González",
+        "numeroCelular": "9876543210"
+      },
+      "respuestasDeEncuestas": [
+        {
+          "fechaEncuesta": "2023-05-21 12:45:00",
+          "respuestaSeleccionada": {
+            "valor": 3,
+            "descripcion": "Esta es la respuesta 3"
+          }
+        },
+        {
+          "fechaEncuesta": "2023-05-21 13:00:00",
+          "respuestaSeleccionada": {
+            "valor": 2,
             "descripcion": "Esta es la respuesta 2 de la pregunta 2"
           }
         }
@@ -57,7 +94,7 @@
   "Encuestas": [
     {
       "descripcion": "Encuesta 1",
-      "fechaFinVigencia": "2023-05-22T14:34:56.789Z",
+      "fechaFinVigencia": "2023-05-22 14:34:56",
       "preguntas": [
         {
           "descripcion": "Pregunta 1",

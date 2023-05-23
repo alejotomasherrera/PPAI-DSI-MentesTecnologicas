@@ -18,7 +18,6 @@ C:\Users\Alejo\source\repos\PPAI_DSI_TecnologiaEscritorio\PPAI_DSI\obj\Debug\net
 C:\Users\Alejo\source\repos\PPAI_DSI_TecnologiaEscritorio\PPAI_DSI\obj\Debug\net7.0-windows\ref\PPAI_DSI.dll
 C:\Users\Alejo\source\repos\PPAI_DSI_TecnologiaEscritorio\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.EncuestaDisponible.resources
 C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.csproj.AssemblyReference.cache
-C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.ConsultarLlamadas.resources
 C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.csproj.GenerateResource.cache
 C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.AssemblyInfoInputs.cache
@@ -68,3 +67,6 @@ C:\Users\fakku\Desktop\PPAI-DSI\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\n
 C:\Users\fakku\Desktop\PPAI-DSI\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.pdb
 C:\Users\fakku\Desktop\PPAI-DSI\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.genruntimeconfig.cache
 C:\Users\fakku\Desktop\PPAI-DSI\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\ref\PPAI_DSI.dll
+C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.VentanaConsultarLlamadas.resources
+C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
+C:\Users\Alejo\source\repos\PPAI-DSI-MentesTecnologicas\PPAI_DSI\obj\Debug\net7.0-windows\PPAI_DSI.csproj.CopyComplete

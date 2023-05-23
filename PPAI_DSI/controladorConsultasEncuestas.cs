@@ -5,13 +5,17 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.Json;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Reflection.Metadata;
+using System.Xml.Linq;
+using Newtonsoft.Json;
+
 
 namespace PPAI_DSI
 {
     internal class controladorConsultasEncuestas
     {
+
         private DateTime fechaDesdeLocal;
         private DateTime fechaHastaLocal;
         private List<Llamada> llamadas = new List<Llamada>();
@@ -30,14 +34,16 @@ namespace PPAI_DSI
         //metodo constructor con inicializacion de todos los atributos pasados por parametro y sino pasan parametros que los inicialize vacios segun su tipo de dato
         public controladorConsultasEncuestas(VentanaConsultarLlamadas consultarLlamadas)
         {
-            //guarda en los atributos llamadas y encuestas los datos de la base de datos del json BD.json
-            string json = File.ReadAllText("C:\\Users\\matias\\Desktop\\UTN 3ro\\DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\BD.json");
+            
 
             this.pantalla = consultarLlamadas;
-            generarCsv();
 
         }
-
+        public class Root
+        {
+            public List<Llamada> Llamadas { get; set; }
+            public List<Encuesta> Encuestas { get; set; }
+        }
         //metodos get y set
         public List<Estado> _estados
         {
@@ -117,7 +123,11 @@ namespace PPAI_DSI
 
         public void buscarLLamadasDelPeriodoRespondidas(DateTime fechaDesde, DateTime fechaHasta)
         {
-            llamadasEncontradas = new List<Llamada>();
+            //guarda en los atributos llamadas y encuestas los datos de la base de datos del json BD.json
+            string json = File.ReadAllText("C:\\Users\\Alejo\\source\\repos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\BD.json");
+            Root root = JsonConvert.DeserializeObject<Root>(json);
+            List<Llamada> llamadas = root.Llamadas;
+            List<Encuesta> encuestas = root.Encuestas;
             // crea un bucle para recorrer todas las llamadas y verificar si estan respondidas y son de un periodo dado
             // si es asi las agrega a la lista de llamadas encontradas, el metodo para validar si tiene una respuesta es "tieneRespuestaDeCliente"
             foreach (Llamada llamada in llamadas)
@@ -198,7 +208,7 @@ namespace PPAI_DSI
             };
 
             // Ruta y nombre de archivo CSV
-            string rutaArchivo = "C:\\Users\\matias\\Desktop\\UTN 3ro\\DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\archivo.csv";
+            string rutaArchivo = "C:\\Users\\Alejo\\source\\repos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj";
 
             // Separador de campos (puedes cambiarlo a tu preferencia)
             char separador = ',';

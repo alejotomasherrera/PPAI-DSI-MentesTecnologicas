@@ -41,7 +41,7 @@ namespace PPAI_DSI
         private void btnConsultarLlamadas_Click(object sender, EventArgs e)
         {
             //borrar el contenido de la dataGrindLlamadas
-
+            dataGrindLlamadas.Rows.Clear();
             gestor.fechaInicioYFinSeleccionadas(fechaDesde.Value, fechaHasta.Value);
 
 
@@ -83,7 +83,6 @@ namespace PPAI_DSI
                 dataGrindLlamadas.Rows.Add(fila);
             }
             boxHideLlamadasEncontradas.Show();
-
         }
 
         private void ConsultarLlamadas_Load(object sender, EventArgs e)
