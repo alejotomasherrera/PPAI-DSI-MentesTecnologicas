@@ -17,7 +17,6 @@ namespace PPAI_DSI.Entidades
         {
             this.fechaHoraInicio = fechaHoraInicio;
             this.estado = estado;
-            // iniciar el atributo FechaHoraFin vacio
             this.fechaHoraFin = fechaHoraFin;
 
         }

@@ -17,7 +17,27 @@ namespace PPAI_DSI.Entidades
         public Cliente cliente;
         public List<RespuestaDeCliente> respuestasDeEncuestas;
 
-        public Llamada(string descripcionOperador, string detalleAccionRequerida, int duracion, bool encuestaEnviada, string observacionAuditor, Cliente clienteLlamada)
+            public Llamada(
+            string descripcionOperador,
+            string accionRequerida,
+            int duracion,
+            bool encuestaEnviada,
+            string observacionAuditor,
+            List<CambioEstado> cambiosDeEstados,
+            Cliente cliente,
+            List<RespuestaDeCliente> respuestasDeEncuestas)
+            {
+                this.descripcionOperador = descripcionOperador;
+                this.detalleAccionRequerida = accionRequerida;
+                this.duracion = duracion;
+                this.encuestaEnviada = encuestaEnviada;
+                this.observacionAuditor = observacionAuditor;
+                this.cambiosDeEstados = cambiosDeEstados;
+                this.cliente = cliente;
+                this.respuestasDeEncuestas = respuestasDeEncuestas;
+            }
+    
+    public Llamada(string descripcionOperador, string detalleAccionRequerida, int duracion, bool encuestaEnviada, string observacionAuditor, Cliente clienteLlamada)
         {
             this.descripcionOperador = descripcionOperador;
             this.detalleAccionRequerida = detalleAccionRequerida;

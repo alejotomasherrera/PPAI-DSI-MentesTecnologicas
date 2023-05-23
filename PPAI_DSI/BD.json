@@ -1,0 +1,93 @@
+{
+  "exclude": [
+    "**/bin",
+    "**/bower_components",
+    "**/jspm_packages",
+    "**/node_modules",
+    "**/obj",
+    "**/platforms"
+  ],
+  "Llamadas": [
+    {
+      "descripcionOperador": "Descripción de la llamada 1",
+      "detalleAccionRequerida": "Acción requerida 1",
+      "duracion": 120,
+      "encuestaEnviada": true,
+      "observacionAuditor": "Observaciones del auditor",
+      "cambiosDeEstados": [
+        {
+          "estado": { "nombre": "Iniciada" },
+          "fechaHoraInicio": "2023-05-22T12:34:56.789Z",
+          "fechaHoraFin": "2023-05-22T13:34:56.789Z"
+        },
+        {
+          "estado": { "nombre": "En Curso" },
+          "fechaHoraInicio": "2023-05-22T13:34:56.789Z",
+          "fechaHoraFin": "2023-05-22T14:34:56.789Z"
+        },
+        {
+          "estado": { "nombre": "Finalizada" },
+          "fechaHoraInicio": "2023-05-22T14:34:56.789Z",
+          "fechaHoraFin": null
+        }
+      ],
+      "cliente": {
+        "dni": 43557181,
+        "nombreCompleto": "Juan perez",
+        "numeroCelular": "123123451245"
+      },
+      "respuestasDeEncuestas": [
+        {
+          "fechaEncuesta": "2023-05-22T14:34:56.789Z",
+          "respuestaSeleccionada": {
+            "valor": 1,
+            "descripcion": "Esta es la respuesta 1"
+          }
+        },
+        {
+          "fechaEncuesta": "2023-05-22T14:34:56.789Z",
+          "respuestaSeleccionada": {
+            "valor": 4,
+            "descripcion": "Esta es la respuesta 2 de la pregunta 2"
+          }
+        }
+      ]
+    }
+  ],
+  "Encuestas": [
+    {
+      "descripcion": "Encuesta 1",
+      "fechaFinVigencia": "2023-05-22T14:34:56.789Z",
+      "preguntas": [
+        {
+          "descripcion": "Pregunta 1",
+          "respuestas": [
+            {
+              "valor": 1,
+              "descripcion": "Esta es la respuesta 1 de la pregunta 1"
+            },
+            {
+              "valor": 2,
+              "descripcion": "Esta es la respuesta 2 de la pregunta 1 "
+            }
+          ]
+        },
+        {
+          "descripcion": "Pregunta 2",
+          "respuestas": [
+            {
+              "valor": 3,
+              "descripcion": "Esta es la respuesta 1 de la pregunta 2"
+            },
+            {
+              "valor": 4,
+              "descripcion": "Esta es la respuesta 2 de la pregunta 2"
+            }
+          ]
+        }
+      ]
+    }
+
+  ]   
+
+}

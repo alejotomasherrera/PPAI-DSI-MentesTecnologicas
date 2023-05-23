@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PPAI_DSI
 {
@@ -26,69 +28,24 @@ namespace PPAI_DSI
         //metodo constructor con inicializacion de todos los atributos pasados por parametro y sino pasan parametros que los inicialize vacios segun su tipo de dato
         public controladorConsultasEncuestas(VentanaConsultarLlamadas consultarLlamadas)
         {
-            estados.Add(new Estado("iniciada"));
-            estados.Add(new Estado("En Curso"));
-            estados.Add(new Estado("Cancelada"));
-            estados.Add(new Estado("Finalizada"));
-            estados.Add(new Estado("Descartada"));
-            estados.Add(new Estado("Correcta"));
-            estados.Add(new Estado("Para Escucha"));
-            estados.Add(new Estado("ConObs"));
-
-            Random random = new Random();
-
-            for (int i = 0; i < 10; i++)
+            //guarda en los atributos llamadas y encuestas los datos de la base de datos del json BD.json
+            string json = File.ReadAllText("C:\\Users\\matias\\Desktop\\UTN 3ro\\DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\BD.json");
+            var jsonOptions = new JsonSerializerOptions
             {
-                Estado estadoAleatorio = estados[random.Next(estados.Count)];
+                PropertyNameCaseInsensitive = false,
+                IncludeFields = false
+            };
 
-                DateTime fechaInicio = DateTime.Now;
-
-                DateTime? fechaFin = null;
-                if (i < 5)
-                {
-                    fechaFin = fechaInicio.AddHours(random.Next(1, 24));
-                }
-
-                CambioEstado cambioEstado = new CambioEstado(fechaInicio, estadoAleatorio, fechaFin);
-                cambiosEstado.Add(cambioEstado);
-                
-            }
-
-            // Crear objetos con descripciones diferentes y asignar valores consecutivos
-            for (int i = 1; i <= 9; i++)
+            var jsonData = JsonSerializer.Deserialize<JsonData>(json, jsonOptions);
+            //llamadas = jsonData.Llamadas;
+            if (jsonData == null)
             {
-                respuestasPosibles.Add(new RespuestaPosible("Respuesta " + i, (i - 1) % 3 + 1));
+                MessageBox.Show("NO CARGO");
             }
+            encuestas = jsonData.Encuestas;
 
-            preguntas.Add(new Pregunta("Pregunta 1", new List<RespuestaPosible> { respuestasPosibles[0], respuestasPosibles[1], respuestasPosibles[2] }));
-            preguntas.Add(new Pregunta("Pregunta 2", new List<RespuestaPosible> { respuestasPosibles[3], respuestasPosibles[4], respuestasPosibles[5] }));
-            preguntas.Add(new Pregunta("Pregunta 3", new List<RespuestaPosible> { respuestasPosibles[6], respuestasPosibles[7], respuestasPosibles[8] }));
-
-            // crea 2 encuestas con preguntas diferentes
-            encuestas.Add(new Encuesta("Encuesta 1", DateTime.Now.AddDays(1), new List<Pregunta> { preguntas[0], preguntas[1] }));
-            encuestas.Add(new Encuesta("Encuesta 2", DateTime.Now.AddDays(1), new List<Pregunta> { preguntas[1], preguntas[2] }));
-
-            respuestasDeClientes.Add(new RespuestaDeCliente(DateTime.Now, respuestasPosibles[0]));
-            respuestasDeClientes.Add(new RespuestaDeCliente(DateTime.Now, respuestasPosibles[3]));
-            respuestasDeClientes.Add(new RespuestaDeCliente(DateTime.Now, respuestasPosibles[1]));
-            respuestasDeClientes.Add(new RespuestaDeCliente(DateTime.Now, respuestasPosibles[4]));
-            respuestasDeClientes.Add(new RespuestaDeCliente(DateTime.Now, respuestasPosibles[2]));
-            respuestasDeClientes.Add(new RespuestaDeCliente(DateTime.Now, respuestasPosibles[5]));
-
-
-            for (int i = 0; i < 3; i++)
-            {
-                int dniAleatorio = random.Next(10000000, 99999999);
-                string nombreAleatorio = "Cliente " + i.ToString();
-                string celularAleatorio = "+12345678" + i.ToString(); // Número de celular aleatorio (reemplazar con lógica real)
-
-                Cliente cliente = new Cliente(dniAleatorio, nombreAleatorio, celularAleatorio);
-                clientes.Add(cliente);
-            }
-            llamadas.Add(CrearLlamada());
-            llamadas.Add(CrearLlamada());
-            llamadas.Add(CrearLlamada());
             this.pantalla = consultarLlamadas;
+
         }
 
 
@@ -231,8 +188,8 @@ namespace PPAI_DSI
                     encuestaEncontrada = encuesta;
                 }
             }
-            List<String> listaPreguntas = new List<String>();
-            List<String> listaRespuestas = new List<String>();
+            List<string> listaPreguntas = new List<string>();
+            List<string> listaRespuestas = new List<string>();
             foreach (var pregunta in encuestaEncontrada._preguntas)
             {
                 listaPreguntas.Add(pregunta._pregunta);
