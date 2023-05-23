@@ -24,51 +24,20 @@ namespace PPAI_DSI
         private List<Estado> estados =  new List<Estado>();
         private List<CambioEstado> cambiosEstado = new List<CambioEstado>();
         private List<Llamada> llamadasEncontradas = new List<Llamada>();
+        private Llamada llamadaElegida;
+        private Encuesta encuestaEncontrada;
 
         //metodo constructor con inicializacion de todos los atributos pasados por parametro y sino pasan parametros que los inicialize vacios segun su tipo de dato
         public controladorConsultasEncuestas(VentanaConsultarLlamadas consultarLlamadas)
         {
             //guarda en los atributos llamadas y encuestas los datos de la base de datos del json BD.json
             string json = File.ReadAllText("C:\\Users\\matias\\Desktop\\UTN 3ro\\DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\BD.json");
-            var jsonOptions = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = false,
-                IncludeFields = false
-            };
-
-            var jsonData = JsonSerializer.Deserialize<JsonData>(json, jsonOptions);
-            //llamadas = jsonData.Llamadas;
-            if (jsonData == null)
-            {
-                MessageBox.Show("NO CARGO");
-            }
-            encuestas = jsonData.Encuestas;
 
             this.pantalla = consultarLlamadas;
+            generarCsv();
 
         }
 
-
-        Llamada CrearLlamada()
-        {
-            Random random = new Random();
-
-            // Obtener un cliente aleatorio que no se haya utilizado previamente
-            Cliente clienteAleatorio = clientes[random.Next(clientes.Count)];
-
-
-
-            // Crear objeto de la clase "Llamada" con valores aleatorios y únicos
-            Llamada llamada = new Llamada("Descripción operador", "Detalle acción requerida", random.Next(0, 1001), true, "Observación auditor", clienteAleatorio);
-            
-            llamada._cambiosDeEstados.Add(cambiosEstado[random.Next(cambiosEstado.Count)]);
-            llamada._cambiosDeEstados.Add(cambiosEstado[8]);
-
-            llamada._respuestasDeEncuestas.Add(respuestasDeClientes[0]);
-            llamada._respuestasDeEncuestas.Add(respuestasDeClientes[1]);
-
-            return llamada;
-        }
         //metodos get y set
         public List<Estado> _estados
         {
@@ -169,18 +138,19 @@ namespace PPAI_DSI
         
         public void mostrarLlamada(Llamada llamadaSeleccionada)
         {
+            this.llamadaElegida = llamadaSeleccionada;
             // obtener todos los atributos del cliente de la llamada seleccionada
-            string nombreCliente = llamadaSeleccionada._cliente._nombreCompletoCliente;
-            string dniCliente = llamadaSeleccionada._cliente._dniCliente.ToString();
-            string celularCliente = llamadaSeleccionada._cliente._numeroCelularCliente;
-            string duracionLlamada = llamadaSeleccionada._duracion.ToString();
-            string estadoActual = llamadaSeleccionada.getEstadoActual()._nombre;
+            string nombreCliente = llamadaElegida._cliente._nombreCompletoCliente;
+            string dniCliente = llamadaElegida._cliente._dniCliente.ToString();
+            string celularCliente = llamadaElegida._cliente._numeroCelularCliente;
+            string duracionLlamada = llamadaElegida._duracion.ToString();
+            string estadoActual = llamadaElegida.getEstadoActual()._nombre;
 
             List<Pregunta> preguntasDeLaLlamada = new List<Pregunta>();
-            preguntasDeLaLlamada = llamadaSeleccionada.obtenerPreguntas(preguntas);
+            preguntasDeLaLlamada = llamadaElegida.obtenerPreguntas(preguntas);
             MessageBox.Show(preguntasDeLaLlamada[0]._pregunta);
 
-            Encuesta encuestaEncontrada = new Encuesta();
+            //Encuesta encuestaEncontrada = new Encuesta();
             foreach (var encuesta in encuestas)
             {
                 if (encuesta.sonTusPreguntas(preguntas))
@@ -194,7 +164,7 @@ namespace PPAI_DSI
             {
                 listaPreguntas.Add(pregunta._pregunta);
             }
-            foreach (var respuesta in llamadaSeleccionada._respuestasDeEncuestas)
+            foreach (var respuesta in llamadaElegida._respuestasDeEncuestas)
             {
                 listaRespuestas.Add(respuesta._respuestaSeleccionada._descripcion);
             }
@@ -210,6 +180,46 @@ namespace PPAI_DSI
 
         public void opcionCsvSeleccionada() { 
             return ;
+        }
+
+        /*Genera un csv con el siguiente formato:
+        - Encabezado: nombre del cliente, estado actual de la llamada, duración de la llamada.
+        - Preguntas: para cada pregunta la descripción de la pregunta, 
+        la descripción de la respuesta seleccionada por el cliente. 
+        Se incluye una marca para dar cierre a cada pregunta.*/
+        public void generarCsv()
+        {
+            // Datos de ejemplo para escribir en el archivo CSV
+            List<string[]> datos = new List<string[]>
+            {
+                new string[] {  /*llamadaElegida._cliente._nombreCompletoCliente,
+                                llamadaElegida.getEstadoActual()._nombre,
+                                llamadaElegida._duracion.ToString()*/ },
+            };
+
+            // Ruta y nombre de archivo CSV
+            string rutaArchivo = "C:\\Users\\matias\\Desktop\\UTN 3ro\\DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\archivo.csv";
+
+            // Separador de campos (puedes cambiarlo a tu preferencia)
+            char separador = ',';
+
+            try
+            {
+                using (StreamWriter escritor = new StreamWriter(rutaArchivo))
+                {
+                    // Escribir los datos en el archivo CSV
+                    foreach (string[] fila in datos)
+                    {
+                        escritor.WriteLine(string.Join(separador, fila));
+                    }
+                }
+
+                MessageBox.Show("Archivo CSV generado exitosamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el archivo CSV: " + ex.Message);
+            }
         }
     }
 }

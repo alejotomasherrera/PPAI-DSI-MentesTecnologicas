@@ -205,7 +205,7 @@ namespace PPAI_DSI
 
         private void btnGenerarCSV_Click(object sender, EventArgs e)
         {
-            //gestor.generarCsv();
+            gestor.opcionCsvSeleccionada();
         }
     }
 }
