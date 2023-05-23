@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Reflection.Metadata;
 using System.Xml.Linq;
+using System.IO;
 using Newtonsoft.Json;
 
 
@@ -36,8 +37,9 @@ namespace PPAI_DSI
         //metodo constructor con inicializacion de todos los atributos pasados por parametro y sino pasan parametros que los inicialize vacios segun su tipo de dato
         public controladorConsultasEncuestas(VentanaConsultarLlamadas consultarLlamadas)
         {
+            
             //guarda en los atributos llamadas y encuestas los datos de la base de datos del json BD.json
-            string json = File.ReadAllText("C:\\Users\\Alejo\\OneDrive\\Documentos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\BD.json");
+            string json = File.ReadAllText("../../../BD.json");
             Root root = JsonConvert.DeserializeObject<Root>(json);
             llamadas = root.Llamadas;
             encuestas = root.Encuestas;
@@ -49,8 +51,7 @@ namespace PPAI_DSI
                     respuestasPosibles.Add(respuesta);
                 }
             }
-            MessageBox.Show(preguntas[0].respuestas[0]._descripcion);
-
+            
             this.pantalla = consultarLlamadas;
 
         }
@@ -180,7 +181,7 @@ namespace PPAI_DSI
             }
             listaPreguntas = new List<string>();
             listaRespuestas = new List<string>();
-            MessageBox.Show(encuestaEncontrada._preguntas[0]._pregunta);
+
             foreach (var pregunta in encuestaEncontrada._preguntas)
             {
                 listaPreguntas.Add(pregunta._pregunta);
@@ -224,7 +225,7 @@ namespace PPAI_DSI
               
 
             // Ruta y nombre de archivo CSV
-            string rutaArchivo = "C:\\Users\\Alejo\\OneDrive\\Documentos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\archivo.csv";
+            string rutaArchivo = "../../../archivo.csv";
 
             // Separador de campos (puedes cambiarlo a tu preferencia)
             char separador = ',';

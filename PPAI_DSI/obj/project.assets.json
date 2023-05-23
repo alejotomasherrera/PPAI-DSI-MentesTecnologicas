@@ -55,23 +55,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alejo\\.nuget\\packages\\": {},
+    "C:\\Users\\fakku\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alejo\\OneDrive\\Documentos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj",
+      "projectUniqueName": "C:\\Users\\fakku\\Desktop\\PPAI-DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj",
       "projectName": "PPAI_DSI",
-      "projectPath": "C:\\Users\\Alejo\\OneDrive\\Documentos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj",
-      "packagesPath": "C:\\Users\\Alejo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alejo\\OneDrive\\Documentos\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\obj\\",
+      "projectPath": "C:\\Users\\fakku\\Desktop\\PPAI-DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\PPAI_DSI.csproj",
+      "packagesPath": "C:\\Users\\fakku\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\fakku\\Desktop\\PPAI-DSI\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Alejo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\fakku\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

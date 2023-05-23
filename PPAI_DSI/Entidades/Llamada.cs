@@ -18,7 +18,7 @@ namespace PPAI_DSI.Entidades
         public Cliente cliente;
         public List<RespuestaDeCliente> respuestasDeEncuestas;
 
-        [JsonConstructor]
+        
         public Llamada(string descripcionOperador, string detalleAccionRequerida, int duracion, bool encuestaEnviada, string observacionAuditor, List<CambioEstado> cambiosDeEstados, Cliente cliente, List<RespuestaDeCliente> respuestasDeEncuestas)
         {
             this.descripcionOperador = descripcionOperador;
@@ -41,13 +41,7 @@ namespace PPAI_DSI.Entidades
         public Cliente _cliente { get => cliente; set => cliente = value; }
         public List<RespuestaDeCliente> _respuestasDeEncuestas { get => respuestasDeEncuestas; set => respuestasDeEncuestas = value; }
 
-        public class Root
-        {
-            public List<Llamada> Llamadas { get; set; }
-            public List<Encuesta> Encuestas { get; set; }
-        }
-
-
+        
         //metodo llamado tieneRespuestaDeCliente() que verifica si el atributo RespuestasDeEncuestas tiene algun elemento
         public bool tieneRespuestaDeCliente()
         {

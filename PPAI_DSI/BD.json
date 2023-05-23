@@ -33,14 +33,14 @@
           "fechaEncuesta": "2023-05-14 14:34:56",
           "respuestaSeleccionada": {
             "valor": 1,
-            "descripcion": "Esta es la respuesta 1 de la pregunta 1"
+            "descripcion": "Satisfecho"
           }
         },
         {
           "fechaEncuesta": "2023-05-14 14:34:56",
           "respuestaSeleccionada": {
             "valor": 4,
-            "descripcion": "Esta es la respuesta 2 de la pregunta 2"
+            "descripcion": "El servicio postVenta"
           }
         }
       ]
@@ -77,19 +77,65 @@
         {
           "fechaEncuesta": "2023-05-21 12:45:00",
           "respuestaSeleccionada": {
-            "valor": 1,
-            "descripcion": "Esta es la respuesta 1 de la pregunta 1"
+            "valor": 6,
+            "descripcion": "No"
           }
         },
         {
           "fechaEncuesta": "2023-05-21 13:00:00",
           "respuestaSeleccionada": {
-            "valor": 2,
-            "descripcion": "Esta es la respuesta 2 de la pregunta 2"
+            "valor": 7,
+            "descripcion": "No hay Motivo"
+          }
+        }
+      ]
+    },
+    {
+      "descripcionOperador": "Descripción de la llamada 3",
+      "detalleAccionRequerida": "Acción requerida 3",
+      "duracion": 180,
+      "encuestaEnviada": false,
+      "observacionAuditor": "Observaciones adicionales del auditor",
+      "cambiosDeEstados": [
+        {
+          "estado": { "nombre": "Iniciada" },
+          "fechaHoraInicio": "2023-05-14 10:00:00",
+          "fechaHoraFin": "2023-05-14 11:30:00"
+        },
+        {
+          "estado": { "nombre": "En Curso" },
+          "fechaHoraInicio": "2023-05-14 11:30:00",
+          "fechaHoraFin": "2023-05-14 13:00:00"
+        },
+        {
+          "estado": { "nombre": "Finalizada" },
+          "fechaHoraInicio": "2023-05-14 13:30:00",
+          "fechaHoraFin": null
+        }
+      ],
+      "cliente": {
+        "dni": 12345678,
+        "nombreCompleto": "María López",
+        "numeroCelular": "987654321"
+      },
+      "respuestasDeEncuestas": [
+        {
+          "fechaEncuesta": "2023-05-14 13:30:00",
+          "respuestaSeleccionada": {
+            "valor": 9,
+            "descripcion": "Calidad"
+          }
+        },
+        {
+          "fechaEncuesta": "2023-05-14 13:30:00",
+          "respuestaSeleccionada": {
+            "valor": 11,
+            "descripcion": "Ninguna en particular"
           }
         }
       ]
     }
+
   ],
   "Encuestas": [
     {
@@ -97,33 +143,99 @@
       "fechaFinVigencia": "2023-05-22 14:34:56",
       "preguntas": [
         {
-          "pregunta": "Pregunta 1",
+          "pregunta": "¿Cuál es tu nivel de satisfacción con nuestro producto/servicio?",
           "respuestas": [
             {
               "valor": 1,
-              "descripcion": "Esta es la respuesta 1 de la pregunta 1"
+              "descripcion": "Satisfecho"
             },
             {
               "valor": 2,
-              "descripcion": "Esta es la respuesta 2 de la pregunta 1 "
+              "descripcion": "Insatisfecho"
             }
           ]
         },
         {
-          "pregunta": "Pregunta 2",
+          "pregunta": "¿Qué aspectos específicos te gustaría mejorar del producto/servicio?",
           "respuestas": [
             {
               "valor": 3,
-              "descripcion": "Esta es la respuesta 1 de la pregunta 2"
+              "descripcion": "La atencion al publico"
             },
             {
               "valor": 4,
-              "descripcion": "Esta es la respuesta 2 de la pregunta 2"
+              "descripcion": "El servicio postVenta"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "descripcion": "Encuesta 2",
+      "fechaFinVigencia": "2023-05-22 14:34:56",
+      "preguntas": [
+        {
+          "pregunta": "¿Recomendarías nuestro producto/servicio a otras personas?",
+          "respuestas": [
+            {
+              "valor": 5,
+              "descripcion": "Si"
+            },
+            {
+              "valor": 6,
+              "descripcion": "No"
+            }
+          ]
+        },
+        {
+          "pregunta": "¿Cuál es el motivo principal por el que no recomendarías nuestro producto/servicio?",
+          "respuestas": [
+            {
+              "valor": 7,
+              "descripcion": "No hay Motivo"
+            },
+            {
+              "valor": 8,
+              "descripcion": "Porque es lo que corresponde"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "descripcion": "Encuesta 3",
+      "fechaFinVigencia": "2023-05-22 14:34:56",
+      "preguntas": [
+        {
+          "pregunta": "¿Cuál es la característica que más valoras de nuestro producto/servicio?",
+          "respuestas": [
+            {
+              "valor": 9,
+              "descripcion": "Calidad"
+            },
+            {
+              "valor": 10,
+              "descripcion": "Precio"
+            }
+          ]
+        },
+        {
+          "pregunta": "¿Qué sugerencias tienes para mejorar la característica que has mencionado en la pregunta anterior?",
+          "respuestas": [
+            {
+              "valor": 11,
+              "descripcion": "Ninguna en particular"
+            },
+            {
+              "valor": 12,
+              "descripcion": "otra."
             }
           ]
         }
       ]
     }
+
+
 
   ]   
 

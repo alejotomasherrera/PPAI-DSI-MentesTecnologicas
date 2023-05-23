@@ -125,7 +125,7 @@ namespace PPAI_DSI
             }
             else
             {
-                MessageBox.Show("Debe seleccionar una llamada");
+                MessageBox.Show("No hay Llamadas en el periodo seleccionado");
             }
 
 
