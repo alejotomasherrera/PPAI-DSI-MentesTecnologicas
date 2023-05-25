@@ -150,7 +150,7 @@ namespace PPAI_DSI
                 nombres.Add(llamada.obtenerNombreClinete());
                 duraciones.Add(llamada._duracion.ToString());
             }
-            MessageBox.Show("Una Llamada: " + llamadas[0]._respuestasDeEncuestas[0]._respuestaSeleccionada._descripcion);
+            //MessageBox.Show("Una Llamada: " + llamadas[0]._respuestasDeEncuestas[0]._respuestaSeleccionada._descripcion);
             pantalla.pedirSeleccionLlamada(dnis,nombres,duraciones);
         }
 

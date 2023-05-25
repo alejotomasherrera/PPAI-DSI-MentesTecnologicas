@@ -56,7 +56,7 @@
       "respuestas": []
     },
     {
-      "pregunta": "Que aspectos espec�ficos te gustar�a mejorar del producto/servicio?",
+      "pregunta": "Que aspectos especificos te gustaria mejorar del producto/servicio?",
       "respuestas": []
     },
     {
@@ -64,7 +64,7 @@
       "respuestas": []
     },
     {
-      "pregunta": "Cual es el motivo principal por el que no recomendar�as nuestro producto/servicio?",
+      "pregunta": "Cual es el motivo principal por el que no recomendarias nuestro producto/servicio?",
       "respuestas": []
     },
     {
@@ -78,8 +78,8 @@
   ],
   "Llamadas": [
     {
-      "descripcionOperador": "Descripci�n de la llamada 1",
-      "detalleAccionRequerida": "Acci�n requerida 1",
+      "descripcionOperador": "Descripcion de la llamada 1",
+      "detalleAccionRequerida": "Accion requerida 1",
       "duracion": 120,
       "encuestaEnviada": true,
       "observacionAuditor": "Observaciones del auditor",
@@ -88,18 +88,18 @@
       "respuestasDeEncuestas": []
     },
     {
-      "descripcionOperador": "Descripci�n de la llamada 2",
-      "detalleAccionRequerida": "Acci�n requerida 2",
+      "descripcionOperador": "Descripcion de la llamada 2",
+      "detalleAccionRequerida": "Accion requerida 2",
       "duracion": 180,
       "encuestaEnviada": true,
-      "observacionAuditor": "Otra observaci�n del auditor",
+      "observacionAuditor": "Otra observacion del auditor",
       "cambiosDeEstados": [],
       "cliente": null,
       "respuestasDeEncuestas": []
     },
     {
-      "descripcionOperador": "Descripci�n de la llamada 3",
-      "detalleAccionRequerida": "Acci�n requerida 3",
+      "descripcionOperador": "Descripcion de la llamada 3",
+      "detalleAccionRequerida": "Accion requerida 3",
       "duracion": 180,
       "encuestaEnviada": true,
       "observacionAuditor": "Observaciones adicionales del auditor",
@@ -108,8 +108,8 @@
       "respuestasDeEncuestas": []
     },
     {
-      "descripcionOperador": "Descripci�n de la llamada 4",
-      "detalleAccionRequerida": "Acci�n requerida 4",
+      "descripcionOperador": "Descripcion de la llamada 4",
+      "detalleAccionRequerida": "Accion requerida 4",
       "duracion": 150,
       "encuestaEnviada": true,
       "observacionAuditor": "Observaciones del auditor 2",
@@ -118,8 +118,8 @@
       "respuestasDeEncuestas": []
     },
     {
-      "descripcionOperador": "Descripci�n de la llamada 5",
-      "detalleAccionRequerida": "Acci�n requerida 5",
+      "descripcionOperador": "Descripcion de la llamada 5",
+      "detalleAccionRequerida": "Accion requerida 5",
       "duracion": 200,
       "encuestaEnviada": true,
       "observacionAuditor": "Observaciones adicionales del auditor 2",
@@ -128,8 +128,8 @@
       "respuestasDeEncuestas": []
     },
     {
-      "descripcionOperador": "Descripci�n de la llamada 6",
-      "detalleAccionRequerida": "Acci�n requerida 6",
+      "descripcionOperador": "Descripcion de la llamada 6",
+      "detalleAccionRequerida": "Accion requerida 6",
       "duracion": 300,
       "encuestaEnviada": true,
       "observacionAuditor": "Observaciones del auditor 3",
