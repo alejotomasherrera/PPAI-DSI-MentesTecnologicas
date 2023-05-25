@@ -10,6 +10,8 @@ using System.Reflection.Metadata;
 using System.Xml.Linq;
 using System.IO;
 using Newtonsoft.Json;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 
 namespace PPAI_DSI
@@ -34,56 +36,26 @@ namespace PPAI_DSI
         List<string> listaPreguntas;
         List<string> listaRespuestas;
 
+        
         //metodo constructor con inicializacion de todos los atributos pasados por parametro y sino pasan parametros que los inicialize vacios segun su tipo de dato
         public controladorConsultasEncuestas(VentanaConsultarLlamadas consultarLlamadas)
         {
-
-            //guarda en los atributos llamadas y encuestas los datos de la base de datos del json BD.json
-            string json = File.ReadAllText("../../../BD.json");
-            Root root = JsonConvert.DeserializeObject<Root>(json);
-            respuestasPosibles = root.RespuestasPosibles;
-            preguntas = root.Preguntas;
-            llamadas = root.Llamadas;
-            encuestas = root.Encuestas;
-            int contador = 0;
-            for (var i = 0;i < encuestas.Count;i++)
-            {
-                encuestas[i]._preguntas = new List<Pregunta> { preguntas[contador], preguntas[contador+1] };
-                contador += 2;
-            }
+            Mockup datos = new Mockup();
+            llamadas = datos._llamadas;
+            encuestas = datos._encuestas;
+            preguntas = datos._preguntas;
+            clientes = datos._clientes;
+            estados = datos._estados;
+            cambiosEstado = datos._cambiosDeEstados;
+            respuestasDeClientes = datos._respuestaDeClientes;
+            respuestasPosibles = datos._respuestasPosibles;
 
 
 
-
-            //MessageBox.Show(encuestas[0]._preguntas[0]);
-            foreach (var encuesta in encuestas)
-            {
-                foreach (var pregunta in encuesta._preguntas)
-                {
-                    string pregTemp = pregunta._pregunta.ToString();
-                    MessageBox.Show(pregTemp);
-                    preguntas.Add(pregunta);
-                }
-            }
-            MessageBox.Show(preguntas.Count.ToString());
-            foreach (var pregunta in preguntas)
-            {
-                foreach (var respuesta in pregunta._respuestas)
-                {
-                    respuestasPosibles.Add(respuesta);
-                }
-            }
-            
             this.pantalla = consultarLlamadas;
 
         }
-        public class Root
-        {
-            public List<Llamada> Llamadas { get; set; }
-            public List<Encuesta> Encuestas { get; set; }
-            public List<Pregunta> Preguntas { get; set; }
-            public List<RespuestaPosible> RespuestasPosibles { get; set; }
-        }
+
         //metodos get y set
         public List<Estado> _estados
         {
@@ -169,12 +141,21 @@ namespace PPAI_DSI
                     llamadasEncontradas.Add(llamada);
                 }
             }
-            pantalla.pedirSeleccionLlamada(llamadasEncontradas);
+            List<string> dnis = new List<string>();
+            List<string> nombres = new List<string>();
+            List<string> duraciones = new List<string>();
+            foreach (var llamada in llamadasEncontradas)
+            {
+                dnis.Add(llamada.obtenerDniClinete());
+                nombres.Add(llamada.obtenerNombreClinete());
+                duraciones.Add(llamada._duracion.ToString());
+            }
+            MessageBox.Show("Una Llamada: " + llamadas[0]._respuestasDeEncuestas[0]._respuestaSeleccionada._descripcion);
+            pantalla.pedirSeleccionLlamada(dnis,nombres,duraciones);
         }
 
         public void llamadaSeleccionada(int indexLlamada)
         {
-
             mostrarLlamada(llamadasEncontradas[indexLlamada]);
         }
         
@@ -182,11 +163,11 @@ namespace PPAI_DSI
         {
             this.llamadaElegida = llamadaSeleccionada;
             // obtener todos los atributos del cliente de la llamada seleccionada
-            string nombreCliente = llamadaElegida._cliente._nombreCompletoCliente;
-            string dniCliente = llamadaElegida._cliente._dniCliente.ToString();
-            string celularCliente = llamadaElegida._cliente._numeroCelularCliente;
+            string nombreCliente = llamadaElegida.obtenerNombreClinete();
+            string dniCliente = llamadaElegida.obtenerDniClinete().ToString();
+            string celularCliente = llamadaElegida.obtenerNumeroCelular();
             string duracionLlamada = llamadaElegida._duracion.ToString();
-            string estadoActual = llamadaElegida.getEstadoActual()._nombre;
+            string estadoActual = llamadaElegida.getEstadoActualString();
 
             List<Pregunta> preguntasDeLaLlamada = new List<Pregunta>();
 
@@ -238,8 +219,8 @@ namespace PPAI_DSI
             // Datos de ejemplo para escribir en el archivo CSV
             List<string[]> datos = new List<string[]>
             {
-                new string[] {  llamadaElegida._cliente._nombreCompletoCliente,
-                                llamadaElegida.getEstadoActual()._nombre,
+                new string[] {  llamadaElegida.obtenerNombreClinete(),
+                                llamadaElegida.getEstadoActualString(),
                                 llamadaElegida._duracion.ToString()}
             };
             for (int i=0; i<listaPreguntas.Count;i++)

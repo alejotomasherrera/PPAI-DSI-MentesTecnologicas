@@ -57,27 +57,26 @@ namespace PPAI_DSI
         }
 
         //metodo "pedirSeleccionLlamada(Llamada llamadas)" que actualize el dataGrindLlamadas_CellContentClick con los datos de la llamadas pasada por parametro
-        public void pedirSeleccionLlamada(List<Llamada> llamadas)
+        public void pedirSeleccionLlamada(List<string> dnis, List<string> nombres, List<string> duraciones)
         {
-            llamadasFiltradas = llamadas;
+
             dataGrindLlamadas.Rows.Clear();
-            foreach (var llamada in llamadasFiltradas)
+            for (int i = 0;i < dnis.Count;i++)
             {
                 DataGridViewRow fila = new DataGridViewRow();
 
                 // Agrega las celdas a la fila con los valores correspondientes de la llamada
                 DataGridViewCell celda1 = new DataGridViewTextBoxCell();
-                celda1.Value = llamada.cliente._dniCliente.ToString(); // Asigna el valor de la primera propiedad de la llamada
+                celda1.Value = dnis[i]; // Asigna el valor de la primera propiedad de la llamada
                 fila.Cells.Add(celda1);
 
                 DataGridViewCell celda2 = new DataGridViewTextBoxCell();
-                celda2.Value = llamada._cliente._nombreCompletoCliente; // Asigna el valor de la segunda propiedad de la llamada
+                celda2.Value = nombres[i]; // Asigna el valor de la segunda propiedad de la llamada
                 fila.Cells.Add(celda2);
 
                 DataGridViewCell celda3 = new DataGridViewTextBoxCell();
-                celda3.Value = llamada._duracion; // Asigna el valor de la segunda propiedad de la llamada
+                celda3.Value = duraciones[i]; // Asigna el valor de la segunda propiedad de la llamada
                 fila.Cells.Add(celda3);
-
                 // Agrega la fila al DataGridView
                 dataGrindLlamadas.Rows.Add(fila);
             }

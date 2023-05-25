@@ -1,0 +1,338 @@
+{
+  "RespuestasPosibles": [
+    {
+      "valor": 1,
+      "descripcion": "Satisfecho"
+    },
+    {
+      "valor": 3,
+      "descripcion": "La atencion al publico"
+    },
+    {
+      "valor": 5,
+      "descripcion": "Si"
+    },
+    {
+      "valor": 7,
+      "descripcion": "No hay Motivo"
+    },
+    {
+      "valor": 9,
+      "descripcion": "Calidad"
+    },
+
+    {
+      "valor": 11,
+      "descripcion": "Ninguna en particular"
+    },
+    {
+      "valor": 2,
+      "descripcion": "Insatisfecho"
+    },
+    {
+      "valor": 4,
+      "descripcion": "El servicio postVenta"
+    },
+    {
+      "valor": 6,
+      "descripcion": "No"
+    },
+    {
+      "valor": 8,
+      "descripcion": "Porque es lo que corresponde"
+    },
+    {
+      "valor": 10,
+      "descripcion": "Precio"
+    },
+    {
+      "valor": 12,
+      "descripcion": "otra."
+    }
+  ],
+  "Preguntas": [
+    {
+      "pregunta": "Cual es tu nivel de satisfaccion con nuestro producto/servicio?",
+      "respuestas": []
+    },
+    {
+      "pregunta": "Que aspectos espec�ficos te gustar�a mejorar del producto/servicio?",
+      "respuestas": []
+    },
+    {
+      "pregunta": "Recomendarias nuestro producto/servicio a otras personas?",
+      "respuestas": []
+    },
+    {
+      "pregunta": "Cual es el motivo principal por el que no recomendar�as nuestro producto/servicio?",
+      "respuestas": []
+    },
+    {
+      "pregunta": "Cual es la caracteristica que mas valoras de nuestro producto/servicio?",
+      "respuestas": []
+    },
+    {
+      "pregunta": "Que sugerencias tienes para mejorar la caracteristica que has mencionado en la pregunta anterior?",
+      "respuestas": []
+    }
+  ],
+  "Llamadas": [
+    {
+      "descripcionOperador": "Descripci�n de la llamada 1",
+      "detalleAccionRequerida": "Acci�n requerida 1",
+      "duracion": 120,
+      "encuestaEnviada": true,
+      "observacionAuditor": "Observaciones del auditor",
+      "cambiosDeEstados": [],
+      "cliente": null,
+      "respuestasDeEncuestas": []
+    },
+    {
+      "descripcionOperador": "Descripci�n de la llamada 2",
+      "detalleAccionRequerida": "Acci�n requerida 2",
+      "duracion": 180,
+      "encuestaEnviada": true,
+      "observacionAuditor": "Otra observaci�n del auditor",
+      "cambiosDeEstados": [],
+      "cliente": null,
+      "respuestasDeEncuestas": []
+    },
+    {
+      "descripcionOperador": "Descripci�n de la llamada 3",
+      "detalleAccionRequerida": "Acci�n requerida 3",
+      "duracion": 180,
+      "encuestaEnviada": true,
+      "observacionAuditor": "Observaciones adicionales del auditor",
+      "cambiosDeEstados": [],
+      "cliente": null,
+      "respuestasDeEncuestas": []
+    },
+    {
+      "descripcionOperador": "Descripci�n de la llamada 4",
+      "detalleAccionRequerida": "Acci�n requerida 4",
+      "duracion": 150,
+      "encuestaEnviada": true,
+      "observacionAuditor": "Observaciones del auditor 2",
+      "cambiosDeEstados": [],
+      "cliente": null,
+      "respuestasDeEncuestas": []
+    },
+    {
+      "descripcionOperador": "Descripci�n de la llamada 5",
+      "detalleAccionRequerida": "Acci�n requerida 5",
+      "duracion": 200,
+      "encuestaEnviada": true,
+      "observacionAuditor": "Observaciones adicionales del auditor 2",
+      "cambiosDeEstados": [],
+      "cliente": null,
+      "respuestasDeEncuestas": []
+    },
+    {
+      "descripcionOperador": "Descripci�n de la llamada 6",
+      "detalleAccionRequerida": "Acci�n requerida 6",
+      "duracion": 300,
+      "encuestaEnviada": true,
+      "observacionAuditor": "Observaciones del auditor 3",
+      "cambiosDeEstados": [],
+      "cliente": null,
+      "respuestasDeEncuestas": []
+    }
+
+  ],
+  "Estados": [
+    { "nombre": "Iniciada" },
+    { "nombre": "En Curso" },
+    { "nombre": "Finalizada" }
+  ],
+  "Clientes": [
+    {
+      "dni": 43434545,
+      "nombreCompleto": "Juan Perez",
+      "numCelular": "351-2344432"
+    },
+    {
+      "dni": 12345678,
+      "nombreCompleto": "Maria Gonzalez",
+      "numCelular": "123-4567890"
+    },
+    {
+      "dni": 98765432,
+      "nombreCompleto": "Pedro Lopez",
+      "numCelular": "987-6543210"
+    },
+    {
+      "dni": 55555555,
+      "nombreCompleto": "Ana Martinez",
+      "numCelular": "555-5555555"
+    },
+    {
+      "dni": 99999999,
+      "nombreCompleto": "Carlos Rodriguez",
+      "numCelular": "999-9999999"
+    },
+    {
+      "dni": 11111111,
+      "nombreCompleto": "Laura Sanchez",
+      "numCelular": "111-1111111"
+    }
+  ],
+  "RespuestasDeClientes": [
+    {
+      "fechaEncuesta": "2022-10-10 12:35:32",
+      "respuestaSeleccionada": null
+    },
+    {
+      "fechaEncuesta": "2022-10-10 12:35:32",
+      "respuestaSeleccionada": null
+    },
+    {
+      "fechaEncuesta": "2022-11-15 09:20:00",
+      "respuestaSeleccionada": null
+    },
+    {
+      "fechaEncuesta": "2022-12-20 17:45:12",
+      "respuestaSeleccionada": null
+    },
+    {
+      "fechaEncuesta": "2023-01-25 14:10:30",
+      "respuestaSeleccionada": null
+    },
+    {
+      "fechaEncuesta": "2023-02-28 11:55:45",
+      "respuestaSeleccionada": null
+    },
+    {
+      "fechaEncuesta": "2023-03-10 08:45:00",
+      "respuestaSeleccionada": null
+    },
+    {
+      "fechaEncuesta": "2023-04-15 16:30:20",
+      "respuestaSeleccionada": null
+    },
+    {
+      "fechaEncuesta": "2023-05-20 10:15:40",
+      "respuestaSeleccionada": null
+    },
+    {
+      "fechaEncuesta": "2023-06-25 19:55:55",
+      "respuestaSeleccionada": null
+    },
+    {
+      "fechaEncuesta": "2023-07-30 13:40:10",
+      "respuestaSeleccionada": null
+    },
+    {
+      "fechaEncuesta": "2023-08-05 08:25:30",
+      "respuestaSeleccionada": null
+    }
+  ],
+  "CambiosDeEstados": [
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-14 12:34:56",
+      "fechaHoraFin": "2023-05-14 13:34:56"
+    },
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-14 13:34:56",
+      "fechaHoraFin": "2023-05-14 14:34:56"
+    },
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-14 14:34:56",
+      "fechaHoraFin": null
+    },
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-21 10:12:34",
+      "fechaHoraFin": "2023-05-21 11:30:45"
+    },
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-21 11:30:45",
+      "fechaHoraFin": "2023-05-21 12:45:00"
+    },
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-21 12:45:00",
+      "fechaHoraFin": null
+    },
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-21 10:12:34",
+      "fechaHoraFin": "2023-05-21 11:30:45"
+    },
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-21 11:30:45",
+      "fechaHoraFin": "2023-05-21 12:45:00"
+    },
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-21 12:45:00",
+      "fechaHoraFin": null
+    },
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-14 12:34:56",
+      "fechaHoraFin": "2023-05-14 13:34:56"
+    },
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-14 13:34:56",
+      "fechaHoraFin": "2023-05-14 14:34:56"
+    },
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-14 14:34:56",
+      "fechaHoraFin": null
+    },
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-14 12:34:56",
+      "fechaHoraFin": "2023-05-14 13:34:56"
+    },
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-14 13:34:56",
+      "fechaHoraFin": "2023-05-14 14:34:56"
+    },
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-14 14:34:56",
+      "fechaHoraFin": null
+    },
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-15 09:00:00",
+      "fechaHoraFin": "2023-05-15 10:00:00"
+    },
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-15 10:00:00",
+      "fechaHoraFin": "2023-05-15 11:00:00"
+    },
+    {
+      "estado": null,
+      "fechaHoraInicio": "2023-05-15 11:00:00",
+      "fechaHoraFin": null
+    }
+  ],
+  "Encuestas": [
+    {
+      "descripcion": "Encuesta 1",
+      "fechaFinVigencia": "2023-05-22 14:34:56",
+      "preguntas": []
+    },
+    {
+      "descripcion": "Encuesta 2",
+      "fechaFinVigencia": "2023-05-22 14:34:56",
+      "preguntas": []
+    },
+    {
+      "descripcion": "Encuesta 3",
+      "fechaFinVigencia": "2023-05-22 14:34:56",
+      "preguntas": []
+    }
+  ]
+}

@@ -14,9 +14,9 @@ namespace PPAI_DSI.Entidades
         public int duracion;
         public bool encuestaEnviada;
         public string observacionAuditor;
-        public List<CambioEstado> cambiosDeEstados;
-        public Cliente cliente;
-        public List<RespuestaDeCliente> respuestasDeEncuestas;
+        public List<CambioEstado>? cambiosDeEstados;
+        public Cliente? cliente;
+        public List<RespuestaDeCliente>? respuestasDeEncuestas;
 
         
         public Llamada(string descripcionOperador, string detalleAccionRequerida, int duracion, bool encuestaEnviada, string observacionAuditor, List<CambioEstado> cambiosDeEstados, Cliente cliente, List<RespuestaDeCliente> respuestasDeEncuestas)
@@ -61,8 +61,13 @@ namespace PPAI_DSI.Entidades
 
         public String getNombreCliente()
         {
-            return cliente._nombreCompletoCliente;
+            return cliente._nombreCompleto;
         }
+        public string getEstadoActualString()
+        {
+            return getEstadoActual()._nombre;
+        }
+
 
         public Estado getEstadoActual()
         {
@@ -74,6 +79,19 @@ namespace PPAI_DSI.Entidades
                 }
             }
             return null;
+        }
+
+        public string obtenerDniClinete()
+        {
+            return cliente._dniCliente.ToString();
+        }
+        public string obtenerNombreClinete()
+        {
+            return cliente._nombreCompleto;
+        }
+        public string obtenerNumeroCelular()
+        {
+            return cliente._numeroCelular;
         }
 
         // metodo obtenerPreguntas() que devuelve un arreglo del tipo lista de preguntas

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaConsultarLlamadas));
             label1 = new Label();
-            label2 = new Label();
+            lblfechaDesde = new Label();
             label3 = new Label();
             btnConsultarLlamadas = new Button();
             fechaDesde = new DateTimePicker();
@@ -81,15 +81,15 @@
             label1.Text = "Consulta encuesta de Llamada";
             label1.Click += label1_Click;
             // 
-            // label2
+            // lblfechaDesde
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(44, 62);
-            label2.Name = "label2";
-            label2.Size = new Size(75, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Fecha desde:";
-            label2.Click += label2_Click;
+            lblfechaDesde.AutoSize = true;
+            lblfechaDesde.Location = new Point(44, 62);
+            lblfechaDesde.Name = "lblfechaDesde";
+            lblfechaDesde.Size = new Size(75, 15);
+            lblfechaDesde.TabIndex = 3;
+            lblfechaDesde.Text = "Fecha desde:";
+            lblfechaDesde.Click += label2_Click;
             // 
             // label3
             // 
@@ -374,7 +374,7 @@
             boxConsultaLlamada.Controls.Add(fechaDesde);
             boxConsultaLlamada.Controls.Add(btnConsultarLlamadas);
             boxConsultaLlamada.Controls.Add(label3);
-            boxConsultaLlamada.Controls.Add(label2);
+            boxConsultaLlamada.Controls.Add(lblfechaDesde);
             boxConsultaLlamada.Controls.Add(label1);
             boxConsultaLlamada.Location = new Point(9, 8);
             boxConsultaLlamada.Name = "boxConsultaLlamada";
@@ -421,7 +421,7 @@
         #endregion
 
         private Label label1;
-        private Label label2;
+        private Label lblfechaDesde;
         private Label label3;
         private Button btnConsultarLlamadas;
         private DateTimePicker fechaDesde;

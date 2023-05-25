@@ -8,8 +8,8 @@ namespace PPAI_DSI.Entidades
 {
     public class RespuestaDeCliente
     {
-        public DateTime fechaEncuesta;
-        public RespuestaPosible respuestaSeleccionada;
+        private DateTime fechaEncuesta;
+        private RespuestaPosible respuestaSeleccionada;
 
         public RespuestaDeCliente(DateTime fechaEncuesta,RespuestaPosible respuestaSeleccionada)
         {
