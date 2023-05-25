@@ -24,12 +24,12 @@ namespace PPAI_DSI.Entidades
             get => this.dni;
             set => this.dni = value;
         }
-        public string _nombreCompletoCliente
+        public string _nombreCompleto
         {
             get => this.nombreCompleto;
             set => this.nombreCompleto = value;
         }
-        public string _numeroCelularCliente
+        public string _numeroCelular
         {
             get => this.numeroCelular;
             set => this.numeroCelular = value;

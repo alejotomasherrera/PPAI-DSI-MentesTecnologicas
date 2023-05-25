@@ -12,7 +12,6 @@ namespace PPAI_DSI.Entidades
         private Estado estado;
         private DateTime? fechaHoraFin;
 
-
         public CambioEstado(DateTime fechaHoraInicio, Estado estado,DateTime? fechaHoraFin)
         {
             this.fechaHoraInicio = fechaHoraInicio;

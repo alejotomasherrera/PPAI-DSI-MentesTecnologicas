@@ -11,6 +11,7 @@ namespace PPAI_DSI.Entidades
         public string pregunta;
         public List<RespuestaPosible> respuestas = new List<RespuestaPosible>();
 
+        //Constructor
         public Pregunta(string pregunta, List<RespuestaPosible> respuestas)
         {
             this.pregunta = pregunta;

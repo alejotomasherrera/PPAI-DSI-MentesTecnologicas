@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PPAI_DSI.Entidades
-{
+{  
+
     public class Encuesta
     {
         public string descripcion;

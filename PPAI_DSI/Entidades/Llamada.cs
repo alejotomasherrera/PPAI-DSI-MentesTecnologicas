@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace PPAI_DSI.Entidades
@@ -13,42 +14,23 @@ namespace PPAI_DSI.Entidades
         public int duracion;
         public bool encuestaEnviada;
         public string observacionAuditor;
-        public List<CambioEstado> cambiosDeEstados;
-        public Cliente cliente;
-        public List<RespuestaDeCliente> respuestasDeEncuestas;
+        public List<CambioEstado>? cambiosDeEstados;
+        public Cliente? cliente;
+        public List<RespuestaDeCliente>? respuestasDeEncuestas;
 
-            public Llamada(
-            string descripcionOperador,
-            string accionRequerida,
-            int duracion,
-            bool encuestaEnviada,
-            string observacionAuditor,
-            List<CambioEstado> cambiosDeEstados,
-            Cliente cliente,
-            List<RespuestaDeCliente> respuestasDeEncuestas)
-            {
-                this.descripcionOperador = descripcionOperador;
-                this.detalleAccionRequerida = accionRequerida;
-                this.duracion = duracion;
-                this.encuestaEnviada = encuestaEnviada;
-                this.observacionAuditor = observacionAuditor;
-                this.cambiosDeEstados = cambiosDeEstados;
-                this.cliente = cliente;
-                this.respuestasDeEncuestas = respuestasDeEncuestas;
-            }
-    
-    public Llamada(string descripcionOperador, string detalleAccionRequerida, int duracion, bool encuestaEnviada, string observacionAuditor, Cliente clienteLlamada)
+        
+        public Llamada(string descripcionOperador, string detalleAccionRequerida, int duracion, bool encuestaEnviada, string observacionAuditor, List<CambioEstado> cambiosDeEstados, Cliente cliente, List<RespuestaDeCliente> respuestasDeEncuestas)
         {
             this.descripcionOperador = descripcionOperador;
             this.detalleAccionRequerida = detalleAccionRequerida;
             this.duracion = duracion;
             this.encuestaEnviada = encuestaEnviada;
             this.observacionAuditor = observacionAuditor;
-            this.cliente = clienteLlamada;
-            this.cambiosDeEstados = new List<CambioEstado>();
-            this.respuestasDeEncuestas = new List<RespuestaDeCliente>();
-
+            this.cambiosDeEstados = cambiosDeEstados;
+            this.cliente = cliente;
+            this.respuestasDeEncuestas = respuestasDeEncuestas;
         }
+
         //metodos get y set de los atributos de la clase
         public string _descripcionOperador { get => descripcionOperador; set => descripcionOperador = value; }
         public string _detalleAccionRequerida { get => detalleAccionRequerida; set => detalleAccionRequerida = value; }
@@ -59,9 +41,7 @@ namespace PPAI_DSI.Entidades
         public Cliente _cliente { get => cliente; set => cliente = value; }
         public List<RespuestaDeCliente> _respuestasDeEncuestas { get => respuestasDeEncuestas; set => respuestasDeEncuestas = value; }
 
-
-
-
+        
         //metodo llamado tieneRespuestaDeCliente() que verifica si el atributo RespuestasDeEncuestas tiene algun elemento
         public bool tieneRespuestaDeCliente()
         {
@@ -81,8 +61,13 @@ namespace PPAI_DSI.Entidades
 
         public String getNombreCliente()
         {
-            return cliente._nombreCompletoCliente;
+            return cliente._nombreCompleto;
         }
+        public string getEstadoActualString()
+        {
+            return getEstadoActual()._nombre;
+        }
+
 
         public Estado getEstadoActual()
         {
@@ -96,6 +81,19 @@ namespace PPAI_DSI.Entidades
             return null;
         }
 
+        public string obtenerDniClinete()
+        {
+            return cliente._dniCliente.ToString();
+        }
+        public string obtenerNombreClinete()
+        {
+            return cliente._nombreCompleto;
+        }
+        public string obtenerNumeroCelular()
+        {
+            return cliente._numeroCelular;
+        }
+
         // metodo obtenerPreguntas() que devuelve un arreglo del tipo lista de preguntas
         public List<Pregunta> obtenerPreguntas(List<Pregunta> bdPreguntas)
         {
@@ -104,7 +102,7 @@ namespace PPAI_DSI.Entidades
             // recorre todas las respuestas de encuestas de la llamada
             foreach (RespuestaDeCliente respuestaDeCliente in respuestasDeEncuestas)
             {
-                // obtiene respuestaPosible de la respuesta de cliente
+                // obtiene respuestaPosible de la respuesta del cliente
                 RespuestaPosible respuestaElegida = respuestaDeCliente._respuestaSeleccionada;
 
                 // obtiene la pregunta de la respuesta posible
@@ -117,6 +115,7 @@ namespace PPAI_DSI.Entidades
                 }
 
             }
+            //MessageBox.Show(preguntas[0].ToString());
             // devuelve la lista de preguntas
             return preguntas;
         }
