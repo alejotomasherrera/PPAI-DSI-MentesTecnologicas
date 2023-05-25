@@ -26,10 +26,12 @@ namespace PPAI_DSI
         private List<CambioEstado> cambiosDeEstados;
         private List<RespuestaDeCliente> respuestaDeClientes;
 
-        //definir el contructor de la clase sin parametros
+        //metodo contructor
         public Mockup() {
+            //levantamos el archivo json
             string json = File.ReadAllText("../../../BDV2.json");
             Root? root = JsonConvert.DeserializeObject<Root>(json);
+            //asignamos los valores de las listas
             llamadas = root.Llamadas;
             clientes = root.Clientes;
             estados = root.Estados;
@@ -44,8 +46,6 @@ namespace PPAI_DSI
             int contador = 0;
             for (var i = 0; i < cambiosDeEstados.Count; i++)
             {
-                // cada 3 cambios de estados se repite el estado
-                //el ultimo debe ser siempre finalizada
                 cambiosDeEstados[i]._estado = estados[contador];
                 //MessageBox.Show(cambiosDeEstados[i]._estado._nombre);//se asignan correctamente
                 contador += 1;
@@ -128,7 +128,6 @@ namespace PPAI_DSI
                 MessageBox.Show(llamada + "\n" + nombre + "\n" + nroTelefono + "\n" + primerEstado + "\n" + segundoEstado + "\n" + ultimoEstado + "\n" + respuesta + "\n" + respuesta2);
             } 
 
-             */
             //Un Messege.show que me muestre cada encuesta
             for (var i = 0; i < 3; i++)
             {
@@ -145,6 +144,7 @@ namespace PPAI_DSI
                 String valor22 = "Valor 2: " + encuestas[i]._preguntas[1]._respuestas[1]._valor;
                 MessageBox.Show(encuesta + "\n" + pregunta1 + "\n" + respuesta11 + "\n" + valor11 + "\n" + respuesta12 + "\n" + valor12 + "\n" + pregunta2 + "\n" + respuesta21 + "\n" + valor21 + "\n" + respuesta22 + "\n" + valor22);
             }
+             */
 
             
 
