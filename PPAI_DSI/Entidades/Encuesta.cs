@@ -49,7 +49,12 @@ namespace PPAI_DSI.Entidades
         //metodo sonTusPreguntas() que recibe una lista de preguntas y devuelve un booleano
         public bool sonTusPreguntas(List<Pregunta> preguntas)
         {
-            bool sonTusPreguntas = this.preguntas.Contains(preguntas[0]);
+            String pregunta1 = "--> " + preguntas[0]._pregunta;
+            String preguntaEncuesta1 = "-->  " + this.preguntas[0]._pregunta;
+            String pregunta2 = "--> " + preguntas[1]._pregunta;
+            String preguntaEncuesta2 = "--> " + this.preguntas[1]._pregunta;
+            MessageBox.Show(pregunta1 + "\n" + preguntaEncuesta1 + "\n" + pregunta2 + "\n" + preguntaEncuesta2);
+            bool sonTusPreguntas = this.preguntas.Contains(preguntas[1]) || this.preguntas.Contains(preguntas[0]);
             return sonTusPreguntas;
         }
 

@@ -91,7 +91,9 @@ namespace PPAI_DSI.Entidades
         }
         public string obtenerNumeroCelular()
         {
+       
             return cliente._numeroCelular;
+
         }
 
         // metodo obtenerPreguntas() que devuelve un arreglo del tipo lista de preguntas

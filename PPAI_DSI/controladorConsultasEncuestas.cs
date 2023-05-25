@@ -168,6 +168,7 @@ namespace PPAI_DSI
             string celularCliente = llamadaElegida.obtenerNumeroCelular();
             string duracionLlamada = llamadaElegida._duracion.ToString();
             string estadoActual = llamadaElegida.getEstadoActualString();
+            
 
             List<Pregunta> preguntasDeLaLlamada = new List<Pregunta>();
 
@@ -181,12 +182,17 @@ namespace PPAI_DSI
             {
                 if (encuesta.sonTusPreguntas(preguntasDeLaLlamada))
                 {
+                    //Cuando encuentro la encuesta que tiene las preguntas de la llamada, la guardo en una variable local
                     encuestaEncontrada = encuesta;
+                    break;
                 }
             }
+
+            //Crear un metodo que contenga la logica de armar la encuesta
+
             listaPreguntas = new List<string>();
             listaRespuestas = new List<string>();
-
+            //armar encuestas [deberia estar en otra funcion llamada armarEncuesta]
             foreach (var pregunta in encuestaEncontrada._preguntas)
             {
                 listaPreguntas.Add(pregunta._pregunta);
@@ -204,6 +210,8 @@ namespace PPAI_DSI
             pantalla.pedirSeleccionGeneracionCsv(nombreCliente, dniCliente, celularCliente, estadoActual, duracionLlamada,listaPreguntas, listaRespuestas);
   
         }
+        
+        
 
         public void opcionCsvSeleccionada() {
             generarCsv();

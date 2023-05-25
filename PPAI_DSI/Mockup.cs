@@ -92,15 +92,13 @@ namespace PPAI_DSI
             }
             // 1 pregunta, 2 respuestas posibles
             // hacemos la relacion entre pregunta[6] y respuestaPosible[12]
-            contador = 0;
-            for (var i = 0; i < respuestasPosibles.Count; i++)
+            int costante = 6;
+            
+            for (var i = 0; i < 6; i++)
             {
-                preguntas[contador]._respuestas.Add(respuestasPosibles[i]);
-                contador += 1;
-                if (contador == 6)
-                {
-                    contador = 0;
-                }
+                preguntas[i]._respuestas.Add(respuestasPosibles[i]);
+                preguntas[i]._respuestas.Add(respuestasPosibles[i+costante]);
+                
             }
 
             // 1 encuesta, 2 preguntas
@@ -111,32 +109,41 @@ namespace PPAI_DSI
                 encuestas[i]._preguntas.Add(preguntas[contador]);
                 contador++;
                 encuestas[i]._preguntas.Add(preguntas[contador]);
+                contador++;
              
             }
+            /*
+             * Sacar el comentario para verificar si carga correctamente los datos
             // Un Messege.show que me muestre cada llamada 
             for (var i = 0; i < 6; i++)
             {
                 String llamada = "Llamada: "+i.ToString();
                 String nombre = "Nombre Cliente: "+llamadas[i]._cliente._nombreCompleto;
+                String nroTelefono = "Nro Telefono: " + llamadas[i]._cliente._numeroCelular;
                 String primerEstado = "Primer Estado: " + llamadas[i]._cambiosDeEstados[0]._estado._nombre;
                 String segundoEstado = "Segundo Estado: " + llamadas[i]._cambiosDeEstados[1]._estado._nombre;
                 String ultimoEstado = "Ultimo Estado:" + llamadas[i]._cambiosDeEstados[2]._estado._nombre;
                 String respuesta = "Valor: " + llamadas[i]._respuestasDeEncuestas[0]._respuestaSeleccionada._valor;
                 String respuesta2 = "Valor: " + llamadas[i]._respuestasDeEncuestas[1]._respuestaSeleccionada._valor;
-                MessageBox.Show(llamada + "\n" + nombre + "\n" + primerEstado + "\n" + segundoEstado + "\n" + ultimoEstado + "\n" + respuesta + "\n" + respuesta2);
+                MessageBox.Show(llamada + "\n" + nombre + "\n" + nroTelefono + "\n" + primerEstado + "\n" + segundoEstado + "\n" + ultimoEstado + "\n" + respuesta + "\n" + respuesta2);
             } 
 
+             */
             //Un Messege.show que me muestre cada encuesta
             for (var i = 0; i < 3; i++)
             {
                 String encuesta = "Encuesta: " + i.ToString();
                 String pregunta1 = "Pregunta 1: " + encuestas[i]._preguntas[0]._pregunta;
                 String respuesta11 = "Respuesta 1: " + encuestas[i]._preguntas[0]._respuestas[0]._descripcion;
+                String valor11 = "Valor 1: " + encuestas[i]._preguntas[0]._respuestas[0]._valor;
                 String respuesta12 = "Respuesta 2: " + encuestas[i]._preguntas[0]._respuestas[1]._descripcion;
+                String valor12 = "Valor 2: " + encuestas[i]._preguntas[0]._respuestas[1]._valor;
                 String pregunta2 = "Pregunta 2: " + encuestas[i]._preguntas[1]._pregunta;
                 String respuesta21 = "Respuesta 2: " + encuestas[i]._preguntas[1]._respuestas[0]._descripcion;
+                String valor21 = "Valor 2: " + encuestas[i]._preguntas[1]._respuestas[0]._valor;
                 String respuesta22 = "Respuesta 2: " + encuestas[i]._preguntas[1]._respuestas[1]._descripcion;
-                MessageBox.Show(encuesta + "\n" + pregunta1 + "\n" + respuesta11 + "\n" + respuesta12 + "\n" + pregunta2 + "\n" + respuesta21 + "\n" + respuesta22);
+                String valor22 = "Valor 2: " + encuestas[i]._preguntas[1]._respuestas[1]._valor;
+                MessageBox.Show(encuesta + "\n" + pregunta1 + "\n" + respuesta11 + "\n" + valor11 + "\n" + respuesta12 + "\n" + valor12 + "\n" + pregunta2 + "\n" + respuesta21 + "\n" + valor21 + "\n" + respuesta22 + "\n" + valor22);
             }
 
             

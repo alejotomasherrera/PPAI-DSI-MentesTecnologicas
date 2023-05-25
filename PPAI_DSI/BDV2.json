@@ -148,32 +148,32 @@
     {
       "dni": 43434545,
       "nombreCompleto": "Juan Perez",
-      "numCelular": "351-2344432"
+      "numeroCelular": "351-2344432"
     },
     {
       "dni": 12345678,
       "nombreCompleto": "Maria Gonzalez",
-      "numCelular": "123-4567890"
+      "numeroCelular": "123-4567890"
     },
     {
       "dni": 98765432,
       "nombreCompleto": "Pedro Lopez",
-      "numCelular": "987-6543210"
+      "numeroCelular": "987-6543210"
     },
     {
       "dni": 55555555,
       "nombreCompleto": "Ana Martinez",
-      "numCelular": "555-5555555"
+      "numeroCelular": "555-5555555"
     },
     {
       "dni": 99999999,
       "nombreCompleto": "Carlos Rodriguez",
-      "numCelular": "999-9999999"
+      "numeroCelular": "999-9999999"
     },
     {
       "dni": 11111111,
       "nombreCompleto": "Laura Sanchez",
-      "numCelular": "111-1111111"
+      "numeroCelular": "111-1111111"
     }
   ],
   "RespuestasDeClientes": [
