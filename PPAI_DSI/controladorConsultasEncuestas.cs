@@ -21,20 +21,20 @@ namespace PPAI_DSI
 
         private DateTime fechaDesdeLocal;
         private DateTime fechaHastaLocal;
-        private List<Llamada> llamadas = new List<Llamada>();
-        private List<RespuestaPosible> respuestasPosibles = new List<RespuestaPosible>();
-        private List<Encuesta> encuestas = new List<Encuesta>() ;
-        private List<Pregunta> preguntas = new List<Pregunta>();
-        private List<RespuestaDeCliente> respuestasDeClientes = new List<RespuestaDeCliente>();
-        private VentanaConsultarLlamadas pantalla;
-        private List<Cliente> clientes = new List<Cliente>();
-        private List<Estado> estados =  new List<Estado>();
-        private List<CambioEstado> cambiosEstado = new List<CambioEstado>();
-        private List<Llamada> llamadasEncontradas = new List<Llamada>();
-        private Llamada llamadaElegida;
-        private Encuesta encuestaEncontrada;
-        List<string> listaPreguntas;
-        List<string> listaRespuestas;
+        private List<Llamada>? llamadas = new List<Llamada>();
+        private List<RespuestaPosible>? respuestasPosibles = new List<RespuestaPosible>();
+        private List<Encuesta>? encuestas = new List<Encuesta>() ;
+        private List<Pregunta>? preguntas = new List<Pregunta>();
+        private List<RespuestaDeCliente>? respuestasDeClientes = new List<RespuestaDeCliente>();
+        private VentanaConsultarLlamadas? pantalla;
+        private List<Cliente>? clientes = new List<Cliente>();
+        private List<Estado>? estados =  new List<Estado>();
+        private List<CambioEstado>? cambiosEstado = new List<CambioEstado>();
+        private List<Llamada>? llamadasEncontradas = new List<Llamada>();
+        private Llamada? llamadaElegida;
+        private Encuesta? encuestaEncontrada;
+        List<string>? listaPreguntas;
+        List<string>? listaRespuestas;
 
         
         //metodo constructor con inicializacion de todos los atributos pasados por parametro y sino pasan parametros que los inicialize vacios segun su tipo de dato
@@ -43,15 +43,8 @@ namespace PPAI_DSI
             Mockup datos = new Mockup();
             llamadas = datos._llamadas;
             encuestas = datos._encuestas;
+            //Preguntas no deberia estar aqui en teoria
             preguntas = datos._preguntas;
-            clientes = datos._clientes;
-            estados = datos._estados;
-            cambiosEstado = datos._cambiosDeEstados;
-            respuestasDeClientes = datos._respuestaDeClientes;
-            respuestasPosibles = datos._respuestasPosibles;
-
-
-
             this.pantalla = consultarLlamadas;
 
         }
@@ -150,7 +143,7 @@ namespace PPAI_DSI
                 nombres.Add(llamada.obtenerNombreClinete());
                 duraciones.Add(llamada._duracion.ToString());
             }
-            //MessageBox.Show("Una Llamada: " + llamadas[0]._respuestasDeEncuestas[0]._respuestaSeleccionada._descripcion);
+            //pedir la seleccion una llamada
             pantalla.pedirSeleccionLlamada(dnis,nombres,duraciones);
         }
 
@@ -173,10 +166,7 @@ namespace PPAI_DSI
             List<Pregunta> preguntasDeLaLlamada = new List<Pregunta>();
 
             preguntasDeLaLlamada = llamadaElegida.obtenerPreguntas(preguntas);
-
-            //MessageBox.Show(preguntas.Count.ToString());
-            //MessageBox.Show(preguntasDeLaLlamada.Count.ToString());
-
+            //MessageBox.Show("preguntas de la llamada: " + preguntasDeLaLlamada.Count.ToString());
             //Encuesta encuestaEncontrada = new Encuesta();
             foreach (var encuesta in encuestas)
             {
@@ -188,12 +178,21 @@ namespace PPAI_DSI
                 }
             }
 
-            //Crear un metodo que contenga la logica de armar la encuesta
 
+            //Crear un metodo que contenga la logica de armar la encuesta
             listaPreguntas = new List<string>();
             listaRespuestas = new List<string>();
-            //armar encuestas [deberia estar en otra funcion llamada armarEncuesta]
-            foreach (var pregunta in encuestaEncontrada._preguntas)
+            //Metodo que arama la encuesta, y recibe como parametro la encuesta encontrada, y las listas de preguntas y respuestas
+            armarEncuesta(encuestaEncontrada, listaPreguntas, listaRespuestas);
+           
+            // enviar a la pantalla los datos del cliente y la llamada con el metodo pedirSeleccionGeneracionCsv()
+            pantalla.pedirSeleccionGeneracionCsv(nombreCliente, dniCliente, celularCliente, estadoActual, duracionLlamada,listaPreguntas, listaRespuestas);
+  
+        }
+        //crear un metodo que se llame armarEncuesta(listaPreguntas,listaRespuesta)
+        public void armarEncuesta(Encuesta encontrada,List<string> listaPreguntas , List<string> listaRespuesta)
+        {
+            foreach (var pregunta in encontrada._preguntas)
             {
                 listaPreguntas.Add(pregunta._pregunta);
             }
@@ -206,9 +205,6 @@ namespace PPAI_DSI
                 MessageBox.Show(encuestaEncontrada._descripcion);
 
             }
-            // enviar a la pantalla los datos del cliente y la llamada con el metodo pedirSeleccionGeneracionCsv()
-            pantalla.pedirSeleccionGeneracionCsv(nombreCliente, dniCliente, celularCliente, estadoActual, duracionLlamada,listaPreguntas, listaRespuestas);
-  
         }
         
         
