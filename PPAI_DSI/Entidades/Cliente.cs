@@ -17,7 +17,7 @@ namespace PPAI_DSI.Entidades
             this.dni = dni;
             this.nombreCompleto = nombreCompleto;
             this.numeroCelular = numeroCelular;
-
+            
         }
         public int _dniCliente
         {

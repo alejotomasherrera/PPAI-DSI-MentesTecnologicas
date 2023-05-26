@@ -9,11 +9,11 @@ namespace PPAI_DSI.Entidades
 
     public class Encuesta
     {
-        public string descripcion;
+        private string descripcion;
 
-        public DateTime? fechaFinVigencia;
+        private DateTime? fechaFinVigencia;
 
-        public List<Pregunta> preguntas;
+        private List<Pregunta> preguntas;
 
 
         public Encuesta()
@@ -49,7 +49,8 @@ namespace PPAI_DSI.Entidades
         //metodo sonTusPreguntas() que recibe una lista de preguntas y devuelve un booleano
         public bool sonTusPreguntas(List<Pregunta> preguntas)
         {
-            bool sonTusPreguntas = this.preguntas.Contains(preguntas[0]);
+            
+            bool sonTusPreguntas = this.preguntas.Contains(preguntas[1]) || this.preguntas.Contains(preguntas[0]);
             return sonTusPreguntas;
         }
 

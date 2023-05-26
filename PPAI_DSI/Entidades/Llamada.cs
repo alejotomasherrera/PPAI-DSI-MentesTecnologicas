@@ -9,14 +9,14 @@ namespace PPAI_DSI.Entidades
 {
     public class Llamada
     {
-        public string descripcionOperador;
-        public string detalleAccionRequerida;
-        public int duracion;
-        public bool encuestaEnviada;
-        public string observacionAuditor;
-        public List<CambioEstado>? cambiosDeEstados;
-        public Cliente? cliente;
-        public List<RespuestaDeCliente>? respuestasDeEncuestas;
+        private string descripcionOperador;
+        private string detalleAccionRequerida;
+        private int duracion;
+        private bool encuestaEnviada;
+        private string observacionAuditor;
+        private List<CambioEstado>? cambiosDeEstados;
+        private Cliente? cliente;
+        private List<RespuestaDeCliente>? respuestasDeEncuestas;
 
         
         public Llamada(string descripcionOperador, string detalleAccionRequerida, int duracion, bool encuestaEnviada, string observacionAuditor, List<CambioEstado> cambiosDeEstados, Cliente cliente, List<RespuestaDeCliente> respuestasDeEncuestas)
@@ -39,7 +39,7 @@ namespace PPAI_DSI.Entidades
         public string _observacionAuditor { get => observacionAuditor; set => observacionAuditor = value; }
         public List<CambioEstado> _cambiosDeEstados { get => cambiosDeEstados; set => cambiosDeEstados = value; }
         public Cliente _cliente { get => cliente; set => cliente = value; }
-        public List<RespuestaDeCliente> _respuestasDeEncuestas { get => respuestasDeEncuestas; set => respuestasDeEncuestas = value; }
+        public List<RespuestaDeCliente>? _respuestasDeEncuestas { get => respuestasDeEncuestas; set => respuestasDeEncuestas = value; }
 
         
         //metodo llamado tieneRespuestaDeCliente() que verifica si el atributo RespuestasDeEncuestas tiene algun elemento
@@ -71,6 +71,7 @@ namespace PPAI_DSI.Entidades
 
         public Estado getEstadoActual()
         {
+            //Si el estado tiene fechaHoraFin null, es el estado actual
             foreach (var i in cambiosDeEstados)
             {
                 if (i._fechaHoraFin == null)
@@ -91,31 +92,36 @@ namespace PPAI_DSI.Entidades
         }
         public string obtenerNumeroCelular()
         {
+       
             return cliente._numeroCelular;
+
         }
 
-        // metodo obtenerPreguntas() que devuelve un arreglo del tipo lista de preguntas
+        
         public List<Pregunta> obtenerPreguntas(List<Pregunta> bdPreguntas)
         {
             // crea una lista de preguntas
             List<Pregunta> preguntas = new List<Pregunta>();
+
             // recorre todas las respuestas de encuestas de la llamada
             foreach (RespuestaDeCliente respuestaDeCliente in respuestasDeEncuestas)
             {
                 // obtiene respuestaPosible de la respuesta del cliente
                 RespuestaPosible respuestaElegida = respuestaDeCliente._respuestaSeleccionada;
+                //MessageBox.Show(respuestaElegida._descripcion);
 
                 // obtiene la pregunta de la respuesta posible
                 foreach (var pregunta in bdPreguntas)
                 {
+                    //Dependencia entre respuesta posible y pregunta
                     if (pregunta._respuestas.Contains(respuestaElegida))
                     {
+                        
                         preguntas.Add(pregunta);
                     }
                 }
-
             }
-            //MessageBox.Show(preguntas[0].ToString());
+            
             // devuelve la lista de preguntas
             return preguntas;
         }
