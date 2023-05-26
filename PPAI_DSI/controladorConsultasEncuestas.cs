@@ -33,14 +33,15 @@ namespace PPAI_DSI
         private List<Llamada>? llamadasEncontradas = new List<Llamada>();
         private Llamada? llamadaElegida;
         private Encuesta? encuestaEncontrada;
-        List<string>? listaPreguntas;
-        List<string>? listaRespuestas;
+        private List<string>? listaPreguntas;
+        private List<string>? listaRespuestas;
+        private Mockup? datos;
 
         
         //metodo constructor con inicializacion de todos los atributos pasados por parametro y sino pasan parametros que los inicialize vacios segun su tipo de dato
         public controladorConsultasEncuestas(VentanaConsultarLlamadas consultarLlamadas)
         {
-            Mockup datos = new Mockup();
+            datos = new Mockup();
             llamadas = datos._llamadas;
             encuestas = datos._encuestas;
             //Preguntas no deberia estar aqui en teoria
@@ -165,7 +166,7 @@ namespace PPAI_DSI
 
             List<Pregunta> preguntasDeLaLlamada = new List<Pregunta>();
 
-            preguntasDeLaLlamada = llamadaElegida.obtenerPreguntas(preguntas);
+            preguntasDeLaLlamada = llamadaElegida.obtenerPreguntas(datos._preguntas);
             //MessageBox.Show("preguntas de la llamada: " + preguntasDeLaLlamada.Count.ToString());
             //Encuesta encuestaEncontrada = new Encuesta();
             foreach (var encuesta in encuestas)

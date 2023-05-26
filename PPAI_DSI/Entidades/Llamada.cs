@@ -9,14 +9,14 @@ namespace PPAI_DSI.Entidades
 {
     public class Llamada
     {
-        public string descripcionOperador;
-        public string detalleAccionRequerida;
-        public int duracion;
-        public bool encuestaEnviada;
-        public string observacionAuditor;
-        public List<CambioEstado>? cambiosDeEstados;
-        public Cliente? cliente;
-        public List<RespuestaDeCliente>? respuestasDeEncuestas;
+        private string descripcionOperador;
+        private string detalleAccionRequerida;
+        private int duracion;
+        private bool encuestaEnviada;
+        private string observacionAuditor;
+        private List<CambioEstado>? cambiosDeEstados;
+        private Cliente? cliente;
+        private List<RespuestaDeCliente>? respuestasDeEncuestas;
 
         
         public Llamada(string descripcionOperador, string detalleAccionRequerida, int duracion, bool encuestaEnviada, string observacionAuditor, List<CambioEstado> cambiosDeEstados, Cliente cliente, List<RespuestaDeCliente> respuestasDeEncuestas)

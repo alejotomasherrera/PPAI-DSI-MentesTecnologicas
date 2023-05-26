@@ -8,8 +8,8 @@ namespace PPAI_DSI.Entidades
 {
     public class Pregunta
     {
-        public string pregunta;
-        public List<RespuestaPosible> respuestas = new List<RespuestaPosible>();
+        private string pregunta;
+        private List<RespuestaPosible> respuestas = new List<RespuestaPosible>();
 
         //Constructor
         public Pregunta(string pregunta, List<RespuestaPosible> respuestas)

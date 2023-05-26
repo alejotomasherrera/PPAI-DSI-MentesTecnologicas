@@ -9,11 +9,11 @@ namespace PPAI_DSI.Entidades
 
     public class Encuesta
     {
-        public string descripcion;
+        private string descripcion;
 
-        public DateTime? fechaFinVigencia;
+        private DateTime? fechaFinVigencia;
 
-        public List<Pregunta> preguntas;
+        private List<Pregunta> preguntas;
 
 
         public Encuesta()
