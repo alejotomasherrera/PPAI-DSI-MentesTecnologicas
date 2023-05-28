@@ -61,7 +61,7 @@ namespace PPAI_DSI
         {
 
             dataGrindLlamadas.Rows.Clear();
-            for (int i = 0;i < dnis.Count;i++)
+            for (int i = 0; i < dnis.Count; i++)
             {
                 DataGridViewRow fila = new DataGridViewRow();
 
@@ -203,6 +203,13 @@ namespace PPAI_DSI
         private void btnGenerarCSV_Click(object sender, EventArgs e)
         {
             gestor.opcionCsvSeleccionada();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Cierra el programa
+            MessageBox.Show("La consulta ha sido cancelada por el operador");
+            this.Close();
         }
     }
 }

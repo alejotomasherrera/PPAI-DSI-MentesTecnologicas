@@ -63,6 +63,7 @@
             boxConsultaLlamada = new GroupBox();
             Pregunta = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGrindLlamadas).BeginInit();
             boxHideLlamadasEncontradas.SuspendLayout();
             boxDatosLlamada.SuspendLayout();
@@ -393,13 +394,24 @@
             dataGridViewTextBoxColumn1.HeaderText = "Pregunta";
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
+            // button1
+            // 
+            button1.Location = new Point(973, 921);
+            button1.Name = "button1";
+            button1.Size = new Size(135, 54);
+            button1.TabIndex = 47;
+            button1.Text = "Cancelar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // VentanaConsultarLlamadas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             AutoSize = true;
-            ClientSize = new Size(1085, 1031);
+            ClientSize = new Size(1136, 1031);
+            Controls.Add(button1);
             Controls.Add(boxDatosLlamada);
             Controls.Add(boxHideLlamadasEncontradas);
             Controls.Add(boxConsultaLlamada);
@@ -454,5 +466,6 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn Respuesta;
+        private Button button1;
     }
 }

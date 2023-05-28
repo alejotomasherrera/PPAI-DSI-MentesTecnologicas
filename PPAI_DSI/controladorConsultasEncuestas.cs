@@ -135,6 +135,11 @@ namespace PPAI_DSI
                     llamadasEncontradas.Add(llamada);
                 }
             }
+            if (llamadasEncontradas.Count == 0)
+            {
+                MessageBox.Show("No hay llamadas en el período con encuestas respondidas.");
+                pantalla.solicitarPeriodoLlamada();
+            }
             List<string> dnis = new List<string>();
             List<string> nombres = new List<string>();
             List<string> duraciones = new List<string>();
