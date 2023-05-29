@@ -212,8 +212,12 @@ namespace PPAI_DSI
 
             }
         }
-        
-        
+
+        public void opcionCancelar()
+        {
+            MessageBox.Show("La consulta ha sido cancelada por el operador");
+            pantalla.Close();
+        }
 
         public void opcionCsvSeleccionada() {
             generarCsv();

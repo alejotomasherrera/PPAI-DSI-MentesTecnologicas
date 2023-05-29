@@ -208,8 +208,7 @@ namespace PPAI_DSI
         private void button1_Click(object sender, EventArgs e)
         {
             // Cierra el programa
-            MessageBox.Show("La consulta ha sido cancelada por el operador");
-            this.Close();
+            gestor.opcionCancelar();
         }
     }
 }
