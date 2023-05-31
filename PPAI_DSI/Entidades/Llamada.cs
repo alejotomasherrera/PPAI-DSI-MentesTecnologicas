@@ -50,7 +50,8 @@ namespace PPAI_DSI.Entidades
         //metodo llamado esDePeriodo() que valida si la llamada esta dentro de un periodo dado por 2 parametros date, preguntandole a todos sus "CambioEstado" si el primero esta dentro del periodo y de ese obtiene la fecha y hora
         public bool esDePeriodo(DateTime fechaDesde, DateTime fechaHasta)
         {
-            // primero busca el primer cambio de estado de la llamada
+            // primero busca el primer cambio de estado de la llamada asumiendo que estan ordenados
+            // Si no estuviesen ordenados "cambioDeEstado.primerCambioDeEstado()"
             CambioEstado primerCambioEstado = cambiosDeEstados[0];
             // luego obtiene la fecha y hora de ese cambio de estado con el metodo get del cambio de estado
             DateTime fechaHoraPrimerCambioEstado = primerCambioEstado._fechaHoraInicio;

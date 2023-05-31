@@ -18,7 +18,6 @@ namespace PPAI_DSI
             gestor = new controladorConsultasEncuestas(this);
             llamadasFiltradas = new List<Llamada>();
 
-
         }
 
         //metodo llamado "solicitarPeriodoLlamada()" que muestra en la pantalla "ConsultarLlamadas" los campos para ingresar el periodo de la llamada
@@ -56,7 +55,6 @@ namespace PPAI_DSI
 
         }
 
-        //metodo "pedirSeleccionLlamada(Llamada llamadas)" que actualize el dataGrindLlamadas_CellContentClick con los datos de la llamadas pasada por parametro
         public void pedirSeleccionLlamada(List<string> dnis, List<string> nombres, List<string> duraciones)
         {
 
@@ -116,6 +114,7 @@ namespace PPAI_DSI
 
         private void btnSeleccionarLlamada_Click(object sender, EventArgs e)
         {
+
 
             if (dataGrindLlamadas.CurrentRow != null)
             {

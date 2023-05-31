@@ -101,6 +101,7 @@ namespace PPAI_DSI
             llamadasEncontradas = new List<Llamada>();
             foreach (Llamada llamada in llamadas)
             {
+
                 if (llamada.tieneRespuestaDeCliente() && llamada.esDePeriodo(fechaDesde,fechaHasta))
                 {
                     llamadasEncontradas.Add(llamada);
@@ -110,6 +111,7 @@ namespace PPAI_DSI
             {
                 MessageBox.Show("No hay llamadas en el período con encuestas respondidas.");
                 pantalla.solicitarPeriodoLlamada();
+                return;
             }
             List<string> dnis = new List<string>();
             List<string> nombres = new List<string>();
