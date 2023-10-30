@@ -37,6 +37,11 @@ namespace PPAI_DSI
         //metodo constructor con inicializacion de todos los atributos pasad1os por parametro y sino pasan parametros que los inicialize vacios segun su tipo de dato
         public controladorConsultasEncuestas(VentanaConsultarLlamadas consultarLlamadas)
         {
+
+
+
+
+
             datos = new Mockup();
             llamadas = datos._llamadas;
             encuestas = datos._encuestas;
