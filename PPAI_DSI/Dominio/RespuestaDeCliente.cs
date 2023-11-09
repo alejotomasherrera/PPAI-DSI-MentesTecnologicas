@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +9,14 @@ namespace PPAI_DSI.Entidades
 {
     public class RespuestaDeCliente
     {
+        [Key]
+        public  int idRespuestaDeCliente { get; set; }
         private DateTime fechaEncuesta;
         private RespuestaPosible respuestaSeleccionada;
+
+        public RespuestaDeCliente()
+        {
+        }
 
         public RespuestaDeCliente(DateTime fechaEncuesta,RespuestaPosible respuestaSeleccionada)
         {

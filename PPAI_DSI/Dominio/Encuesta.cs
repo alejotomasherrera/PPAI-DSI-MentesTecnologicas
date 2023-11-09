@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,11 +10,16 @@ namespace PPAI_DSI.Entidades
 
     public class Encuesta
     {
+        [Key]
+        public int idEncuesta { get; set; }
+
         private string descripcion;
 
         private DateTime? fechaFinVigencia;
 
         private List<Pregunta> preguntas;
+
+        //Constructor vacio
 
 
         public Encuesta()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,10 +9,16 @@ namespace PPAI_DSI.Entidades
 {
     public class CambioEstado
     {
+        [Key]
+        public int idCambioEstado { get; set;} 
+
         private DateTime fechaHoraInicio;
         private Estado estado;
         private DateTime? fechaHoraFin;
 
+        public CambioEstado()
+        {
+        }
         public CambioEstado(DateTime fechaHoraInicio, Estado estado,DateTime? fechaHoraFin)
         {
             this.fechaHoraInicio = fechaHoraInicio;

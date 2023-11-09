@@ -18,6 +18,9 @@ namespace PPAI_DSI.Entidades
         [Column("NombreEstado")]
         private string nombre;
 
+        public Estado()
+        {
+        }
         public Estado(string nombre)
         {
             this.nombre = nombre;

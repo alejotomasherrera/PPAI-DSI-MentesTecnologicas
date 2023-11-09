@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -9,6 +10,9 @@ namespace PPAI_DSI.Entidades
 {
     public class Llamada
     {
+        [Key]
+        public int idLlamada { get; set; }
+
         private string descripcionOperador;
         private string detalleAccionRequerida;
         private int duracion;
@@ -19,6 +23,10 @@ namespace PPAI_DSI.Entidades
         private List<RespuestaDeCliente>? respuestasDeEncuestas;
 
         
+        public Llamada()
+        {
+        }
+
         public Llamada(string descripcionOperador, string detalleAccionRequerida, int duracion, bool encuestaEnviada, string observacionAuditor, List<CambioEstado> cambiosDeEstados, Cliente cliente, List<RespuestaDeCliente> respuestasDeEncuestas)
         {
             this.descripcionOperador = descripcionOperador;

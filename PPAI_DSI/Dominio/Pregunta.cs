@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,10 +9,15 @@ namespace PPAI_DSI.Entidades
 {
     public class Pregunta
     {
+        [Key]
+        public int idPregunta { get; set; }
         private string pregunta;
         private List<RespuestaPosible> respuestas = new List<RespuestaPosible>();
 
         //Constructor
+        public Pregunta()
+        {
+        }
         public Pregunta(string pregunta, List<RespuestaPosible> respuestas)
         {
             this.pregunta = pregunta;

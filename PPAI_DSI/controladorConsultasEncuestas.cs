@@ -14,6 +14,7 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 
 
+
 namespace PPAI_DSI
 {
     internal class controladorConsultasEncuestas
@@ -31,22 +32,20 @@ namespace PPAI_DSI
         private Encuesta? encuestaEncontrada;
         private List<string>? listaPreguntas;
         private List<string>? listaRespuestas;
-        private Mockup? datos;
+        private readonly ApplicationDbContext contexto;
 
         
         //metodo constructor con inicializacion de todos los atributos pasad1os por parametro y sino pasan parametros que los inicialize vacios segun su tipo de dato
-        public controladorConsultasEncuestas(VentanaConsultarLlamadas consultarLlamadas)
+        public controladorConsultasEncuestas(VentanaConsultarLlamadas ventanaConsultarEncuestas)
         {
+            //levantar el contexto
+            contexto = new ApplicationDbContext();
 
+            llamadas = contexto.Llamadas.ToList();
 
+            encuestas = contexto.Encuestas.ToList();
 
-
-
-            datos = new Mockup();
-            llamadas = datos._llamadas;
-            encuestas = datos._encuestas;
-  
-            this.pantalla = consultarLlamadas;
+            this.pantalla = ventanaConsultarEncuestas;
 
         }
 
@@ -149,7 +148,7 @@ namespace PPAI_DSI
 
             List<Pregunta> preguntasDeLaLlamada = new List<Pregunta>();
 
-            preguntasDeLaLlamada = llamadaElegida.obtenerPreguntas(datos._preguntas);
+            preguntasDeLaLlamada = llamadaElegida.obtenerPreguntas(contexto.Preguntas.ToList());
             foreach (var encuesta in encuestas)
             {
                 if (encuesta.sonTusPreguntas(preguntasDeLaLlamada))
