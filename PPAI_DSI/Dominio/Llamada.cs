@@ -55,6 +55,10 @@ namespace PPAI_DSI.Entidades
         {
             return respuestasDeEncuestas.Count > 0;
         }
+        
+        
+        
+        
         //metodo llamado esDePeriodo() que valida si la llamada esta dentro de un periodo dado por 2 parametros date, preguntandole a todos sus "CambioEstado" si el primero esta dentro del periodo y de ese obtiene la fecha y hora
         public bool esDePeriodo(DateTime fechaDesde, DateTime fechaHasta)
         {
@@ -135,7 +139,37 @@ namespace PPAI_DSI.Entidades
             return preguntas;
         }
 
+
+
+        public void MostrarInformacionLlamadas()
+        {
+            Console.WriteLine($"ID: {idLlamada}");
+            Console.WriteLine($"Operador: {_descripcionOperador}");
+            Console.WriteLine($"Accion Requerida: {_detalleAccionRequerida}");
+            Console.WriteLine($"Duracion: {_duracion}");
+            Console.WriteLine($"Encuesta Enviada: {_encuestaEnviada}");
+            Console.WriteLine($"Observacion Auditor: {_observacionAuditor}");
+
+            Console.WriteLine("Cambios de Estados:");
+            foreach (var cambioEstado in _cambiosDeEstados)
+            {
+                Console.WriteLine($"   Estado: {cambioEstado._estado._nombre}");
+                Console.WriteLine($"   FechaHoraInicio: {cambioEstado._fechaHoraInicio}");
+                Console.WriteLine($"   FechaHoraFin: {cambioEstado._fechaHoraFin}");
+                Console.WriteLine("   ---");
+            }
+
+            Console.WriteLine($"Cliente: {_cliente._nombreCompleto}");
+            Console.WriteLine($"Respuestas de Encuestas:");
+            foreach (var respuesta in _respuestasDeEncuestas)
+            {
+                Console.WriteLine($"   Respuesta: {respuesta._respuestaSeleccionada._descripcion}");
+            }
+
+            Console.WriteLine("=============================================");
+        }
     }
+
 
 
 }

@@ -12,8 +12,7 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 using System.Text.Json;
-
-
+using Microsoft.EntityFrameworkCore;
 
 namespace PPAI_DSI
 {
@@ -34,14 +33,24 @@ namespace PPAI_DSI
         private List<string>? listaRespuestas;
         private readonly ApplicationDbContext contexto;
 
-        
+
         //metodo constructor con inicializacion de todos los atributos pasad1os por parametro y sino pasan parametros que los inicialize vacios segun su tipo de dato
         public controladorConsultasEncuestas(VentanaConsultarLlamadas ventanaConsultarEncuestas)
         {
             //levantar el contexto
             contexto = new ApplicationDbContext();
 
-            llamadas = contexto.Llamadas.ToList();
+            llamadas = contexto.Llamadas
+                .Include(l => l._respuestasDeEncuestas)
+                    .ThenInclude(r => r._respuestaSeleccionada) // Incluye la respuesta seleccionada dentro de RespuestasDeEncuestas
+                .Include(l => l._cambiosDeEstados)
+                    .ThenInclude(c => c._estado) // Incluye el estado dentro de CambiosDeEstados
+                    .Include(l => l._cliente) // Incluye el cliente dentro de Llamada
+                .ToList();
+            foreach (var llamada in llamadas)
+            {
+                llamada.MostrarInformacionLlamadas();
+            }
 
             encuestas = contexto.Encuestas.ToList();
 
@@ -148,7 +157,7 @@ namespace PPAI_DSI
 
             List<Pregunta> preguntasDeLaLlamada = new List<Pregunta>();
 
-            preguntasDeLaLlamada = llamadaElegida.obtenerPreguntas(contexto.Preguntas.ToList());
+            preguntasDeLaLlamada = llamadaElegida.obtenerPreguntas(contexto.Pregunta.ToList());
             foreach (var encuesta in encuestas)
             {
                 if (encuesta.sonTusPreguntas(preguntasDeLaLlamada))
