@@ -42,5 +42,19 @@ namespace PPAI_DSI.Entidades
             get => fechaHoraFin;
             set => fechaHoraFin = value;
         }
+
+        internal DateTime getFechaHoraInicial()
+        {
+            return fechaHoraInicio;
+        }
+
+        internal bool esEstadoInicial()
+        {
+            if (estado._nombre == "Iniciada")
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

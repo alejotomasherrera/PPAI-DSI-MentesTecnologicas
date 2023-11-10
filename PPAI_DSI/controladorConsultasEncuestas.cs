@@ -47,11 +47,6 @@ namespace PPAI_DSI
                     .ThenInclude(c => c._estado) // Incluye el estado dentro de CambiosDeEstados
                     .Include(l => l._cliente) // Incluye el cliente dentro de Llamada
                 .ToList();
-            foreach (var llamada in llamadas)
-            {
-                llamada.MostrarInformacionLlamadas();
-            }
-
             encuestas = contexto.Encuestas.ToList();
 
             this.pantalla = ventanaConsultarEncuestas;
@@ -111,15 +106,29 @@ namespace PPAI_DSI
 
         public void buscarLLamadasDelPeriodoRespondidas(DateTime fechaDesde, DateTime fechaHasta)
         {
+            //Aplicando patron
             llamadasEncontradas = new List<Llamada>();
-            foreach (Llamada llamada in llamadas)
+            Llamada actual;
+            IteradorLlamada iteradorLlamada = new IteradorLlamada(llamadas, fechaDesde, fechaHasta);
+            iteradorLlamada.primero();
+            while (!iteradorLlamada.haTerminado())
             {
-
-                if (llamada.tieneRespuestaDeCliente() && llamada.esDePeriodo(fechaDesde,fechaHasta))
-                {
-                    llamadasEncontradas.Add(llamada);
+                actual = iteradorLlamada.actual();
+                if (actual != null) {
+                    llamadasEncontradas.Add(actual);
                 }
+                iteradorLlamada.siguiente();
             }
+            //llamadasEncontradas = new List<Llamada>();
+            //foreach (Llamada llamada in llamadas)
+            //{
+
+            //    if (llamada.tieneRespuestaDeCliente() && llamada.esDePeriodo(fechaDesde,fechaHasta))
+            //    {
+            //        llamadasEncontradas.Add(llamada);
+            //    }
+            //}
+
             if (llamadasEncontradas.Count == 0)
             {
                 MessageBox.Show("No hay llamadas en el período con encuestas respondidas.");
@@ -240,6 +249,11 @@ namespace PPAI_DSI
             {
                 MessageBox.Show("Error al generar el archivo CSV: " + ex.Message);
             }
+        }
+
+        public IteradorLlamada crearIteradorLlamada(List<Llamada> llamadas,DateTime fechaDesde,DateTime fechaHasta)
+        {
+            return new IteradorLlamada(llamadas,fechaDesde,fechaHasta);
         }
     }
 }

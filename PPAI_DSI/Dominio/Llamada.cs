@@ -62,14 +62,38 @@ namespace PPAI_DSI.Entidades
         //metodo llamado esDePeriodo() que valida si la llamada esta dentro de un periodo dado por 2 parametros date, preguntandole a todos sus "CambioEstado" si el primero esta dentro del periodo y de ese obtiene la fecha y hora
         public bool esDePeriodo(DateTime fechaDesde, DateTime fechaHasta)
         {
+            CambioEstado actual;
+            IteradorCambioEstado iteradorCambioEstado = new IteradorCambioEstado(cambiosDeEstados, fechaDesde, fechaHasta);
+            iteradorCambioEstado.primero();
+            while (!iteradorCambioEstado.haTerminado()) {
+                actual = iteradorCambioEstado.actual();
+                if (actual != null) {
+                    DateTime fechaHoraPrimerCambioEstado = actual.getFechaHoraInicial();
+                    if (fechaHoraPrimerCambioEstado >= fechaDesde && fechaHoraPrimerCambioEstado <= fechaHasta)
+                    {
+                        return true;
+                    }
+                }
+                iteradorCambioEstado.siguiente();
+            }
+            return false;
+
+
+
+
+
+
+
+
+
             // primero busca el primer cambio de estado de la llamada asumiendo que estan ordenados
             // Si no estuviesen ordenados "cambioDeEstado.primerCambioDeEstado()"
-            CambioEstado primerCambioEstado = cambiosDeEstados[0];
+            //CambioEstado primerCambioEstado = cambiosDeEstados[0];
             // luego obtiene la fecha y hora de ese cambio de estado con el metodo get del cambio de estado
-            DateTime fechaHoraPrimerCambioEstado = primerCambioEstado._fechaHoraInicio;
+            //DateTime fechaHoraPrimerCambioEstado = primerCambioEstado._fechaHoraInicio;
             // luego compara si la fecha y hora del primer cambio de estado esta dentro del periodo dado por los parametros\
             // si es asi devuelve true, sino false
-            return fechaHoraPrimerCambioEstado >= fechaDesde && fechaHoraPrimerCambioEstado <= fechaHasta;
+            //return fechaHoraPrimerCambioEstado >= fechaDesde && fechaHoraPrimerCambioEstado <= fechaHasta;
         }
 
         public String getNombreCliente()
@@ -110,7 +134,10 @@ namespace PPAI_DSI.Entidades
 
         }
 
-        
+        public IteradorCambioEstado crearIterador(List<CambioEstado> cambiosDeEstado,DateTime fechaDesde,DateTime fechaHasta)
+        {
+            return new IteradorCambioEstado(cambiosDeEstados,fechaDesde,fechaHasta);
+        }
         public List<Pregunta> obtenerPreguntas(List<Pregunta> bdPreguntas)
         {
             // crea una lista de preguntas
@@ -163,7 +190,7 @@ namespace PPAI_DSI.Entidades
             Console.WriteLine($"Respuestas de Encuestas:");
             foreach (var respuesta in _respuestasDeEncuestas)
             {
-                Console.WriteLine($"   Respuesta: {respuesta._respuestaSeleccionada._descripcion}");
+                Console.WriteLine($"  Respuesta: {respuesta._respuestaSeleccionada._descripcion}");
             }
 
             Console.WriteLine("=============================================");
