@@ -121,6 +121,8 @@
             fechaDesde.Size = new Size(217, 23);
             fechaDesde.TabIndex = 8;
             fechaDesde.ValueChanged += dateTimePicker1_ValueChanged;
+            fechaDesde.MaxDate = DateTime.Now;
+            fechaDesde.Value = DateTime.Now.AddYears(-1);
             // 
             // fechaHasta
             // 
@@ -129,6 +131,8 @@
             fechaHasta.Size = new Size(217, 23);
             fechaHasta.TabIndex = 11;
             fechaHasta.ValueChanged += dateTimePicker2_ValueChanged;
+            fechaHasta.MaxDate = DateTime.Now;
+            
             // 
             // btnGenerarCSV
             // 
@@ -289,6 +293,8 @@
             dataGrindLlamadas.Size = new Size(749, 284);
             dataGrindLlamadas.TabIndex = 14;
             dataGrindLlamadas.CellContentClick += dataGrindLlamadas_CellContentClick;
+            dataGrindLlamadas.ReadOnly = true;
+            dataGrindLlamadas.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             // 
             // DNI
             // 
@@ -356,6 +362,12 @@
             dataGridEncuesta.Size = new Size(705, 218);
             dataGridEncuesta.TabIndex = 44;
             dataGridEncuesta.CellContentClick += dataGridView1_CellContentClick;
+            dataGridEncuesta.ReadOnly = true;
+            dataGridEncuesta.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridEncuesta.RowHeadersVisible = false;
+            dataGridEncuesta.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridEncuesta.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
             // 
             // dataGridViewTextBoxColumn2
             // 

@@ -31,5 +31,10 @@ namespace PPAI_DSI.Entidades
             get => this.nombre;
             set => this.nombre = value;
         }
+
+        internal string getNombre()
+        {
+            return this.nombre;
+        }
     }
 }

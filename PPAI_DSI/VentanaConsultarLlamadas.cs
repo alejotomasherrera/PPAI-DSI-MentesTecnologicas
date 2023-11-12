@@ -42,8 +42,7 @@ namespace PPAI_DSI
             //borrar el contenido de la dataGrindLlamadas
             dataGrindLlamadas.Rows.Clear();
             gestor.fechaInicioYFinSeleccionadas(fechaDesde.Value, fechaHasta.Value);
-
-
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -86,8 +85,11 @@ namespace PPAI_DSI
         {
             boxHideLlamadasEncontradas.Hide();
             boxDatosLlamada.Hide();
-            boxConsultaLlamada.Hide();
+            boxConsultaLlamada.Hide(); 
             gestor.consultarEncuesta();
+            //Arreglos de grinds
+            dataGrindLlamadas.ReadOnly = true;
+
         }
 
         private void txtCallDesde_TextChanged(object sender, EventArgs e)
@@ -115,8 +117,6 @@ namespace PPAI_DSI
 
         private void btnSeleccionarLlamada_Click(object sender, EventArgs e)
         {
-
-
             if (dataGrindLlamadas.CurrentRow != null)
             {
                 int fila = dataGrindLlamadas.CurrentRow.Index;
@@ -132,7 +132,7 @@ namespace PPAI_DSI
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-
+            fechaHasta.MinDate = fechaDesde.Value;
         }
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
@@ -178,6 +178,7 @@ namespace PPAI_DSI
                 // Agrega la fila al DataGridView
                 dataGridEncuesta.Rows.Add(fila);
             }
+
         }
 
         private void label5_Click(object sender, EventArgs e)

@@ -34,6 +34,11 @@ namespace PPAI_DSI.Entidades
             get => respuestaSeleccionada;
             set => respuestaSeleccionada = value;
         }
+
+        internal RespuestaPosible getRespuestaSeleccionada()
+        {
+            return respuestaSeleccionada;
+        }
     }
 
 }

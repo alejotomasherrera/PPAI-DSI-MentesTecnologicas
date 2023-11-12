@@ -102,7 +102,7 @@ namespace PPAI_DSI.Entidades
         }
         public string getEstadoActualString()
         {
-            return getEstadoActual()._nombre;
+            return getEstadoActual().getNombre();
         }
 
 
@@ -119,11 +119,11 @@ namespace PPAI_DSI.Entidades
             return null;
         }
 
-        public string obtenerDniClinete()
+        public string obtenerDniCliente()
         {
             return cliente._dniCliente.ToString();
         }
-        public string obtenerNombreClinete()
+        public string obtenerNombreCliente()
         {
             return cliente._nombreCompleto;
         }
@@ -147,18 +147,25 @@ namespace PPAI_DSI.Entidades
             foreach (RespuestaDeCliente respuestaDeCliente in respuestasDeEncuestas)
             {
                 // obtiene respuestaPosible de la respuesta del cliente
-                RespuestaPosible respuestaElegida = respuestaDeCliente._respuestaSeleccionada;
-                //MessageBox.Show(respuestaElegida._descripcion);
+                RespuestaPosible respuestaElegida = respuestaDeCliente.getRespuestaSeleccionada();
 
                 // obtiene la pregunta de la respuesta posible
                 foreach (var pregunta in bdPreguntas)
                 {
                     //Dependencia entre respuesta posible y pregunta
-                    if (pregunta._respuestas.Contains(respuestaElegida))
+                    if (pregunta.esTuRespuesta(respuestaElegida))
                     {
-                        
                         preguntas.Add(pregunta);
                     }
+
+
+
+
+
+                    //if (pregunta._respuestas.Contains(respuestaElegida))
+                    //{
+                    //    preguntas.Add(pregunta);
+                    //}
                 }
             }
             
@@ -194,6 +201,11 @@ namespace PPAI_DSI.Entidades
             }
 
             Console.WriteLine("=============================================");
+        }
+
+        internal string getDuracion()
+        {
+            return this._duracion.ToString();
         }
     }
 

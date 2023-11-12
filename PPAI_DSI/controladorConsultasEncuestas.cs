@@ -109,8 +109,12 @@ namespace PPAI_DSI
             //Aplicando patron
             llamadasEncontradas = new List<Llamada>();
             Llamada actual;
+
+
             IteradorLlamada iteradorLlamada = new IteradorLlamada(llamadas, fechaDesde, fechaHasta);
+
             iteradorLlamada.primero();
+
             while (!iteradorLlamada.haTerminado())
             {
                 actual = iteradorLlamada.actual();
@@ -140,8 +144,8 @@ namespace PPAI_DSI
             List<string> duraciones = new List<string>();
             foreach (var llamada in llamadasEncontradas)
             {
-                dnis.Add(llamada.obtenerDniClinete());
-                nombres.Add(llamada.obtenerNombreClinete());
+                dnis.Add(llamada.obtenerDniCliente());
+                nombres.Add(llamada.obtenerNombreCliente());
                 duraciones.Add(llamada._duracion.ToString());
             }
             //pedir la seleccion una llamada
@@ -157,10 +161,13 @@ namespace PPAI_DSI
         {
             this.llamadaElegida = llamadaSeleccionada;
             // obtener todos los atributos del cliente de la llamada seleccionada
-            string nombreCliente = llamadaElegida.obtenerNombreClinete();
-            string dniCliente = llamadaElegida.obtenerDniClinete().ToString();
+            
+
+
+            string nombreCliente = llamadaElegida.obtenerNombreCliente();
+            string dniCliente = llamadaElegida.obtenerDniCliente().ToString();
             string celularCliente = llamadaElegida.obtenerNumeroCelular();
-            string duracionLlamada = llamadaElegida._duracion.ToString();
+            string duracionLlamada = llamadaElegida.getDuracion();
             string estadoActual = llamadaElegida.getEstadoActualString();
             
 
@@ -186,7 +193,7 @@ namespace PPAI_DSI
         }
         public void armarEncuesta(Encuesta encontrada,List<string> listaPreguntas , List<string> listaRespuesta)
         {
-            foreach (var pregunta in encontrada._preguntas)
+            foreach (var pregunta in encontrada.getPreguntas())
             {
                 listaPreguntas.Add(pregunta._pregunta);
             }
@@ -217,7 +224,7 @@ namespace PPAI_DSI
             // Datos de ejemplo para escribir en el archivo CSV
             List<string[]> datos = new List<string[]>
             {
-                new string[] {  llamadaElegida.obtenerNombreClinete(),
+                new string[] {  llamadaElegida.obtenerNombreCliente(),
                                 llamadaElegida.getEstadoActualString(),
                                 llamadaElegida._duracion.ToString()}
             };

@@ -60,6 +60,10 @@ namespace PPAI_DSI.Entidades
             return sonTusPreguntas;
         }
 
+        internal List<Pregunta> getPreguntas()
+        {
+            return preguntas;
+        }
     } 
 
 }

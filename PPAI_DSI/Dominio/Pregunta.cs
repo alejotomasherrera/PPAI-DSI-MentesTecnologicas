@@ -34,5 +34,10 @@ namespace PPAI_DSI.Entidades
             get => respuestas;
             set => respuestas = value;
         }
+
+        internal bool esTuRespuesta(RespuestaPosible respuestaElegida)
+        {
+            return this._respuestas.Contains(respuestaElegida);
+        }
     }
 }
