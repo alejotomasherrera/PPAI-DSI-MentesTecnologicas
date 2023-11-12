@@ -42,7 +42,7 @@ namespace PPAI_DSI
             //borrar el contenido de la dataGrindLlamadas
             dataGrindLlamadas.Rows.Clear();
             gestor.fechaInicioYFinSeleccionadas(fechaDesde.Value, fechaHasta.Value);
-            
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -85,7 +85,7 @@ namespace PPAI_DSI
         {
             boxHideLlamadasEncontradas.Hide();
             boxDatosLlamada.Hide();
-            boxConsultaLlamada.Hide(); 
+            boxConsultaLlamada.Hide();
             gestor.consultarEncuesta();
             //Arreglos de grinds
             dataGrindLlamadas.ReadOnly = true;
@@ -210,6 +210,11 @@ namespace PPAI_DSI
         {
             // Cierra el programa
             gestor.opcionCancelar();
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
