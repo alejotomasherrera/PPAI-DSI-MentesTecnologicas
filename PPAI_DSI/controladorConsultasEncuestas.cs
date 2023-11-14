@@ -16,7 +16,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PPAI_DSI
 {
-    internal class controladorConsultasEncuestas
+    internal class controladorConsultasEncuestas : Agregado<Llamada>
     {
 
         private DateTime fechaDesdeLocal;
@@ -104,6 +104,11 @@ namespace PPAI_DSI
         }
 
 
+        public IIterador<Llamada> crearIterador(List<Llamada> llamadas, DateTime fechaDesde, DateTime fechaHasta)
+        {
+            return new IteradorLlamada(llamadas, fechaDesdeLocal, fechaHastaLocal);
+        }
+
         public void buscarLLamadasDelPeriodoRespondidas(DateTime fechaDesde, DateTime fechaHasta)
         {
             //Aplicando patron
@@ -111,7 +116,7 @@ namespace PPAI_DSI
             Llamada actual;
 
 
-            IteradorLlamada iteradorLlamada = new IteradorLlamada(llamadas, fechaDesde, fechaHasta);
+            IIterador<Llamada> iteradorLlamada = crearIterador(llamadas, fechaDesde, fechaHasta);
 
             iteradorLlamada.primero();
 

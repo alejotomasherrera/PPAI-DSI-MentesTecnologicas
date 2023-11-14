@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PPAI_DSI.Entidades
 {
-    public class Llamada
+    public class Llamada : Agregado<CambioEstado>
     {
         [Key]
         public int idLlamada { get; set; }
@@ -63,7 +63,8 @@ namespace PPAI_DSI.Entidades
         public bool esDePeriodo(DateTime fechaDesde, DateTime fechaHasta)
         {
             CambioEstado actual;
-            IteradorCambioEstado iteradorCambioEstado = new IteradorCambioEstado(cambiosDeEstados, fechaDesde, fechaHasta);
+            IIterador<CambioEstado> iteradorCambioEstado = crearIterador(cambiosDeEstados,fechaDesde,fechaHasta);
+            //IteradorCambioEstado iteradorCambioEstado = new IteradorCambioEstado(cambiosDeEstados, fechaDesde, fechaHasta);
             iteradorCambioEstado.primero();
             while (!iteradorCambioEstado.haTerminado()) {
                 actual = iteradorCambioEstado.actual();
@@ -134,10 +135,12 @@ namespace PPAI_DSI.Entidades
 
         }
 
-        public IteradorCambioEstado crearIterador(List<CambioEstado> cambiosDeEstado,DateTime fechaDesde,DateTime fechaHasta)
-        {
-            return new IteradorCambioEstado(cambiosDeEstados,fechaDesde,fechaHasta);
-        }
+        //public IteradorCambioEstado crearIterador(List<CambioEstado> cambiosDeEstado,DateTime fechaDesde,DateTime fechaHasta)
+        //{
+        //    return new IteradorCambioEstado(cambiosDeEstados,fechaDesde,fechaHasta);
+        //}
+
+
         public List<Pregunta> obtenerPreguntas(List<Pregunta> bdPreguntas)
         {
             // crea una lista de preguntas
@@ -206,6 +209,11 @@ namespace PPAI_DSI.Entidades
         internal string getDuracion()
         {
             return this._duracion.ToString();
+        }
+
+        IIterador<CambioEstado> crearIterador(List<CambioEstado> lista, DateTime fechaDesde, DateTime fechaHasta)
+        {
+            return new IteradorCambioEstado(lista, fechaDesde, fechaHasta);
         }
     }
 
