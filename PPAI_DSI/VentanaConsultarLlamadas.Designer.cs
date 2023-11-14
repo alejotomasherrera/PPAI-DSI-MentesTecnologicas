@@ -28,28 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaConsultarLlamadas));
-            label1 = new Label();
+            lblConsultaEncuestaLlamada = new Label();
             lblfechaDesde = new Label();
-            label3 = new Label();
+            lblFechaHasta = new Label();
             btnConsultarLlamadas = new Button();
             fechaDesde = new DateTimePicker();
             fechaHasta = new DateTimePicker();
             btnGenerarCSV = new Button();
-            label5 = new Label();
+            lblEncuestaRealizada = new Label();
             txtDuracionLlamada = new TextBox();
-            label6 = new Label();
+            lblDuracionLlamada = new Label();
             txtEstado = new TextBox();
-            label12 = new Label();
-            label11 = new Label();
-            label10 = new Label();
-            label7 = new Label();
-            label9 = new Label();
+            lblEstadoActual = new Label();
+            lblNumeroCelular = new Label();
+            lblNombreCompleto = new Label();
+            lblDni = new Label();
+            lblCliente = new Label();
             txtNroCelular = new TextBox();
             txtNombreCompleto = new TextBox();
             txtDni = new TextBox();
-            label15 = new Label();
-            label4 = new Label();
+            lblDatosDeLaLlamada = new Label();
+            lblLlamadasEncontradaDentroDelperiodo = new Label();
             btnSeleccionarLlamada = new Button();
             dataGrindLlamadas = new DataGridView();
             DNI = new DataGridViewTextBoxColumn();
@@ -63,7 +64,7 @@
             boxConsultaLlamada = new GroupBox();
             Pregunta = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            button1 = new Button();
+            btnCancelar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGrindLlamadas).BeginInit();
             boxHideLlamadasEncontradas.SuspendLayout();
             boxDatosLlamada.SuspendLayout();
@@ -71,16 +72,16 @@
             boxConsultaLlamada.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // lblConsultaEncuestaLlamada
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            label1.Location = new Point(3, 1);
-            label1.Name = "label1";
-            label1.Size = new Size(404, 37);
-            label1.TabIndex = 0;
-            label1.Text = "Consulta encuesta de Llamada";
-            label1.Click += label1_Click;
+            lblConsultaEncuestaLlamada.AutoSize = true;
+            lblConsultaEncuestaLlamada.Font = new Font("Segoe UI", 20F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            lblConsultaEncuestaLlamada.Location = new Point(3, 1);
+            lblConsultaEncuestaLlamada.Name = "lblConsultaEncuestaLlamada";
+            lblConsultaEncuestaLlamada.Size = new Size(404, 37);
+            lblConsultaEncuestaLlamada.TabIndex = 0;
+            lblConsultaEncuestaLlamada.Text = "Consulta encuesta de Llamada";
+            lblConsultaEncuestaLlamada.Click += label1_Click;
             // 
             // lblfechaDesde
             // 
@@ -92,16 +93,16 @@
             lblfechaDesde.Text = "Fecha desde:";
             lblfechaDesde.Click += label2_Click;
             // 
-            // label3
+            // lblFechaHasta
             // 
-            label3.AutoSize = true;
-            label3.ImageAlign = ContentAlignment.TopCenter;
-            label3.Location = new Point(400, 62);
-            label3.Name = "label3";
-            label3.Size = new Size(74, 15);
-            label3.TabIndex = 4;
-            label3.Text = "Fecha Hasta:";
-            label3.Click += label3_Click;
+            lblFechaHasta.AutoSize = true;
+            lblFechaHasta.ImageAlign = ContentAlignment.TopCenter;
+            lblFechaHasta.Location = new Point(400, 62);
+            lblFechaHasta.Name = "lblFechaHasta";
+            lblFechaHasta.Size = new Size(74, 15);
+            lblFechaHasta.TabIndex = 4;
+            lblFechaHasta.Text = "Fecha Hasta:";
+            lblFechaHasta.Click += label3_Click;
             // 
             // btnConsultarLlamadas
             // 
@@ -117,22 +118,21 @@
             // fechaDesde
             // 
             fechaDesde.Location = new Point(125, 62);
+            fechaDesde.MaxDate = new DateTime(2023, 11, 12, 19, 4, 29, 826);
             fechaDesde.Name = "fechaDesde";
             fechaDesde.Size = new Size(217, 23);
             fechaDesde.TabIndex = 8;
+            fechaDesde.Value = new DateTime(2022, 11, 12, 19, 4, 29, 827);
             fechaDesde.ValueChanged += dateTimePicker1_ValueChanged;
-            fechaDesde.MaxDate = DateTime.Now;
-            fechaDesde.Value = DateTime.Now.AddYears(-1);
             // 
             // fechaHasta
             // 
             fechaHasta.Location = new Point(480, 62);
+            fechaHasta.MaxDate = new DateTime(2023, 11, 12, 19, 4, 29, 843);
             fechaHasta.Name = "fechaHasta";
             fechaHasta.Size = new Size(217, 23);
             fechaHasta.TabIndex = 11;
             fechaHasta.ValueChanged += dateTimePicker2_ValueChanged;
-            fechaHasta.MaxDate = DateTime.Now;
-            
             // 
             // btnGenerarCSV
             // 
@@ -144,16 +144,16 @@
             btnGenerarCSV.UseVisualStyleBackColor = true;
             btnGenerarCSV.Click += btnGenerarCSV_Click;
             // 
-            // label5
+            // lblEncuestaRealizada
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            label5.Location = new Point(22, 252);
-            label5.Name = "label5";
-            label5.Size = new Size(156, 21);
-            label5.TabIndex = 42;
-            label5.Text = "Encuesta realizada:";
-            label5.Click += label5_Click;
+            lblEncuestaRealizada.AutoSize = true;
+            lblEncuestaRealizada.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            lblEncuestaRealizada.Location = new Point(22, 252);
+            lblEncuestaRealizada.Name = "lblEncuestaRealizada";
+            lblEncuestaRealizada.Size = new Size(156, 21);
+            lblEncuestaRealizada.TabIndex = 42;
+            lblEncuestaRealizada.Text = "Encuesta realizada:";
+            lblEncuestaRealizada.Click += label5_Click;
             // 
             // txtDuracionLlamada
             // 
@@ -163,15 +163,15 @@
             txtDuracionLlamada.Size = new Size(100, 23);
             txtDuracionLlamada.TabIndex = 41;
             // 
-            // label6
+            // lblDuracionLlamada
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            label6.Location = new Point(22, 182);
-            label6.Name = "label6";
-            label6.Size = new Size(194, 21);
-            label6.TabIndex = 40;
-            label6.Text = "Duracion de la Llamada:";
+            lblDuracionLlamada.AutoSize = true;
+            lblDuracionLlamada.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            lblDuracionLlamada.Location = new Point(22, 182);
+            lblDuracionLlamada.Name = "lblDuracionLlamada";
+            lblDuracionLlamada.Size = new Size(194, 21);
+            lblDuracionLlamada.TabIndex = 40;
+            lblDuracionLlamada.Text = "Duracion de la Llamada:";
             // 
             // txtEstado
             // 
@@ -181,52 +181,52 @@
             txtEstado.Size = new Size(187, 23);
             txtEstado.TabIndex = 39;
             // 
-            // label12
+            // lblEstadoActual
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            label12.Location = new Point(479, 49);
-            label12.Name = "label12";
-            label12.Size = new Size(118, 21);
-            label12.TabIndex = 38;
-            label12.Text = "Estado Actual:";
+            lblEstadoActual.AutoSize = true;
+            lblEstadoActual.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            lblEstadoActual.Location = new Point(479, 49);
+            lblEstadoActual.Name = "lblEstadoActual";
+            lblEstadoActual.Size = new Size(118, 21);
+            lblEstadoActual.TabIndex = 38;
+            lblEstadoActual.Text = "Estado Actual:";
             // 
-            // label11
+            // lblNumeroCelular
             // 
-            label11.AutoSize = true;
-            label11.Location = new Point(123, 110);
-            label11.Name = "label11";
-            label11.Size = new Size(94, 15);
-            label11.TabIndex = 37;
-            label11.Text = "Numero Celular:";
+            lblNumeroCelular.AutoSize = true;
+            lblNumeroCelular.Location = new Point(123, 110);
+            lblNumeroCelular.Name = "lblNumeroCelular";
+            lblNumeroCelular.Size = new Size(94, 15);
+            lblNumeroCelular.TabIndex = 37;
+            lblNumeroCelular.Text = "Numero Celular:";
             // 
-            // label10
+            // lblNombreCompleto
             // 
-            label10.AutoSize = true;
-            label10.Location = new Point(107, 81);
-            label10.Name = "label10";
-            label10.Size = new Size(110, 15);
-            label10.TabIndex = 36;
-            label10.Text = "Nombre Completo:";
+            lblNombreCompleto.AutoSize = true;
+            lblNombreCompleto.Location = new Point(107, 81);
+            lblNombreCompleto.Name = "lblNombreCompleto";
+            lblNombreCompleto.Size = new Size(110, 15);
+            lblNombreCompleto.TabIndex = 36;
+            lblNombreCompleto.Text = "Nombre Completo:";
             // 
-            // label7
+            // lblDni
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(187, 53);
-            label7.Name = "label7";
-            label7.Size = new Size(30, 15);
-            label7.TabIndex = 35;
-            label7.Text = "DNI:";
+            lblDni.AutoSize = true;
+            lblDni.Location = new Point(187, 53);
+            lblDni.Name = "lblDni";
+            lblDni.Size = new Size(30, 15);
+            lblDni.TabIndex = 35;
+            lblDni.Text = "DNI:";
             // 
-            // label9
+            // lblCliente
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            label9.Location = new Point(22, 47);
-            label9.Name = "label9";
-            label9.Size = new Size(68, 21);
-            label9.TabIndex = 34;
-            label9.Text = "Cliente:";
+            lblCliente.AutoSize = true;
+            lblCliente.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            lblCliente.Location = new Point(22, 47);
+            lblCliente.Name = "lblCliente";
+            lblCliente.Size = new Size(68, 21);
+            lblCliente.TabIndex = 34;
+            lblCliente.Text = "Cliente:";
             // 
             // txtNroCelular
             // 
@@ -252,25 +252,26 @@
             txtDni.Size = new Size(187, 23);
             txtDni.TabIndex = 31;
             // 
-            // label15
+            // lblDatosDeLaLlamada
             // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI", 15F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            label15.Location = new Point(6, 0);
-            label15.Name = "label15";
-            label15.Size = new Size(205, 28);
-            label15.TabIndex = 24;
-            label15.Text = "Datos de la llamada:";
+            lblDatosDeLaLlamada.AutoSize = true;
+            lblDatosDeLaLlamada.Font = new Font("Segoe UI", 15F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            lblDatosDeLaLlamada.Location = new Point(6, 0);
+            lblDatosDeLaLlamada.Name = "lblDatosDeLaLlamada";
+            lblDatosDeLaLlamada.Size = new Size(205, 28);
+            lblDatosDeLaLlamada.TabIndex = 24;
+            lblDatosDeLaLlamada.Text = "Datos de la llamada:";
+            lblDatosDeLaLlamada.Click += label15_Click;
             // 
-            // label4
+            // lblLlamadasEncontradaDentroDelperiodo
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 15F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            label4.Location = new Point(6, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(410, 28);
-            label4.TabIndex = 12;
-            label4.Text = "Llamadas encontradas dentro del periodo:";
+            lblLlamadasEncontradaDentroDelperiodo.AutoSize = true;
+            lblLlamadasEncontradaDentroDelperiodo.Font = new Font("Segoe UI", 15F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            lblLlamadasEncontradaDentroDelperiodo.Location = new Point(6, 0);
+            lblLlamadasEncontradaDentroDelperiodo.Name = "lblLlamadasEncontradaDentroDelperiodo";
+            lblLlamadasEncontradaDentroDelperiodo.Size = new Size(410, 28);
+            lblLlamadasEncontradaDentroDelperiodo.TabIndex = 12;
+            lblLlamadasEncontradaDentroDelperiodo.Text = "Llamadas encontradas dentro del periodo:";
             // 
             // btnSeleccionarLlamada
             // 
@@ -289,36 +290,38 @@
             dataGrindLlamadas.Columns.AddRange(new DataGridViewColumn[] { DNI, nombreCompleto, duracion });
             dataGrindLlamadas.Location = new Point(1, 44);
             dataGrindLlamadas.Name = "dataGrindLlamadas";
+            dataGrindLlamadas.ReadOnly = true;
             dataGrindLlamadas.RowTemplate.Height = 25;
             dataGrindLlamadas.Size = new Size(749, 284);
             dataGrindLlamadas.TabIndex = 14;
             dataGrindLlamadas.CellContentClick += dataGrindLlamadas_CellContentClick;
-            dataGrindLlamadas.ReadOnly = true;
-            dataGrindLlamadas.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             // 
             // DNI
             // 
             DNI.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             DNI.HeaderText = "DNI";
             DNI.Name = "DNI";
+            DNI.ReadOnly = true;
             // 
             // nombreCompleto
             // 
             nombreCompleto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             nombreCompleto.HeaderText = "Cliente";
             nombreCompleto.Name = "nombreCompleto";
+            nombreCompleto.ReadOnly = true;
             // 
             // duracion
             // 
             duracion.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             duracion.HeaderText = "Duracion";
             duracion.Name = "duracion";
+            duracion.ReadOnly = true;
             // 
             // boxHideLlamadasEncontradas
             // 
             boxHideLlamadasEncontradas.Controls.Add(dataGrindLlamadas);
             boxHideLlamadasEncontradas.Controls.Add(btnSeleccionarLlamada);
-            boxHideLlamadasEncontradas.Controls.Add(label4);
+            boxHideLlamadasEncontradas.Controls.Add(lblLlamadasEncontradaDentroDelperiodo);
             boxHideLlamadasEncontradas.Location = new Point(12, 126);
             boxHideLlamadasEncontradas.Name = "boxHideLlamadasEncontradas";
             boxHideLlamadasEncontradas.Size = new Size(928, 344);
@@ -331,19 +334,19 @@
             // 
             boxDatosLlamada.Controls.Add(dataGridEncuesta);
             boxDatosLlamada.Controls.Add(btnGenerarCSV);
-            boxDatosLlamada.Controls.Add(label5);
+            boxDatosLlamada.Controls.Add(lblEncuestaRealizada);
             boxDatosLlamada.Controls.Add(txtDuracionLlamada);
-            boxDatosLlamada.Controls.Add(label6);
+            boxDatosLlamada.Controls.Add(lblDuracionLlamada);
             boxDatosLlamada.Controls.Add(txtEstado);
-            boxDatosLlamada.Controls.Add(label12);
-            boxDatosLlamada.Controls.Add(label11);
-            boxDatosLlamada.Controls.Add(label10);
-            boxDatosLlamada.Controls.Add(label7);
-            boxDatosLlamada.Controls.Add(label9);
+            boxDatosLlamada.Controls.Add(lblEstadoActual);
+            boxDatosLlamada.Controls.Add(lblNumeroCelular);
+            boxDatosLlamada.Controls.Add(lblNombreCompleto);
+            boxDatosLlamada.Controls.Add(lblDni);
+            boxDatosLlamada.Controls.Add(lblCliente);
             boxDatosLlamada.Controls.Add(txtNroCelular);
             boxDatosLlamada.Controls.Add(txtNombreCompleto);
             boxDatosLlamada.Controls.Add(txtDni);
-            boxDatosLlamada.Controls.Add(label15);
+            boxDatosLlamada.Controls.Add(lblDatosDeLaLlamada);
             boxDatosLlamada.Location = new Point(7, 476);
             boxDatosLlamada.Name = "boxDatosLlamada";
             boxDatosLlamada.Size = new Size(951, 525);
@@ -354,41 +357,49 @@
             // dataGridEncuesta
             // 
             dataGridEncuesta.AllowUserToAddRows = false;
+            dataGridEncuesta.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridEncuesta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridEncuesta.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn2, Respuesta });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridEncuesta.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridEncuesta.Location = new Point(36, 276);
             dataGridEncuesta.Name = "dataGridEncuesta";
+            dataGridEncuesta.ReadOnly = true;
+            dataGridEncuesta.RowHeadersVisible = false;
             dataGridEncuesta.RowTemplate.Height = 25;
+            dataGridEncuesta.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridEncuesta.Size = new Size(705, 218);
             dataGridEncuesta.TabIndex = 44;
             dataGridEncuesta.CellContentClick += dataGridView1_CellContentClick;
-            dataGridEncuesta.ReadOnly = true;
-            dataGridEncuesta.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridEncuesta.RowHeadersVisible = false;
-            dataGridEncuesta.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridEncuesta.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
             // 
             // dataGridViewTextBoxColumn2
             // 
             dataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewTextBoxColumn2.HeaderText = "Pregunta";
             dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // Respuesta
             // 
             Respuesta.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Respuesta.HeaderText = "Respuesta";
             Respuesta.Name = "Respuesta";
+            Respuesta.ReadOnly = true;
             // 
             // boxConsultaLlamada
             // 
             boxConsultaLlamada.Controls.Add(fechaHasta);
             boxConsultaLlamada.Controls.Add(fechaDesde);
             boxConsultaLlamada.Controls.Add(btnConsultarLlamadas);
-            boxConsultaLlamada.Controls.Add(label3);
+            boxConsultaLlamada.Controls.Add(lblFechaHasta);
             boxConsultaLlamada.Controls.Add(lblfechaDesde);
-            boxConsultaLlamada.Controls.Add(label1);
+            boxConsultaLlamada.Controls.Add(lblConsultaEncuestaLlamada);
             boxConsultaLlamada.Location = new Point(9, 8);
             boxConsultaLlamada.Name = "boxConsultaLlamada";
             boxConsultaLlamada.Size = new Size(927, 110);
@@ -406,15 +417,15 @@
             dataGridViewTextBoxColumn1.HeaderText = "Pregunta";
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
-            // button1
+            // btnCancelar
             // 
-            button1.Location = new Point(973, 921);
-            button1.Name = "button1";
-            button1.Size = new Size(135, 54);
-            button1.TabIndex = 47;
-            button1.Text = "Cancelar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnCancelar.Location = new Point(973, 921);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(135, 54);
+            btnCancelar.TabIndex = 47;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += button1_Click;
             // 
             // VentanaConsultarLlamadas
             // 
@@ -423,7 +434,7 @@
             AutoScroll = true;
             AutoSize = true;
             ClientSize = new Size(1136, 1031);
-            Controls.Add(button1);
+            Controls.Add(btnCancelar);
             Controls.Add(boxDatosLlamada);
             Controls.Add(boxHideLlamadasEncontradas);
             Controls.Add(boxConsultaLlamada);
@@ -444,27 +455,27 @@
 
         #endregion
 
-        private Label label1;
+        private Label lblConsultaEncuestaLlamada;
         private Label lblfechaDesde;
-        private Label label3;
+        private Label lblFechaHasta;
         private Button btnConsultarLlamadas;
         private DateTimePicker fechaDesde;
         private DateTimePicker fechaHasta;
         private Button btnGenerarCSV;
-        private Label label5;
+        private Label lblEncuestaRealizada;
         private TextBox txtDuracionLlamada;
-        private Label label6;
+        private Label lblDuracionLlamada;
         private TextBox txtEstado;
-        private Label label12;
-        private Label label11;
-        private Label label10;
-        private Label label7;
-        private Label label9;
+        private Label lblEstadoActual;
+        private Label lblNumeroCelular;
+        private Label lblNombreCompleto;
+        private Label lblDni;
+        private Label lblCliente;
         private TextBox txtNroCelular;
         private TextBox txtNombreCompleto;
         private TextBox txtDni;
-        private Label label15;
-        private Label label4;
+        private Label lblDatosDeLaLlamada;
+        private Label lblLlamadasEncontradaDentroDelperiodo;
         private Button btnSeleccionarLlamada;
         private DataGridView dataGrindLlamadas;
         private GroupBox boxHideLlamadasEncontradas;
@@ -478,6 +489,6 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn Respuesta;
-        private Button button1;
+        private Button btnCancelar;
     }
 }
