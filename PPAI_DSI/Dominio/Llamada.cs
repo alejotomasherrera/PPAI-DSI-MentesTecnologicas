@@ -211,7 +211,7 @@ namespace PPAI_DSI.Entidades
             return this._duracion.ToString();
         }
 
-        IIterador<CambioEstado> crearIterador(List<CambioEstado> lista, DateTime fechaDesde, DateTime fechaHasta)
+        IIterador<CambioEstado> Agregado<CambioEstado>.crearIterador(List<CambioEstado> lista, DateTime fechaDesde, DateTime fechaHasta)
         {
             return new IteradorCambioEstado(lista, fechaDesde, fechaHasta);
         }

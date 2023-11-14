@@ -30,7 +30,7 @@ namespace PPAI_DSI
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //Agregar la ruta de mi base de datos "ppai.db"
-            optionsBuilder.UseSqlite("Data Source=C:\\Users\\Alejo\\Documents\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\ppai.db"); // Cambia el nombre de la base de datos según tus necesidades
+            optionsBuilder.UseSqlite("Data Source=C:\\Users\\matias\\Desktop\\PPAI-DSI-MentesTecnologicas\\PPAI_DSI\\ppai.db"); // Cambia el nombre de la base de datos según tus necesidades
         }
     }
 
